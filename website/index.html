@@ -69,70 +69,20 @@
           </div>
 
           <figure class="court-figure">
-            <svg class="court" viewBox="0 140 1100 282" role="img" aria-labelledby="court-title court-desc">
-              <title id="court-title">Side view of a volleyball court, drawn to scale</title>
-              <desc id="court-desc">Shows the net height and serving distance for the selected grade.</desc>
+            <svg class="court" viewBox="-70 5 1390 390" role="img" aria-labelledby="court-title court-desc">
+              <title id="court-title">A volleyball court seen from above the sideline, drawn to scale</title>
+              <desc id="court-desc">Shows the net height and the serving line for the selected grade.</desc>
               <defs>
-                <pattern id="mesh" width="9" height="9" patternUnits="userSpaceOnUse">
-                  <path d="M0 0H9M0 0V9" stroke="#ffffff" stroke-opacity=".45" stroke-width="1" fill="none"/>
-                </pattern>
                 <linearGradient id="maple" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0" stop-color="#ecc994"/><stop offset="1" stop-color="#cf9e5f"/>
+                  <stop offset="0" stop-color="#d9ae75"/><stop offset="1" stop-color="#ecc994"/>
                 </linearGradient>
-                <pattern id="boards" width="120" height="34" patternUnits="userSpaceOnUse">
-                  <path d="M0 .5H120M40 0V17M100 17V34M0 17H120" stroke="#a8743d" stroke-opacity=".35" stroke-width="1"/>
+                <pattern id="mesh" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="skewY(-32)">
+                  <path d="M0 0H9M0 0V9" stroke="#ffffff" stroke-opacity=".55" stroke-width="1.1" fill="none"/>
                 </pattern>
               </defs>
-              <!-- floor: blue free zone, maple court, end lines and 10-ft attack lines -->
-              <rect x="0" y="330" width="1100" height="34" fill="#1A4F9C"/>
-              <rect x="70" y="330" width="960" height="34" fill="url(#maple)"/>
-              <rect x="70" y="330" width="960" height="34" fill="url(#boards)"/>
-              <rect x="0" y="364" width="1100" height="58" fill="#0b1830"/>
-              <g fill="#fff">
-                <rect x="67" y="330" width="6" height="5"/><rect x="1027" y="330" width="6" height="5"/>
-                <rect x="388" y="330" width="4" height="5"/><rect x="708" y="330" width="4" height="5"/>
-              </g>
-              <!-- serve line marker + distance dimension -->
-              <g id="serve-mark">
-                <line id="serve-dim" x1="390" x2="550" y1="380" y2="380" stroke="#ff9ea3" stroke-width="2"/>
-                <line x1="550" x2="550" y1="373" y2="387" stroke="#ff9ea3" stroke-width="2"/>
-                <circle id="serve-dot" cx="390" cy="380" r="5" fill="#ff9ea3"/>
-                <rect id="serve-line" x="386" y="324" width="8" height="10" rx="1" fill="#C0272D"/>
-                <text id="serve-label" x="470" y="414" class="dim-label" text-anchor="middle">15 ft</text>
-              </g>
-              <g id="oh-mark" opacity="0">
-                <rect id="oh-line" x="386" y="324" width="8" height="10" rx="1" fill="#ffcf32"/>
-                <text id="oh-label" x="390" y="314" class="dim-label small" text-anchor="middle">overhand</text>
-              </g>
-              <!-- net: the top (band, mesh, antenna) and the pole length follow the net height -->
-              <rect id="pole" x="546" y="220" width="8" height="110" fill="#9fb0c9"/>
-              <g id="net-top" transform="translate(0 226)">
-                <rect x="520" y="0" width="60" height="50" fill="#0f1f3d" fill-opacity=".35"/>
-                <rect x="520" y="0" width="60" height="50" fill="url(#mesh)"/>
-                <rect x="518" y="-2" width="64" height="7" rx="1" fill="#fff"/>
-                <rect x="547" y="-46" width="6" height="44" fill="#fff"/>
-                <rect x="547" y="-46" width="6" height="8" fill="#C0272D"/>
-                <rect x="547" y="-30" width="6" height="8" fill="#C0272D"/>
-                <rect x="547" y="-14" width="6" height="8" fill="#C0272D"/>
-              </g>
-              <!-- net height dimension -->
-              <g id="height-dim">
-                <line id="hd-line" x1="620" x2="620" y1="330" y2="226" stroke="#9cc3ff" stroke-width="2"/>
-                <line id="hd-cap" x1="610" x2="630" y1="226" y2="226" stroke="#9cc3ff" stroke-width="2"/>
-                <line x1="610" x2="630" y1="330" y2="330" stroke="#9cc3ff" stroke-width="2"/>
-                <text id="height-label" x="640" y="290" class="dim-label">6′ 6″</text>
-              </g>
-              <!-- ball -->
-              <g id="ball" transform="translate(390 250)">
-                <g id="ball-spin">
-                  <circle r="14" fill="#fff"/>
-                  <path d="M-14 0a14 14 0 0 1 28 0z" fill="#1A4F9C"/>
-                  <path d="M-5 -13c7 5 9 13 7 26" fill="none" stroke="#C0272D" stroke-width="3.5"/>
-                  <circle r="14" fill="none" stroke="#0f1f3d" stroke-opacity=".3"/>
-                </g>
-              </g>
+              <g id="court-scene"></g>
             </svg>
-            <figcaption>Drawn to scale. Each side of the court is 30 feet deep.</figcaption>
+            <figcaption>Drawn to scale, seen from above the sideline. Each side of the court is 30 feet deep, and the net sits across the middle.</figcaption>
           </figure>
         </div>
       </div>
@@ -314,7 +264,6 @@
           <a class="book coach" href="resources/CSA_Volleyball_Coach_Agreement.pdf"><span class="who">For coaches</span><strong>Coach Agreement</strong><span class="what">Blank agreement and code of conduct</span><span class="fmt">PDF</span></a>
           <a class="book set" href="resources/CSA_Volleyball_All_Five_Handouts.zip"><span class="who">Complete set</span><strong>All five handouts</strong><span class="what">Family and coach PDFs in one download</span><span class="fmt">ZIP</span></a>
         </div>
-        <p class="archive-note">Looking for older material? The <a href="resources/CSA_Volleyball_Reference_Documents.zip">historical Youngsville reference documents</a> (ZIP) informed these handouts. They may not reflect current CSA policies, venues, or schedules.</p>
       </div>
     </section>
 

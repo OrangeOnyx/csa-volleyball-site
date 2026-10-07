@@ -77,10 +77,10 @@ h3, h4 { font-family: var(--sub); font-weight: 700; }
 
 /* The court runs edge to edge like the gym floor */
 .court-figure { grid-area: court; margin: 0 calc(50% - 50vw); width: 100vw; }
-.court { display: block; width: 100%; height: auto; overflow: visible; }
+.court { display: block; width: 100%; height: auto; overflow: hidden; background: #0b1830; }
 .court-figure figcaption { margin: 0; padding: 0 max(28px, calc(50vw - 562px)) 16px; font-size: 12px; color: #8ea3c4; background: #0b1830; }
 .dim-label { font: 400 30px var(--display); letter-spacing: .04em; fill: #fff; }
-.dim-label.small { font-size: 18px; fill: #ffcf32; }
+.dim-label.small { font-size: 20px; fill: #ffcf32; }
 #serve-label { fill: #ffd6d8; }
 #height-label { fill: #d6e6ff; }
 

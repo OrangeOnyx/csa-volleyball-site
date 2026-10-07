@@ -30,76 +30,136 @@ function roving(buttons, select) {
 }
 
 /* ---------- The court: grade rules, drawn to scale ----------
-   Source: CSA Coach Quick Reference Card and Curriculum Guide (serving table, net heights). */
-const FLOOR = 330, NET_X = 550, PX_PER_FT = 16;
+   Source: CSA Coach Quick Reference Card and Curriculum Guide (serving table, net heights).
+   The scene is an oblique view from above the near sideline. World units are feet:
+   x runs down the length of the court (net at 30), z across its width, y up. */
+const U = 20, KX = 8, KZ = 5, Y0 = 360;
+const NET_X = 30, NET_DEPTH = 3.2, COURT_W = 30;
+const P = (x, y, z) => [x * U + z * KX, Y0 - z * KZ - y * U];
+const pts = list => list.map(p => P(...p).join(',')).join(' ');
+const NS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs, parent) {
+  const n = document.createElementNS(NS, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (parent) parent.append(n);
+  return n;
+}
+
 const SKILLS = {
   young: 'make a passing platform, serve underhand, call the ball, rotate, and cheer for her teammates.',
   mid: 'pass to a target, move up the serve progression, run pass–set–hit, hit a downball, and talk on the court.',
   old: 'pass consistently, serve overhand from the end line, set overhead, use a three-step approach, and receive serve in a W formation.'
 };
-const YOUNG = { netIn: 72, net: '6′ 0″', ball: 'Soft Touch or Volley-Lite', serve: 'Underhand only, from 10 ft', ft: 10, note: 'Each player serves up to three in a row, and the serve rotates on a side-out.', skills: SKILLS.young };
-const OLD = { netIn: 84, net: '7′ 0″', ball: 'Volley-Lite or standard', serve: 'Underhand or overhand, from the end line', ft: 30, note: 'A server can score at most five points in a row before the serve changes.', skills: SKILLS.old };
+const YOUNG = { netFt: 6, net: '6′ 0″', ball: 'Soft Touch or Volley-Lite', serve: 'Underhand only, from 10 ft', ft: 10, note: 'Each player serves up to three in a row, and the serve rotates on a side-out.', skills: SKILLS.young };
+const OLD = { netFt: 7, net: '7′ 0″', ball: 'Volley-Lite or standard', serve: 'Underhand or overhand, from the end line', ft: 30, note: 'A server can score at most five points in a row before the serve changes.', skills: SKILLS.old };
 const GRADES = {
   1: { label: '1st grade', ...YOUNG },
   2: { label: '2nd grade', ...YOUNG },
-  3: { label: '3rd grade', netIn: 78, net: '6′ 6″', ball: 'Volley-Lite', serve: 'Underhand from 15 ft, or overhand from 10 ft', ft: 15, ohFt: 10, note: 'She chooses underhand or overhand. Coaches encourage overhand attempts.', skills: SKILLS.mid },
-  4: { label: '4th grade', netIn: 78, net: '6′ 6″', ball: 'Volley-Lite', serve: 'Underhand or overhand, from 22 ft', ft: 22, note: 'Coaches start pushing toward the overhand serve from 22 feet.', skills: SKILLS.mid },
+  3: { label: '3rd grade', netFt: 6.5, net: '6′ 6″', ball: 'Volley-Lite', serve: 'Underhand from 15 ft, or overhand from 10 ft', ft: 15, ohFt: 10, note: 'She chooses underhand or overhand. Coaches encourage overhand attempts.', skills: SKILLS.mid },
+  4: { label: '4th grade', netFt: 6.5, net: '6′ 6″', ball: 'Volley-Lite', serve: 'Underhand or overhand, from 22 ft', ft: 22, note: 'Coaches start pushing toward the overhand serve from 22 feet.', skills: SKILLS.mid },
   5: { label: '5th grade', ...OLD },
   6: { label: '6th grade', ...OLD }
 };
 
-const court = {
-  netTop: $('net-top'), pole: $('pole'), hdLine: $('hd-line'), hdCap: $('hd-cap'), hLabel: $('height-label'),
-  serveLine: $('serve-line'), serveDot: $('serve-dot'), serveDim: $('serve-dim'), sLabel: $('serve-label'),
-  ohMark: $('oh-mark'), ohLine: $('oh-line'), ohLabel: $('oh-label'), ball: $('ball'), spin: $('ball-spin')
-};
-let current = { netY: FLOOR - 78 / 12 * PX_PER_FT, serveX: NET_X - 15 * PX_PER_FT };
-let tween = null;
+// Static scene, painted back to front.
+const scene = document.getElementById('court-scene');
+el('polygon', { points: pts([[-8, 0, -4], [52, 0, -4], [52, 0, 34], [-8, 0, 34]]), fill: '#1A4F9C' }, scene);
+el('polygon', { points: pts([[0, 0, 0], [60, 0, 0], [60, 0, 30], [0, 0, 30]]), fill: 'url(#maple)' }, scene);
+for (let z = 2; z < 30; z += 2) {
+  const a = P(0, 0, z), b = P(60, 0, z);
+  el('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1], stroke: '#a8743d', 'stroke-opacity': .22 }, scene);
+}
+const lines = el('g', { stroke: '#fff', 'stroke-width': 3.5, fill: 'none', 'stroke-linejoin': 'round' }, scene);
+el('polygon', { points: pts([[0, 0, 0], [60, 0, 0], [60, 0, 30], [0, 0, 30]]) }, lines);
+for (const x of [20, 30, 40]) el('polyline', { points: pts([[x, 0, 0], [x, 0, 30]]) }, lines);
+// ball shadow sits on the floor, under everything that stands up
+const shadow = el('ellipse', { rx: 10, ry: 4, fill: '#000', 'fill-opacity': .25 }, scene);
+// serve lines on the floor
+const ohLine = el('polyline', { points: pts([[20, 0, 0], [20, 0, 30]]), stroke: '#ffcf32', 'stroke-width': 5, fill: 'none', opacity: 0 }, scene);
+const ohLabel = el('text', { class: 'dim-label small', opacity: 0 }, scene); ohLabel.textContent = 'overhand';
+const serveLine = el('polyline', { points: pts([[15, 0, 0], [15, 0, 30]]), stroke: '#C0272D', 'stroke-width': 5, fill: 'none' }, scene);
+// serve distance dimension, in the free zone beside the near sideline
+const serveDim = el('g', { stroke: '#ff9ea3', 'stroke-width': 2 }, scene);
+const sdLine = el('line', {}, serveDim), sdTickA = el('line', {}, serveDim), sdTickB = el('line', {}, serveDim);
+const serveLabel = el('text', { class: 'dim-label', fill: '#ffd6d8' }, scene);
+// the net: far post, mesh, bands, antennae, near post
+const farPost = el('rect', { width: 7, rx: 1.5, fill: '#b7c4d8' }, scene);
+const mesh = el('polygon', { fill: '#0f1f3d', 'fill-opacity': .45 }, scene);
+const meshLines = el('polygon', { fill: 'url(#mesh)' }, scene);
+const topBand = el('polygon', { fill: '#fff' }, scene);
+const bottomBand = el('polygon', { fill: '#fff', 'fill-opacity': .85 }, scene);
+const antennae = el('g', { 'stroke-width': 4, 'stroke-linecap': 'round' }, scene);
+const antFar = [el('line', { stroke: '#fff' }, antennae), el('line', { stroke: '#C0272D', 'stroke-dasharray': '10 10' }, antennae)];
+const antNear = [el('line', { stroke: '#fff' }, antennae), el('line', { stroke: '#C0272D', 'stroke-dasharray': '10 10' }, antennae)];
+const nearPost = el('rect', { width: 7, rx: 1.5, fill: '#b7c4d8' }, scene);
+// net height dimension beside the near post
+const hDim = el('g', { stroke: '#9cc3ff', 'stroke-width': 2 }, scene);
+const hdLine = el('line', {}, hDim), hdTop = el('line', {}, hDim), hdBottom = el('line', {}, hDim);
+const hLabel = el('text', { class: 'dim-label', fill: '#d6e6ff' }, scene);
+// ball
+const ball = el('g', {}, scene);
+const spin = el('g', {}, ball);
+el('circle', { r: 11, fill: '#fff' }, spin);
+el('path', { d: 'M-11 0a11 11 0 0 1 22 0z', fill: '#1A4F9C' }, spin);
+el('path', { d: 'M-4 -10.2c5.5 4 7 10 5.5 20.4', fill: 'none', stroke: '#C0272D', 'stroke-width': 3 }, spin);
+el('circle', { r: 11, fill: 'none', stroke: '#0f1f3d', 'stroke-opacity': .3 }, spin);
 
-function drawCourt(netY, serveX) {
-  court.netTop.setAttribute('transform', `translate(0 ${netY})`);
-  court.pole.setAttribute('y', netY - 4);
-  court.pole.setAttribute('height', FLOOR - netY + 4);
-  court.hdLine.setAttribute('y2', netY);
-  court.hdCap.setAttribute('y1', netY);
-  court.hdCap.setAttribute('y2', netY);
-  court.hLabel.setAttribute('y', (FLOOR + netY) / 2 + 12);
-  court.serveLine.setAttribute('x', serveX - 4);
-  court.serveDot.setAttribute('cx', serveX);
-  court.serveDim.setAttribute('x1', serveX);
-  court.sLabel.setAttribute('x', (serveX + NET_X) / 2);
+function setLine(l, a, b) { l.setAttribute('x1', a[0]); l.setAttribute('y1', a[1]); l.setAttribute('x2', b[0]); l.setAttribute('y2', b[1]); }
+function setPost(r, z, h) { const [x, y] = P(NET_X, h + .4, z); r.setAttribute('x', x - 3.5); r.setAttribute('y', y); r.setAttribute('height', (h + .4) * U); }
+function setAntenna([white, red], z, h) { const a = P(NET_X, h - NET_DEPTH, z), b = P(NET_X, h + 2.6, z); setLine(white, a, b); setLine(red, a, b); }
+
+function drawCourt(h, sx) {
+  const zA = -2.5, zB = 32.5;
+  mesh.setAttribute('points', pts([[NET_X, h, zA], [NET_X, h, zB], [NET_X, h - NET_DEPTH, zB], [NET_X, h - NET_DEPTH, zA]]));
+  meshLines.setAttribute('points', mesh.getAttribute('points'));
+  topBand.setAttribute('points', pts([[NET_X, h + .25, zA], [NET_X, h + .25, zB], [NET_X, h - .1, zB], [NET_X, h - .1, zA]]));
+  bottomBand.setAttribute('points', pts([[NET_X, h - NET_DEPTH + .15, zA], [NET_X, h - NET_DEPTH + .15, zB], [NET_X, h - NET_DEPTH, zB], [NET_X, h - NET_DEPTH, zA]]));
+  setPost(farPost, zB, h); setPost(nearPost, zA, h);
+  setAntenna(antFar, COURT_W, h); setAntenna(antNear, 0, h);
+  // height dimension, beside the far post where the background is clear
+  const hx = P(NET_X, 0, zB)[0] + 30, floorY = P(NET_X, 0, zB)[1], topY = P(NET_X, h, zB)[1];
+  setLine(hdLine, [hx, floorY], [hx, topY]); setLine(hdTop, [hx - 10, topY], [hx + 10, topY]); setLine(hdBottom, [hx - 10, floorY], [hx + 10, floorY]);
+  hLabel.setAttribute('x', hx + 16); hLabel.setAttribute('y', (floorY + topY) / 2 + 11);
+  // serve line, with its distance measured along the far sideline
+  serveLine.setAttribute('points', pts([[sx, 0, 0], [sx, 0, COURT_W]]));
+  const a = P(sx, 0, COURT_W + 4.5), b = P(NET_X, 0, COURT_W + 4.5);
+  setLine(sdLine, a, b); setLine(sdTickA, [a[0], a[1] - 7], [a[0], a[1] + 7]); setLine(sdTickB, [b[0], b[1] - 7], [b[0], b[1] + 7]);
+  serveLabel.setAttribute('x', a[0] + 4); serveLabel.setAttribute('y', a[1] - 14);
 }
 
-function placeBall(x, y, rot = 0) {
-  court.ball.setAttribute('transform', `translate(${x} ${y})`);
-  court.spin.setAttribute('transform', `rotate(${rot})`);
+function placeBall(x, y, z, rot = 0) {
+  const [bx, by] = P(x, y, z), [gx, gy] = P(x, 0, z);
+  ball.setAttribute('transform', `translate(${bx} ${by})`);
+  spin.setAttribute('transform', `rotate(${rot})`);
+  shadow.setAttribute('cx', gx); shadow.setAttribute('cy', gy);
+  const k = Math.max(.35, 1 - y / 12);
+  shadow.setAttribute('rx', 10 * k); shadow.setAttribute('ry', 4 * k); shadow.setAttribute('fill-opacity', .25 * k);
 }
 
-// Parabola through three points (Lagrange form): toss point, just over the net, landing spot.
+// Parabola through three points (Lagrange form): toss, just over the net, landing.
 function arcY(x, [[x0, y0], [x1, y1], [x2, y2]]) {
   return y0 * (x - x1) * (x - x2) / ((x0 - x1) * (x0 - x2))
        + y1 * (x - x0) * (x - x2) / ((x1 - x0) * (x1 - x2))
        + y2 * (x - x0) * (x - x1) / ((x2 - x0) * (x2 - x1));
 }
-
 const ease = t => 1 - Math.pow(1 - t, 3);
-const REST_Y = FLOOR - 14, TOSS_Y = FLOOR - 68;
-// On phones, frame the serving side and the net only, so the court reads larger.
+const BALL_Z = 11, TOSS_H = 4.5, REST_H = .35;
+// On phones, frame the serving side and the net so the court reads larger.
 const narrow = window.matchMedia('(max-width: 720px)');
 const svgCourt = document.querySelector('.court');
-let LAND_X;
+let landX;
 function frameCourt() {
-  LAND_X = NET_X + (narrow.matches ? 120 : 280);
-  svgCourt.setAttribute('viewBox', narrow.matches ? '20 150 740 272' : '0 140 1100 282');
+  landX = narrow.matches ? 39 : 45;
+  svgCourt.setAttribute('viewBox', narrow.matches ? '-40 5 1080 390' : '-70 5 1390 390');
 }
 frameCourt();
+let currentGrade = 3, current = { h: 6.5, sx: 15 }, tween = null;
 narrow.addEventListener('change', () => { frameCourt(); setGrade(currentGrade, false); });
-let currentGrade = 3;
 
 function setGrade(g, animate = true) {
   const d = GRADES[g];
   currentGrade = g;
-  const target = { netY: FLOOR - d.netIn / 12 * PX_PER_FT, serveX: NET_X - d.ft * PX_PER_FT };
+  const target = { h: d.netFt, sx: NET_X - d.ft };
   const from = { ...current };
 
   $('r-grade').textContent = d.label;
@@ -108,16 +168,17 @@ function setGrade(g, animate = true) {
   $('r-ball').textContent = d.ball;
   $('r-note').textContent = d.note;
   $('r-skills').textContent = d.skills;
-  court.hLabel.textContent = d.net;
-  court.sLabel.textContent = d.ft === 30 ? 'End line · 30 ft' : `${d.ft} ft`;
+  hLabel.textContent = d.net;
+  serveLabel.textContent = d.ft === 30 ? 'End line · 30 ft' : `${d.ft} ft`;
 
   if (d.ohFt) {
-    const ox = NET_X - d.ohFt * PX_PER_FT;
-    court.ohLine.setAttribute('x', ox - 4);
-    court.ohLabel.setAttribute('x', ox);
-    court.ohMark.setAttribute('opacity', '1');
+    const ox = NET_X - d.ohFt;
+    ohLine.setAttribute('points', pts([[ox, 0, 0], [ox, 0, COURT_W]]));
+    const [lx, ly] = P(ox, 0, -2.2);
+    ohLabel.setAttribute('x', lx); ohLabel.setAttribute('y', ly + 6); ohLabel.setAttribute('text-anchor', 'middle');
+    ohLine.setAttribute('opacity', 1); ohLabel.setAttribute('opacity', 1);
   } else {
-    court.ohMark.setAttribute('opacity', '0');
+    ohLine.setAttribute('opacity', 0); ohLabel.setAttribute('opacity', 0);
   }
 
   document.querySelectorAll('.chips button').forEach(b => {
@@ -129,8 +190,8 @@ function setGrade(g, animate = true) {
   cancelAnimationFrame(tween);
   if (!animate || reduceMotion) {
     current = target;
-    drawCourt(target.netY, target.serveX);
-    placeBall(LAND_X + 50, REST_Y);
+    drawCourt(target.h, target.sx);
+    placeBall(landX + 3, REST_H, BALL_Z);
     return;
   }
 
@@ -140,23 +201,23 @@ function setGrade(g, animate = true) {
   const frame = now => {
     const ms = now - t0;
     const k = ease(Math.min(ms / 450, 1));
-    const netY = from.netY + (target.netY - from.netY) * k;
-    const serveX = from.serveX + (target.serveX - from.serveX) * k;
-    drawCourt(netY, serveX);
-    current = { netY, serveX };
+    const h = from.h + (target.h - from.h) * k;
+    const sx = from.sx + (target.sx - from.sx) * k;
+    drawCourt(h, sx);
+    current = { h, sx };
 
-    const sx = serveX - 12;
+    const x0 = sx - 1;
     if (ms < 450) {
-      placeBall(sx, TOSS_Y);
+      placeBall(x0, TOSS_H, BALL_Z);
     } else if (ms < 1650) {
       const p = (ms - 450) / 1200;
-      const x = sx + (LAND_X - sx) * p;
-      placeBall(x, arcY(x, [[sx, TOSS_Y], [NET_X, target.netY - 46], [LAND_X, REST_Y]]), p * 540);
+      const x = x0 + (landX - x0) * p;
+      placeBall(x, arcY(x, [[x0, TOSS_H], [NET_X, target.h + 1.6], [landX, REST_H]]), BALL_Z, p * 540);
     } else if (ms < 2050) {
       const p = (ms - 1650) / 400;
-      placeBall(LAND_X + 50 * p, REST_Y - Math.sin(p * Math.PI) * 38, 540 + p * 120);
+      placeBall(landX + 3 * p, REST_H + Math.sin(p * Math.PI) * 1.6, BALL_Z, 540 + p * 120);
     } else {
-      placeBall(LAND_X + 50, REST_Y, 660);
+      placeBall(landX + 3, REST_H, BALL_Z, 660);
       return;
     }
     tween = requestAnimationFrame(frame);
@@ -173,8 +234,8 @@ roving(chips, pick);
 // The page's one unprompted motion: a single serve when the court first comes into view.
 const courtFig = document.querySelector('.court-figure');
 if (courtFig && 'IntersectionObserver' in window && !reduceMotion) {
-  drawCourt(current.netY, current.serveX);
-  placeBall(current.serveX - 12, TOSS_Y);
+  drawCourt(current.h, current.sx);
+  placeBall(current.sx - 1, TOSS_H, BALL_Z);
   const io = new IntersectionObserver(entries => {
     if (entries.some(e => e.isIntersecting)) { io.disconnect(); if (!touched) setGrade(currentGrade); }
   }, { threshold: 0.35 });
@@ -278,7 +339,6 @@ setWeek(1);
 
 /* ---------- Rotation ---------- */
 const SPOTS = { 4: [73, 80], 3: [180, 80], 2: [287, 80], 5: [73, 218], 6: [180, 218], 1: [287, 218] };
-const NS = 'http://www.w3.org/2000/svg';
 const spotLayer = document.querySelector('.spot-labels');
 Object.entries(SPOTS).forEach(([n, [x, y]]) => {
   const t = document.createElementNS(NS, 'text');
