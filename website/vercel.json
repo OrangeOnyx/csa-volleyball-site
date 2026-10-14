@@ -2,6 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     { "source": "/plans/developmental", "destination": "/plans/", "permanent": false },
-    { "source": "/plans/developmental/:path*", "destination": "/plans/", "permanent": false }
+    { "source": "/plans/developmental/(.*)", "destination": "/plans/", "permanent": false }
   ]
 }
