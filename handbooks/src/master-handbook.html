@@ -477,6 +477,7 @@
     border-radius: 8px;
     margin: 16px 0;
     overflow: hidden;
+    break-inside: avoid; /* keep a division's goals card on one printed page */
   }
 
   .phase-card-header {
@@ -517,8 +518,7 @@
     <strong>Edition:</strong> {{documents.edition}}<br>
     <strong>Program:</strong> Girls Recreational Volleyball — Grades 1–6<br>
     <strong>Primary Focus:</strong> 3rd, 4th &amp; 5th Grade<br>
-    <strong>Practices:</strong> {{venues.practice}}<br>
-    <strong>Games:</strong> {{venues.games|Venue to be announced}}<br>
+    <strong>Facility:</strong> {{venues.practice}} (practices and games)<br>
     <strong>Season:</strong> Fall &amp; Spring | 9-Week Season<br>
     <strong>Organization:</strong> Cajun Sports Association · Lafayette, Louisiana<br>
     <strong>Website:</strong> www.csalaf.com
@@ -543,7 +543,7 @@
   <a class="toc-item" href="#section-2"><span class="toc-title">Section 2 — Program Overview</span></a>
   <div class="toc-item toc-sub"><span>Age Groups &amp; Eligibility · Season Structure · Registration · Uniforms &amp; Equipment</span></div>
   <a class="toc-item" href="#section-3"><span class="toc-title">Section 3 — Facility Rules</span></a>
-  <div class="toc-item toc-sub"><span>Comeaux Sports Complex · Game Venue · General Conduct</span></div>
+  <div class="toc-item toc-sub"><span>Comeaux Sports Complex · Game Days · General Conduct</span></div>
   <a class="toc-item" href="#section-4"><span class="toc-title">Section 4 — Volleyball Rules (CSA Grades 1–6)</span></a>
   <div class="toc-item toc-sub"><span>Court &amp; Equipment · Scoring &amp; Match Format · Serving Rules by Grade · Rotation · Faults</span></div>
   <a class="toc-item" href="#section-5"><span class="toc-title">Section 5 — Coach Guidelines &amp; Expectations</span></a>
@@ -693,9 +693,9 @@
     <h2>Facility Rules</h2>
   </div>
 
-  <p><strong>Practices</strong> are held at the Comeaux Sports Complex in Lafayette. The <strong>game venue</strong> will be announced before the season. All participants — players, coaches, and spectators — are expected to follow the rules of every facility CSA uses at all times. Failure to comply may result in removal from the facility and/or suspension from the program.</p>
+  <p>All CSA Volleyball <strong>practices and games</strong> are held at the Comeaux Sports Complex in Lafayette. All participants — players, coaches, and spectators — are expected to follow the facility’s rules at all times. Failure to comply may result in removal from the facility and/or suspension from the program.</p>
 
-  <h3>Comeaux Sports Complex — Practice Facility</h3>
+  <h3>Comeaux Sports Complex — Practice and Game Facility</h3>
   <p>The Comeaux Sports Complex is a Lafayette Parish Recreation District (LPRD) facility. All LPRD rules apply in addition to the CSA-specific rules below.</p>
 
   <ul class="rule-list">
@@ -717,8 +717,8 @@
     <li>No personal sports equipment (other than personal knee pads and water bottles) may be brought to practice without coach approval.</li>
   </ul>
 
-  <h3>Game Venue</h3>
-  <p>The game venue will be announced before the season, and its own facility policies apply in addition to the rules below. CSA is a guest at every venue, and all participants are expected to represent the program with professionalism and respect.</p>
+  <h3>Game Days</h3>
+  <p>On game days these rules apply in addition to the facility rules above. CSA is a guest of the facility, and all participants are expected to represent the program with professionalism and respect.</p>
 
   <ul class="rule-list">
     <li>All participants must enter and exit through the designated CSA program entrance. Follow posted signage and staff direction.</li>
@@ -730,10 +730,10 @@
     <li>Photography and video recording are subject to CSA's Photography &amp; Social Media Policy (Section 9).</li>
     <li>Parking is available in designated lots. Do not park in reserved or restricted areas.</li>
     <li>Facility staff have authority to remove any individual who violates facility policies.</li>
-    <li>All CSA facility rules (above) also apply at this location.</li>
+    <li>All facility rules (above) also apply on game days.</li>
   </ul>
 
-  <h3>General Conduct — All Facilities</h3>
+  <h3>General Conduct</h3>
   <div class="callout red">
     <p><strong>Zero Tolerance:</strong> Fighting, physical intimidation, racial or sexual slurs, and threats of any kind will result in immediate removal from the facility and suspension from the program. There are no warnings for these behaviors.</p>
   </div>
@@ -1358,7 +1358,8 @@
       <p><strong>By end of season, players should be able to:</strong></p>
       <ul class="rule-list">
         <li>Pass with a consistent, locked platform — directing the ball toward the setter</li>
-        <li>Underhand serve from 15 feet; attempt overhand serve from 10 feet</li>
+        <li>3rd grade: underhand serve from 15 feet; attempt overhand serve from 10 feet</li>
+        <li>4th grade: underhand serve from 22 feet; attempt overhand serve from 10 feet</li>
         <li>Understand and attempt the Pass–Set–Hit sequence</li>
         <li>Rotate correctly and understand their court position number</li>
         <li>Open up and face the passer ("belly button to the ball")</li>

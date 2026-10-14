@@ -33,6 +33,12 @@ for (const w of plans.weeks) {
     if (!(w.items[seg.id] || []).some(i => !i.for || i.for.includes(div.id))) problems.push(`week ${w.n} ${seg.id}: nothing for ${div.id}`);
   }
 }
+// The handbooks state that practices and games share one facility (Comeaux, confirmed 14 October 2026)
+// in prose as well as tokens, so a split venue must not publish silently with the old wording.
+if (facts.venues.games !== facts.venues.practice) {
+  problems.push('venues.games differs from venues.practice, but the handbooks say practices and games share one facility. '
+    + 'Rewrite those passages in handbooks/src (Master Handbook cover and Section 3; Player & Parent Handbook cover and facility row), then update this check.');
+}
 if (problems.length) {
   console.error('Data problems:\n  ' + problems.join('\n  '));
   process.exit(1);
@@ -93,8 +99,10 @@ ${facts.divisions.map(d => `            <li><a href="${weekPath(d, 1)}" data-div
 const contact = directorContact(facts);
 index = inject(index, 'ladder', `              <li><span>Coach conduct, or a team issue that’s still open</span><b>${esc(facts.director.title)} ${esc(facts.director.name)}</b><small>${contact.length ? contact.join(' · ') : 'Through csalaf.com'}</small></li>`);
 index = inject(index, 'where', `            <dl>
-              <div><dt>Practices</dt><dd>${esc(facts.venues.practice)}</dd></div>
-              <div><dt>Games</dt><dd>${esc(facts.venues.games || 'Venue to be announced')}</dd></div>
+${facts.venues.games === facts.venues.practice
+    ? `              <div><dt>Practices and games</dt><dd>${esc(facts.venues.practice)}</dd></div>`
+    : `              <div><dt>Practices</dt><dd>${esc(facts.venues.practice)}</dd></div>
+              <div><dt>Games</dt><dd>${esc(facts.venues.games || 'Venue to be announced')}</dd></div>`}
               <div><dt>Tournament</dt><dd>${facts.season.tournamentDate ? `${esc(fmtDate(facts.season.tournamentDate))}, week 9` : 'Week 9'}. Every team plays.</dd></div>
             </dl>`);
 index = inject(index, 'shelf', '        ' + shelf(facts, { indent: '        ' }));
