@@ -121,7 +121,7 @@ body.sub { background: #fff; }
 .goals { margin-top: 40px; padding-top: 18px; border-top: 5px solid var(--midnight); }
 .goals h2 { font: 700 26px/1.2 var(--sub); letter-spacing: 0; margin: 0 0 12px; color: var(--midnight); }
 
-.div-cards { list-style: none; padding: 0; margin: 0 0 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.div-cards { list-style: none; padding: 0; margin: 0 0 28px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 .div-card { display: flex; flex-direction: column; height: 100%; padding: 22px 22px 20px; border-radius: 6px; background: var(--midnight); color: #fff; text-decoration: none; border-top: 6px solid var(--red); }
 .div-card:hover { background: var(--blue-dark); }
 .div-card .who { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #9fb4d6; }
@@ -170,7 +170,7 @@ body.sub { background: #fff; }
 .goal-card { background: #fff; border-top: 5px solid var(--blue); border-radius: 0 0 6px 6px; padding: 16px 18px; }
 .goal-card h3 { margin: 0 0 8px; font-size: 24px; color: var(--midnight); }
 .goal-card h3 span { display: block; font: 600 12px var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.goal-card a { display: inline-block; margin-top: 10px; color: var(--blue); font-weight: 700; font-size: 14px; }
+.goal-card a { display: inline-block; margin-top: 10px; margin-right: 14px; color: var(--blue); font-weight: 700; font-size: 14px; }
 .lib-cards { list-style: none; padding: 0; margin: 0 0 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .lib-cards li { padding: 18px; border: 1px solid var(--rule); border-radius: 6px; }
 .lib-cards h3 { margin: 0; font-size: 24px; color: var(--midnight); }

@@ -73,7 +73,7 @@
       "required": ["practice", "games"],
       "properties": {
         "practice": { "type": "string" },
-        "games": { "type": "string" }
+        "games": { "type": ["string", "null"], "description": "Null until the director names the game venue." }
       },
       "additionalProperties": false
     },
@@ -101,7 +101,7 @@
         "type": "object",
         "required": ["id", "name", "grades", "label", "ages", "focus", "goals"],
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z-]+$" },
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
           "name": { "type": "string" },
           "grades": { "type": "array", "items": { "type": "integer", "minimum": 1, "maximum": 6 }, "minItems": 1 },
           "label": { "type": "string" },

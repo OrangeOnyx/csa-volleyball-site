@@ -2,8 +2,8 @@
   "$schema": "./facts.schema.json",
   "about": "Program facts used by every page, plan and handbook. A null value shows as 'to be confirmed'. After the facts session with the director, fill in the nulls, set confirmed.date and confirmed.by, then run: npm run build && npm run pdf",
   "confirmed": {
-    "date": null,
-    "by": null
+    "date": "2026-10-14",
+    "by": "Stephanie Abdalla, Volleyball Director"
   },
   "program": {
     "name": "CSA Volleyball",
@@ -22,7 +22,7 @@
     "phone": null
   },
   "season": {
-    "name": null,
+    "name": "Fall 2026",
     "weekOneStart": null,
     "tournamentDate": null,
     "registrationUrl": null,
@@ -32,25 +32,17 @@
   },
   "seasonWindows": {
     "fall": "September – November",
-    "spring": "February – April"
+    "spring": "March – May"
   },
   "venues": {
     "practice": "Comeaux Sports Complex",
-    "games": "Earl K. Long Gym, UL Lafayette campus"
+    "games": null
   },
-  "photoConsent": null,
+  "photoConsent": "opt-out",
   "unverified": [
     {
-      "fact": "seasonWindows",
-      "why": "The Master Handbook says spring runs February to April; TeamSnap shows Spring 2026 ran March 21 to April 25 with a May 2 tournament."
-    },
-    {
-      "fact": "divisions",
-      "why": "The handbooks describe three divisions; Spring 2026 ran four divisions with 27 teams."
-    },
-    {
-      "fact": "venues",
-      "why": "Official venue names have not been confirmed by the director."
+      "fact": "venues.practice",
+      "why": "Asked on 14 October and not corrected, but not explicitly confirmed. (Same session: nothing is held at Earl K. Long Gym going forward; the game venue is not named yet, so venues.games is null.)"
     }
   ],
   "divisions": [
@@ -70,11 +62,28 @@
       ]
     },
     {
-      "id": "developmental",
+      "id": "grade-3",
       "name": "Developmental",
-      "grades": [3, 4],
-      "label": "3rd–4th grade",
-      "ages": "8–10",
+      "grades": [3],
+      "label": "3rd grade",
+      "ages": "8–9",
+      "focus": "Passing, setting, serving progression, team concepts",
+      "goals": [
+        "Pass with a consistent, locked platform, directing the ball toward the setter",
+        "Underhand serve from 15 feet; attempt overhand serve from 10 feet",
+        "Understand and attempt the Pass–Set–Hit sequence",
+        "Rotate correctly and understand their court position number",
+        "Open up and face the passer (“belly button to the ball”)",
+        "Hit a downball over the net from behind the 10-foot line",
+        "Communicate with teammates during play"
+      ]
+    },
+    {
+      "id": "grade-4",
+      "name": "Developmental",
+      "grades": [4],
+      "label": "4th grade",
+      "ages": "9–10",
       "focus": "Passing, setting, serving progression, team concepts",
       "goals": [
         "Pass with a consistent, locked platform, directing the ball toward the setter",
@@ -129,7 +138,7 @@
     },
     "3": {
       "label": "3rd grade",
-      "division": "developmental",
+      "division": "grade-3",
       "netFt": 6.5,
       "net": "6′ 6″",
       "ball": "Volley-Lite",
@@ -141,7 +150,7 @@
     },
     "4": {
       "label": "4th grade",
-      "division": "developmental",
+      "division": "grade-4",
       "netFt": 6.5,
       "net": "6′ 6″",
       "ball": "Volley-Lite",

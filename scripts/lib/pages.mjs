@@ -17,10 +17,19 @@ export function renderMethod({ facts, plans, drills }) {
   const gradeRows = Object.entries(facts.grades).map(([g, x]) => `            <tr><th scope="row">${esc(x.label)}</th><td>${esc(x.net)}</td><td>${esc(x.ball)}</td><td>${esc(x.serve)}</td></tr>`).join('\n');
   const library = drills.drills.filter(d => d.library).map(d => `          <li id="m-${d.id}"><h3>${esc(d.name)}</h3><p class="meta">${[gradesText(d.minGrade), playersText(d.players), d.time].filter(Boolean).map(esc).join(' · ')}</p><p>${esc(d.how)}</p></li>`).join('\n');
   const phases = plans.phases.map(p => `          <li class="ph-${p.id}"><b>Weeks ${p.weeks[0]}–${p.weeks.at(-1)}</b><strong>${esc(p.name)}</strong><span>${esc(p.focus)}</span></li>`).join('\n');
-  const divGoals = facts.divisions.map(d => `          <section class="goal-card" aria-labelledby="g-${d.id}">
-            <h3 id="g-${d.id}">${esc(d.label)} <span>${esc(d.name)}</span></h3>
-            <ul class="checks">${d.goals.map(g => `<li>${esc(g)}</li>`).join('')}</ul>
-            <a href="${divisionPath(d)}">Open the ${esc(d.label)} plans</a>
+  // Divisions with the same season goals (3rd grade and 4th grade) share one card.
+  const goalGroups = [];
+  for (const d of facts.divisions) {
+    const same = goalGroups.find(g => g[0].name === d.name && JSON.stringify(g[0].goals) === JSON.stringify(d.goals));
+    if (same) same.push(d); else goalGroups.push([d]);
+  }
+  const groupLabel = ds => (ds.length > 1 && ds.every(d => d.label.endsWith(' grade'))
+    ? `${ds.slice(0, -1).map(d => d.label.replace(/ grade$/, '')).join(', ')} and ${ds.at(-1).label}`
+    : ds.map(d => d.label).join(' and '));
+  const divGoals = goalGroups.map(ds => `          <section class="goal-card" aria-labelledby="g-${ds[0].id}">
+            <h3 id="g-${ds[0].id}">${esc(groupLabel(ds))} <span>${esc(ds[0].name)}</span></h3>
+            <ul class="checks">${ds[0].goals.map(g => `<li>${esc(g)}</li>`).join('')}</ul>
+            ${ds.map(d => `<a href="${divisionPath(d)}">Open the ${esc(d.label)} plans</a>`).join(' ')}
           </section>`).join('\n');
 
   const body = `    <article class="method">
@@ -212,7 +221,6 @@ export function renderCoaches({ facts, plans }) {
             <div><dt>Emergency</dt><dd>${telLink('911')}</dd></div>
             <div><dt>${esc(facts.director.title)} ${esc(facts.director.name)}</dt><dd>${phone ? contact.join(' · ') : `Phone: ${TBC.toLowerCase()}`}</dd></div>
             <div><dt>Comeaux Sports Complex staff (LPRD main office)</dt><dd>${telLink('(337) 291-8400')}</dd></div>
-            <div><dt>Earl K. Long Gym (ULL Campus Police)</dt><dd>${telLink('(337) 482-6447')}</dd></div>
             <div><dt>Louisiana Child Protective Services</dt><dd>${telLink('1-855-452-5437')}</dd></div>
           </dl>
           <p class="fineprint">From the Master Handbook, section 10.</p>
