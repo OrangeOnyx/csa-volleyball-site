@@ -256,9 +256,7 @@
         { "segment": "warmup", "drill": "toss-pass-set-catch" },
         { "segment": "serving", "drill": "serve-and-shag" }
       ],
-      "flags": [
-        { "division": "beginner", "segment": "skill", "text": "The guide gives downball notes for 3rd–4th and 5th–6th only. This draft keeps the general downball introduction for 1st–2nd. Confirm, or name a different skill for the youngest players." }
-      ]
+      "flags": []
     },
     {
       "n": 6,
@@ -271,7 +269,7 @@
       "overview": {
         "warmup": "Longer partner passing, now while moving sideways. Introduce the free ball: an easy ball from the other side means your team goes on offense.",
         "serving": "Cones go in the back corners. The team earns a point for every serve that lands within three feet of a cone.",
-        "skill": "5th–6th learn the W: five players across the back two-thirds of the court. 3rd–4th use three back and three at the net. The coach serves and the team tries to run pass–set–hit.",
+        "skill": "5th–6th learn the W: five players across the back two-thirds of the court. 3rd–4th use three back and three at the net, and 1st–2nd keep the three-player line from Week 3. The coach serves and the team tries to run pass–set–hit.",
         "team": "Live serving, with the formation set before every serve. When the coach calls \"Free ball!\" the team transitions to offense."
       },
       "items": {
@@ -286,6 +284,7 @@
         "skill": [
           { "t": "Introduce the “W” formation — 5 players in a W shape across the back two-thirds of the court.", "for": ["intermediate"] },
           { "t": "Simplified version: 3 back-row players spread across the baseline, 3 front-row players at the net.", "for": ["developmental"] },
+          { "t": "Keep the Week 3 serve receive: 3 players in a line across the back row.", "for": ["beginner"] },
           { "t": "Coach serves; team receives and attempts to run Pass–Set–Hit." }
         ],
         "team": [
@@ -301,12 +300,11 @@
       "diagrams": [
         { "segment": "skill", "scene": "w-formation", "for": ["intermediate"] },
         { "segment": "skill", "scene": "three-back", "for": ["developmental"] },
+        { "segment": "skill", "scene": "serve-receive-line", "for": ["beginner"] },
         { "segment": "team", "scene": "free-ball" }
       ],
       "swaps": [ { "segment": "skill", "drill": "serve-receive-triangle" } ],
-      "flags": [
-        { "division": "beginner", "segment": "skill", "text": "The guide names a serve-receive formation for 3rd–4th and 5th–6th, not for 1st–2nd. Name one, or keep the Week 3 three-player line." }
-      ]
+      "flags": []
     },
     {
       "n": 7,
@@ -347,9 +345,7 @@
       },
       "diagrams": [],
       "swaps": [],
-      "flags": [
-        { "division": "beginner", "segment": "skill", "text": "Her drill library marks Queen of the Court for 3rd grade and up. Confirm it for 1st–2nd, or swap in Down the Line Passing, which is marked for all grades." }
-      ]
+      "flags": []
     },
     {
       "n": 8,

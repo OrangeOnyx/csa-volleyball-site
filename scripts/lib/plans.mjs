@@ -70,8 +70,9 @@ function sceneFigure(sceneId, scenes) {
 
 function draftNote(plans, facts) {
   if (plans.review.status !== 'draft') return '';
+  const open = plans.weeks.some(w => (w.flags || []).length);
   return `<aside class="draft-note" aria-label="Draft notice">
-        <p><strong>Draft for the director’s review.</strong> Every line comes from ${esc(facts.director.name)}’s Season Curriculum &amp; Practice Plan Guide; only the split by grade is new. Open questions for her are marked “For the director.”</p>
+        <p><strong>Draft for the director’s review.</strong> Every line comes from ${esc(facts.director.name)}’s Season Curriculum &amp; Practice Plan Guide; only the split by grade is new.${open ? ' Open questions for her are marked “For the director.”' : ''}</p>
       </aside>`;
 }
 
