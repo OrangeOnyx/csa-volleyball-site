@@ -93,8 +93,10 @@ ${facts.divisions.map(d => `            <li><a href="${weekPath(d, 1)}" data-div
 const contact = directorContact(facts);
 index = inject(index, 'ladder', `              <li><span>Coach conduct, or a team issue that’s still open</span><b>${esc(facts.director.title)} ${esc(facts.director.name)}</b><small>${contact.length ? contact.join(' · ') : 'Through csalaf.com'}</small></li>`);
 index = inject(index, 'where', `            <dl>
-              <div><dt>Practices</dt><dd>${esc(facts.venues.practice)}</dd></div>
-              <div><dt>Games</dt><dd>${esc(facts.venues.games || 'Venue to be announced')}</dd></div>
+${facts.venues.games === facts.venues.practice
+    ? `              <div><dt>Practices and games</dt><dd>${esc(facts.venues.practice)}</dd></div>`
+    : `              <div><dt>Practices</dt><dd>${esc(facts.venues.practice)}</dd></div>
+              <div><dt>Games</dt><dd>${esc(facts.venues.games || 'Venue to be announced')}</dd></div>`}
               <div><dt>Tournament</dt><dd>${facts.season.tournamentDate ? `${esc(fmtDate(facts.season.tournamentDate))}, week 9` : 'Week 9'}. Every team plays.</dd></div>
             </dl>`);
 index = inject(index, 'shelf', '        ' + shelf(facts, { indent: '        ' }));

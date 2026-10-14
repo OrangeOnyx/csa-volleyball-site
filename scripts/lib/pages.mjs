@@ -17,18 +17,24 @@ export function renderMethod({ facts, plans, drills }) {
   const gradeRows = Object.entries(facts.grades).map(([g, x]) => `            <tr><th scope="row">${esc(x.label)}</th><td>${esc(x.net)}</td><td>${esc(x.ball)}</td><td>${esc(x.serve)}</td></tr>`).join('\n');
   const library = drills.drills.filter(d => d.library).map(d => `          <li id="m-${d.id}"><h3>${esc(d.name)}</h3><p class="meta">${[gradesText(d.minGrade), playersText(d.players), d.time].filter(Boolean).map(esc).join(' · ')}</p><p>${esc(d.how)}</p></li>`).join('\n');
   const phases = plans.phases.map(p => `          <li class="ph-${p.id}"><b>Weeks ${p.weeks[0]}–${p.weeks.at(-1)}</b><strong>${esc(p.name)}</strong><span>${esc(p.focus)}</span></li>`).join('\n');
-  // Divisions with the same season goals (3rd grade and 4th grade) share one card.
+  // Divisions that share a name (3rd and 4th grade, Developmental) share one card;
+  // a goal that differs between them is listed once per grade.
   const goalGroups = [];
   for (const d of facts.divisions) {
-    const same = goalGroups.find(g => g[0].name === d.name && JSON.stringify(g[0].goals) === JSON.stringify(d.goals));
+    const same = goalGroups.find(g => g[0].name === d.name && g[0].goals.length === d.goals.length);
     if (same) same.push(d); else goalGroups.push([d]);
   }
+  const goalItems = ds => ds[0].goals.map((_, i) => {
+    const vals = ds.map(d => d.goals[i]);
+    if (vals.every(v => v === vals[0])) return `<li>${esc(vals[0])}</li>`;
+    return ds.map(d => `<li><b>${esc(d.label)}:</b> ${esc(d.goals[i])}</li>`).join('');
+  }).join('');
   const groupLabel = ds => (ds.length > 1 && ds.every(d => d.label.endsWith(' grade'))
     ? `${ds.slice(0, -1).map(d => d.label.replace(/ grade$/, '')).join(', ')} and ${ds.at(-1).label}`
     : ds.map(d => d.label).join(' and '));
   const divGoals = goalGroups.map(ds => `          <section class="goal-card" aria-labelledby="g-${ds[0].id}">
             <h3 id="g-${ds[0].id}">${esc(groupLabel(ds))} <span>${esc(ds[0].name)}</span></h3>
-            <ul class="checks">${ds[0].goals.map(g => `<li>${esc(g)}</li>`).join('')}</ul>
+            <ul class="checks">${goalItems(ds)}</ul>
             ${ds.map(d => `<a href="${divisionPath(d)}">Open the ${esc(d.label)} plans</a>`).join(' ')}
           </section>`).join('\n');
 
