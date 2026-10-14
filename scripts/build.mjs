@@ -33,6 +33,12 @@ for (const w of plans.weeks) {
     if (!(w.items[seg.id] || []).some(i => !i.for || i.for.includes(div.id))) problems.push(`week ${w.n} ${seg.id}: nothing for ${div.id}`);
   }
 }
+// The handbooks state that practices and games share one facility (Comeaux, confirmed 14 October 2026)
+// in prose as well as tokens, so a split venue must not publish silently with the old wording.
+if (facts.venues.games !== facts.venues.practice) {
+  problems.push('venues.games differs from venues.practice, but the handbooks say practices and games share one facility. '
+    + 'Rewrite those passages in handbooks/src (Master Handbook cover and Section 3; Player & Parent Handbook cover and facility row), then update this check.');
+}
 if (problems.length) {
   console.error('Data problems:\n  ' + problems.join('\n  '));
   process.exit(1);
