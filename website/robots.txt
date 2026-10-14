@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://csa-volleyball-preview.vercel.app/sitemap.xml

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSA Volleyball Season Curriculum & Practice Plan Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap');
+  :root {
+    --blue: #1A4F9C;
+    --red: #C0272D;
+    --white: #FFFFFF;
+    --light-gray: #F4F6FA;
+    --dark-gray: #2C2C2C;
+    --mid-gray: #666666;
+    --border: #D0D8E8;
+    --green: #2E7D32;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Barlow', Arial, sans-serif; font-size: 10pt; color: var(--dark-gray); background: white; line-height: 1.6; }
+
+  /* COVER */
+  .cover {
+    background: var(--blue); min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    page-break-after: always; padding: 60px 40px; text-align: center;
+  }
+  .cover-logo { width: 200px; margin-bottom: 32px; border-radius: 8px; }
+  .cover-accent { width: 60px; height: 5px; background: var(--red); margin: 0 auto 22px; border-radius: 3px; }
+  .cover h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 34pt; font-weight: 800; color: white; text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin-bottom: 10px; }
+  .cover h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 15pt; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 32px; }
+  .cover-divider { width: 100%; max-width: 400px; height: 1px; background: rgba(255,255,255,0.3); margin: 0 auto 32px; }
+  .cover-meta { color: rgba(255,255,255,0.85); font-size: 10.5pt; font-weight: 500; line-height: 2.1; }
+  .cover-meta strong { color: white; }
+  .cover-badge {
+    display: inline-block; background: var(--red); color: white;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11pt; font-weight: 700;
+    padding: 6px 20px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px;
+    margin-top: 20px;
+  }
+
+  /* PAGE */
+  .page { padding: 42px 52px 52px; max-width: 850px; margin: 0 auto; }
+  .page-break { page-break-before: always; }
+
+  .page-header {
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 3px solid var(--blue); padding-bottom: 9px; margin-bottom: 26px;
+  }
+  .page-header-logo { height: 32px; }
+  .page-header-title { font-family: 'Barlow Condensed', sans-serif; font-size: 9pt; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 1.5px; }
+
+  .section-header { background: var(--blue); color: white; padding: 10px 16px; margin: 28px 0 16px; border-radius: 4px; page-break-after: avoid; }
+  .section-header .section-num { font-size: 8pt; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2px; }
+  .section-header h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 14pt; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; }
+
+  h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 12pt; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 1px; margin: 18px 0 6px; border-bottom: 1.5px solid var(--red); padding-bottom: 3px; }
+  h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 10.5pt; font-weight: 700; color: var(--blue); text-transform: uppercase; margin: 13px 0 5px; }
+
+  p { margin-bottom: 8px; line-height: 1.65; }
+
+  .callout { background: var(--light-gray); border-left: 5px solid var(--blue); padding: 11px 15px; margin: 12px 0; border-radius: 0 4px 4px 0; }
+  .callout.red { border-left-color: var(--red); background: #FEF2F2; }
+  .callout.green { border-left-color: var(--green); background: #F1F8F1; }
+  .callout p { margin-bottom: 3px; }
+
+  .rule-list { list-style: none; padding: 0; margin: 7px 0; }
+  .rule-list li { padding: 5px 10px 5px 26px; position: relative; border-bottom: 1px solid var(--border); line-height: 1.5; font-size: 9.5pt; }
+  .rule-list li:last-child { border-bottom: none; }
+  .rule-list li::before { content: "▸"; color: var(--red); position: absolute; left: 9px; top: 6px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; }
+  thead tr { background: var(--blue); color: white; }
+  thead th { padding: 7px 10px; text-align: left; font-family: 'Barlow Condensed', sans-serif; font-size: 9.5pt; font-weight: 700; text-transform: uppercase; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 6px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+
+  /* WEEK PLAN CARD */
+  .week-card { border: 2px solid var(--blue); border-radius: 8px; margin: 14px 0; overflow: hidden; page-break-inside: avoid; }
+  .week-card-header {
+    background: var(--blue); color: white; padding: 9px 16px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .week-card-header .week-num { font-family: 'Barlow Condensed', sans-serif; font-size: 13pt; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+  .week-card-header .week-theme { font-size: 9pt; color: rgba(255,255,255,0.8); font-weight: 500; }
+  .week-card-header .week-phase { background: var(--red); color: white; font-family: 'Barlow Condensed', sans-serif; font-size: 8.5pt; font-weight: 700; padding: 2px 8px; border-radius: 3px; text-transform: uppercase; }
+  .week-card-body { padding: 12px 16px; }
+  .week-card-body .segment { margin-bottom: 10px; }
+  .week-card-body .segment-label {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 9.5pt; font-weight: 700;
+    color: var(--blue); text-transform: uppercase; letter-spacing: 0.5px;
+    display: inline-block; margin-bottom: 3px;
+  }
+  .week-card-body .segment-time {
+    display: inline-block; background: var(--light-gray); color: var(--mid-gray);
+    font-size: 8pt; font-weight: 600; padding: 1px 7px; border-radius: 3px;
+    margin-left: 8px; text-transform: uppercase;
+  }
+  .week-card-body ul { list-style: none; padding: 0; }
+  .week-card-body ul li { padding: 3px 0 3px 18px; position: relative; font-size: 9.5pt; line-height: 1.5; }
+  .week-card-body ul li::before { content: "•"; color: var(--red); position: absolute; left: 6px; }
+  .week-card-body .coaching-tip { background: #FFF8E1; border-left: 3px solid #F9A825; padding: 7px 10px; border-radius: 0 3px 3px 0; font-size: 9pt; margin-top: 8px; }
+  .week-card-body .coaching-tip strong { color: #E65100; }
+
+  /* DRILL CARD */
+  .drill-card { background: var(--light-gray); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin: 10px 0; }
+  .drill-card h4 { margin-top: 0; color: var(--blue); }
+  .drill-meta { display: flex; gap: 16px; margin-bottom: 8px; font-size: 8.5pt; color: var(--mid-gray); }
+  .drill-meta span { background: white; border: 1px solid var(--border); padding: 2px 8px; border-radius: 3px; }
+
+  .doc-footer { margin-top: 28px; padding-top: 9px; border-top: 2px solid var(--blue); display: flex; justify-content: space-between; font-size: 8pt; color: var(--mid-gray); }
+  .footer-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: var(--blue); font-size: 8.5pt; text-transform: uppercase; }
+
+  .phase-banner { background: var(--red); color: white; padding: 8px 16px; border-radius: 4px; margin: 20px 0 10px; }
+  .phase-banner h3 { color: white; border-bottom: none; margin: 0; font-size: 13pt; }
+  .phase-banner p { margin: 0; font-size: 9pt; color: rgba(255,255,255,0.85); }
+
+  /* Byline and edition (added October 2026) */
+  .cover-byline { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 12pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin: -16px 0 30px; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <img src="csa_logo.jpg" alt="CSA Logo" class="cover-logo">
+  <div class="cover-accent"></div>
+  <h1>Season Curriculum &amp;<br>Practice Plan Guide</h1>
+  <h2>CSA Girls Volleyball · Grades 1–6</h2>
+  <p class="cover-byline">{{documents.byline}}</p>
+  <div class="cover-divider"></div>
+  <div class="cover-meta">
+    <strong>9-Week Season · 1 Practice Per Week · 60-Minute Sessions</strong><br>
+    Cajun Sports Association · Lafayette, Louisiana<br>
+    www.csalaf.com
+  </div>
+  <div class="cover-badge">{{documents.edition}} edition</div>
+</div>
+
+<!-- PAGE 1: HOW TO USE + PRACTICE STRUCTURE -->
+<div class="page">
+  <div class="page-header">
+    <img src="csa_logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball · Season Curriculum &amp; Practice Plan Guide</span>
+  </div>
+
+  <div class="section-header">
+    <div class="section-num">Introduction</div>
+    <h2>How to Use This Guide</h2>
+  </div>
+
+  <p>This guide gives you a complete week-by-week practice plan for the 9-week CSA volleyball season. Each plan is designed for a <strong>60-minute session</strong> and follows the same four-segment structure every week. The content scales by grade division — use the plan for your specific grade group and adapt as needed based on your players' progress.</p>
+
+  <div class="callout green">
+    <p><strong>Core Principle:</strong> Every player should touch the ball as many times as possible in every practice. Maximize repetitions. Minimize lines. If players are standing still for more than 60 seconds, restructure the drill.</p>
+  </div>
+
+  <h3>The 60-Minute Practice Structure</h3>
+  <p>Every practice follows this four-segment structure. Times are guidelines — adjust based on your group's needs, but maintain the sequence.</p>
+
+  <table>
+    <thead><tr><th scope="col">Segment</th><th scope="col">Time</th><th scope="col">Purpose</th><th scope="col">Format</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. Warm-Up &amp; Ball Control</strong></td><td>15 min</td><td>Physical preparation, individual touch, partner work</td><td>Individual or pairs</td></tr>
+      <tr><td><strong>2. Serving</strong></td><td>10 min</td><td>Grade-appropriate serving repetitions; progressive distance</td><td>Individual lines or stations</td></tr>
+      <tr><td><strong>3. Skill Focus / Passing</strong></td><td>15 min</td><td>Primary skill of the week; passing, setting, or serve receive</td><td>Small groups or pairs</td></tr>
+      <tr><td><strong>4. Team Play / Scrimmage</strong></td><td>20 min</td><td>Game-like application, rotation practice, competitive play</td><td>Full team or modified game</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Season Phases at a Glance</h3>
+  <table>
+    <thead><tr><th scope="col">Phase</th><th scope="col">Weeks</th><th scope="col">Theme</th><th scope="col">Key Skills</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Phase 1 — Foundation</strong></td><td>1–3</td><td>Individual skills &amp; ball control</td><td>Platform pass, underhand serve, rotation basics</td></tr>
+      <tr><td><strong>Phase 2 — Development</strong></td><td>4–6</td><td>Team concepts &amp; skill progression</td><td>Overhand serve, setting intro, serve receive, communication</td></tr>
+      <tr><td><strong>Phase 3 — Application</strong></td><td>7–9</td><td>Game play &amp; tournament prep</td><td>Pass-Set-Hit system, game-like drills, competitive play</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Serving Distances by Grade — Quick Reference</h3>
+  <table>
+    <thead><tr><th scope="col">Grade</th><th scope="col">Serve Type</th><th scope="col">Distance</th><th scope="col">Notes</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1st &amp; 2nd</strong></td><td>Underhand only</td><td>10-foot line</td><td>3 consecutive serves per player; rotate on side-out</td></tr>
+      <tr><td><strong>3rd</strong></td><td>Underhand or Overhand</td><td>UH: 15 ft · OH: 10 ft</td><td>Player chooses; encourage overhand attempts</td></tr>
+      <tr><td><strong>4th</strong></td><td>Underhand or Overhand</td><td>22 feet</td><td>Begin pushing toward overhand from 22 ft</td></tr>
+      <tr><td><strong>5th &amp; 6th</strong></td><td>Underhand or Overhand</td><td>End line</td><td>Max 5 consecutive points per server in games</td></tr>
+    </tbody>
+  </table>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Curriculum Guide — Page 1</span>
+  </div>
+</div>
+
+<!-- PAGE 2: PHASE 1 — WEEKS 1-3 -->
+<div class="page page-break">
+  <div class="page-header">
+    <img src="csa_logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball · Season Curriculum &amp; Practice Plan Guide</span>
+  </div>
+
+  <div class="phase-banner">
+    <h3>Phase 1 — Foundation (Weeks 1–3)</h3>
+    <p>Focus: Individual ball control, passing platform mechanics, underhand serve, and basic rotation. Establish team culture and communication habits from Day 1.</p>
+  </div>
+
+  <!-- WEEK 1 -->
+  <div class="week-card">
+    <div class="week-card-header">
+      <div>
+        <div class="week-num">Week 1 — First Contact</div>
+        <div class="week-theme">Introductions · Platform Mechanics · Underhand Serve</div>
+      </div>
+      <div class="week-phase">Phase 1</div>
+    </div>
+    <div class="week-card-body">
+      <div class="segment">
+        <span class="segment-label">Warm-Up &amp; Ball Control</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Name game: each player says their name and does a movement (others copy)</li>
+          <li>Self-toss and catch: toss ball above head, let it bounce once, catch — get comfortable with the ball</li>
+          <li>Partner toss and catch: 10 feet apart, underhand toss, two-hand catch</li>
+          <li>Introduce the platform: arms together, thumbs parallel, elbows locked, contact between wrists and elbows</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Serving</span><span class="segment-time">10 min</span>
+        <ul>
+          <li>Teach underhand serve mechanics: step with opposite foot, swing arm like a pendulum, contact the bottom of the ball</li>
+          <li>All grades: serve into the net from close range first, then back up to grade-appropriate line</li>
+          <li>Goal: every player gets 8–10 serve attempts</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Skill Focus — Passing</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Coach tosses ball to each player; player passes back to coach using platform</li>
+          <li>Key cues: "Thumbs down, elbows locked, platform to the target"</li>
+          <li>Focus on platform formation — accuracy is secondary this week</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Team Play</span><span class="segment-time">20 min</span>
+        <ul>
+          <li>Introduce court positions (1–6) and clockwise rotation</li>
+          <li>Play a modified game: coach tosses ball over net to start each rally; teams play it out</li>
+          <li>Emphasize calling "mine" before every contact</li>
+        </ul>
+      </div>
+      <div class="coaching-tip"><strong>Coaching Tip:</strong> Week 1 is about culture, not perfection. Learn every player's name. Celebrate every attempt. Set the tone that this is a safe place to try and fail.</div>
+    </div>
+  </div>
+
+  <!-- WEEK 2 -->
+  <div class="week-card">
+    <div class="week-card-header">
+      <div>
+        <div class="week-num">Week 2 — Platform Passing</div>
+        <div class="week-theme">Passing Accuracy · Serve Consistency · Communication</div>
+      </div>
+      <div class="week-phase">Phase 1</div>
+    </div>
+    <div class="week-card-body">
+      <div class="segment">
+        <span class="segment-label">Warm-Up &amp; Ball Control</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Individual: self-bump (bump the ball to yourself, keep it going) — count consecutive contacts</li>
+          <li>Partner passing: 10 feet apart, pass back and forth — goal is 5 consecutive without the ball hitting the floor</li>
+          <li>Introduce "belly button to the ball" — always face the incoming ball before passing</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Serving</span><span class="segment-time">10 min</span>
+        <ul>
+          <li>Underhand serve from grade-appropriate line — focus on consistency over power</li>
+          <li>3rd grade: introduce overhand serve mechanics (toss, reach, snap wrist) from close range</li>
+          <li>Goal: 10 serve attempts per player; track how many clear the net</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Skill Focus — Passing to Target</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Place a hula hoop or cone at the setter position (right front, position 2/3)</li>
+          <li>Coach tosses; player passes to the target zone</li>
+          <li>Progression: increase toss distance and vary angles as players improve</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Team Play</span><span class="segment-time">20 min</span>
+        <ul>
+          <li>Modified game with rotation: every side-out, serving team rotates</li>
+          <li>Coach starts each rally with a toss (no serve yet for 1st/2nd; 3rd+ serve)</li>
+          <li>Reinforce "mine" calls and rotation movement</li>
+        </ul>
+      </div>
+      <div class="coaching-tip"><strong>Coaching Tip:</strong> Passing to a target is a big jump. Don't expect accuracy yet — reward the attempt and the correct platform form. Accuracy comes with repetition.</div>
+    </div>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="week-card">
+    <div class="week-card-header">
+      <div>
+        <div class="week-num">Week 3 — Serve Receive Basics</div>
+        <div class="week-theme">Reading the Serve · Serve Receive Positioning · Rotation Review</div>
+      </div>
+      <div class="week-phase">Phase 1</div>
+    </div>
+    <div class="week-card-body">
+      <div class="segment">
+        <span class="segment-label">Warm-Up &amp; Ball Control</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Partner passing: increase distance to 15 feet — maintain platform form</li>
+          <li>Movement drill: coach points left/right, players shuffle; then coach tosses — player passes back</li>
+          <li>Introduce "ready position": knees bent, weight forward, hands together, eyes on the ball</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Serving</span><span class="segment-time">10 min</span>
+        <ul>
+          <li>All grades: serve from grade-appropriate line — focus on placement (aim for corners)</li>
+          <li>4th grade: introduce serving from 22 feet if not already there</li>
+          <li>5th/6th: serve from end line; work on consistency before adding power</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Skill Focus — Serve Receive</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Introduce basic serve receive: 3 players in a line across the back row</li>
+          <li>Coach serves (or tosses) from the other side; back row players call the ball and pass to target</li>
+          <li>Key concept: the player closest to the ball calls "mine" — others move out of the way</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Team Play</span><span class="segment-time">20 min</span>
+        <ul>
+          <li>Full game with live serving (all grades use grade-appropriate serve line)</li>
+          <li>Emphasize rotation after every side-out</li>
+          <li>Debrief: ask players "What position are you in? Who serves next?"</li>
+        </ul>
+      </div>
+      <div class="coaching-tip"><strong>Coaching Tip:</strong> By Week 3, players should know their rotation and call "mine" consistently. If rotation is still shaky, spend extra time on it — it is the foundation for everything in Phase 2.</div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Curriculum Guide — Phase 1 (Weeks 1–3)</span>
+  </div>
+</div>
+
+<!-- PAGE 3: PHASE 2 — WEEKS 4-6 -->
+<div class="page page-break">
+  <div class="page-header">
+    <img src="csa_logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball · Season Curriculum &amp; Practice Plan Guide</span>
+  </div>
+
+  <div class="phase-banner">
+    <h3>Phase 2 — Development (Weeks 4–6)</h3>
+    <p>Focus: Overhand serve progression, introduction of setting, team communication, and the Pass–Set–Hit concept. Players begin connecting individual skills into team sequences.</p>
+  </div>
+
+  <!-- WEEK 4 -->
+  <div class="week-card">
+    <div class="week-card-header">
+      <div>
+        <div class="week-num">Week 4 — Overhand Serve &amp; Setting Intro</div>
+        <div class="week-theme">Overhand Serve Mechanics · What Is a Set? · Setting Hand Position</div>
+      </div>
+      <div class="week-phase">Phase 2</div>
+    </div>
+    <div class="week-card-body">
+      <div class="segment">
+        <span class="segment-label">Warm-Up &amp; Ball Control</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Individual: alternate self-bump and self-set — get comfortable with overhead contact</li>
+          <li>Partner: one player bumps, one player sets — switch after 5 contacts</li>
+          <li>Introduce setting hand position: hands form a triangle above forehead, contact with fingerpads not palms</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Serving</span><span class="segment-time">10 min</span>
+        <ul>
+          <li>3rd/4th/5th/6th: overhand serve mechanics from close range (10 feet) — toss high, reach tall, snap wrist</li>
+          <li>Progress back to grade-appropriate line as mechanics improve</li>
+          <li>1st/2nd: continue underhand serve from 10-foot line; focus on consistency</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Skill Focus — Setting</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Self-set: toss ball above head, set to self, catch — repeat 10 times</li>
+          <li>Partner set: toss to partner, partner sets back — goal is 3 consecutive sets without catching</li>
+          <li>Key cues: "Hands up early, push through the ball, extend arms fully"</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Team Play</span><span class="segment-time">20 min</span>
+        <ul>
+          <li>Introduce the concept of a designated setter: position 2 (right front) always tries to set the second ball</li>
+          <li>Play game; encourage (but don't require) the Pass–Set–Hit sequence</li>
+          <li>Celebrate any successful 3-contact sequence, regardless of outcome</li>
+        </ul>
+      </div>
+      <div class="coaching-tip"><strong>Coaching Tip:</strong> Setting is the hardest skill to teach at this age. Don't penalize carries aggressively — focus on the hand position and the intent. Improvement comes over multiple seasons.</div>
+    </div>
+  </div>
+
+  <!-- WEEK 5 -->
+  <div class="week-card">
+    <div class="week-card-header">
+      <div>
+        <div class="week-num">Week 5 — Pass–Set–Hit Sequence</div>
+        <div class="week-theme">Connecting the Three Contacts · Downball Hitting · Court Awareness</div>
+      </div>
+      <div class="week-phase">Phase 2</div>
+    </div>
+    <div class="week-card-body">
+      <div class="segment">
+        <span class="segment-label">Warm-Up &amp; Ball Control</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>3-person groups: player 1 passes to player 2 (setter), player 2 sets to player 3, player 3 catches — rotate positions</li>
+          <li>Focus: passer calls "mine," setter calls "set," hitter calls "hit" — build communication habits</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Serving</span><span class="segment-time">10 min</span>
+        <ul>
+          <li>All grades: serve from grade-appropriate line; focus on serving to specific zones (deep corners, short)</li>
+          <li>5th/6th: overhand serve from end line — track accuracy (aim for back half of court)</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Skill Focus — Downball &amp; Hitting</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Introduce downball: standing behind 10-foot line, toss to self, contact ball with open hand driving it over the net</li>
+          <li>3rd/4th: downball only (no jump required)</li>
+          <li>5th/6th: introduce 3-step approach: right-left-right (for right-handers), jump, reach, contact</li>
+          <li>Key cue: "Reach high, contact the top of the ball, follow through"</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Team Play</span><span class="segment-time">20 min</span>
+        <ul>
+          <li>Game with a rule: every team must attempt at least two contacts before sending the ball over</li>
+          <li>Award a bonus point for any successful 3-contact sequence</li>
+          <li>Coach narrates: "That was a pass — now set it — now hit it!" to reinforce the sequence</li>
+        </ul>
+      </div>
+      <div class="coaching-tip"><strong>Coaching Tip:</strong> The bonus point for 3-contact sequences is a powerful motivator. Players will start to understand WHY the sequence matters — not just that they're supposed to do it.</div>
+    </div>
+  </div>
+
+  <!-- WEEK 6 -->
+  <div class="week-card">
+    <div class="week-card-header">
+      <div>
+        <div class="week-num">Week 6 — Serve Receive &amp; Team Defense</div>
+        <div class="week-theme">W-Formation · Base Defense · Free Ball Transition</div>
+      </div>
+      <div class="week-phase">Phase 2</div>
+    </div>
+    <div class="week-card-body">
+      <div class="segment">
+        <span class="segment-label">Warm-Up &amp; Ball Control</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Partner passing: increase distance; work on passing while moving laterally</li>
+          <li>Introduce "free ball" concept: when the opponent sends an easy ball, your team transitions to offense</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Serving</span><span class="segment-time">10 min</span>
+        <ul>
+          <li>Serving to specific targets — place cones in the back corners; players aim for them</li>
+          <li>Competition: team earns a point for every serve that lands within 3 feet of a cone</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Skill Focus — Serve Receive Formation</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>5th/6th: introduce "W" formation — 5 players in a W shape across the back two-thirds of the court</li>
+          <li>3rd/4th: simplified version — 3 back-row players spread across the baseline, 3 front-row players at net</li>
+          <li>Coach serves; team receives and attempts to run Pass–Set–Hit</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Team Play</span><span class="segment-time">20 min</span>
+        <ul>
+          <li>Full game with live serving; emphasize serve receive formation before each serve</li>
+          <li>When a team receives a free ball, coach calls "FREE BALL!" — team must transition to offense</li>
+        </ul>
+      </div>
+      <div class="coaching-tip"><strong>Coaching Tip:</strong> Week 6 is the midpoint. Pause for 5 minutes and ask players: "What's one thing you've gotten better at this season?" Recognition of personal growth is a powerful motivator.</div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Curriculum Guide — Phase 2 (Weeks 4–6)</span>
+  </div>
+</div>
+
+<!-- PAGE 4: PHASE 3 — WEEKS 7-9 -->
+<div class="page page-break">
+  <div class="page-header">
+    <img src="csa_logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball · Season Curriculum &amp; Practice Plan Guide</span>
+  </div>
+
+  <div class="phase-banner">
+    <h3>Phase 3 — Application (Weeks 7–9)</h3>
+    <p>Focus: Applying all skills in game-like situations. Tournament preparation. Competitive drills. Building team identity and confidence heading into the end-of-season tournament.</p>
+  </div>
+
+  <!-- WEEK 7 -->
+  <div class="week-card">
+    <div class="week-card-header">
+      <div>
+        <div class="week-num">Week 7 — Game-Like Drills</div>
+        <div class="week-theme">Competitive Drills · Pressure Situations · Serve &amp; Receive Under Pressure</div>
+      </div>
+      <div class="week-phase">Phase 3</div>
+    </div>
+    <div class="week-card-body">
+      <div class="segment">
+        <span class="segment-label">Warm-Up &amp; Ball Control</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>"Pepper" drill (3rd+): player 1 passes to player 2, player 2 sets to player 1, player 1 hits back to player 2 — continuous loop</li>
+          <li>1st/2nd: partner passing rally — count consecutive passes without the ball hitting the floor</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Serving</span><span class="segment-time">10 min</span>
+        <ul>
+          <li>Serving competition: each player gets 5 serves; score 1 point for in, 2 points for landing in the back half</li>
+          <li>Team total — creates low-stakes competitive pressure similar to game situations</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Skill Focus — Competitive Passing Drill</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>"Queen of the Court": 3v3 on a half-court; winning team stays, losing team rotates off; first to 3 points wins the side</li>
+          <li>Emphasize communication and calling the ball — no silent contacts</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Team Play</span><span class="segment-time">20 min</span>
+        <ul>
+          <li>Full game with tournament rules (rally scoring, standard rotation, live serving)</li>
+          <li>Coach observes and takes notes on individual player growth for end-of-season recognition</li>
+        </ul>
+      </div>
+      <div class="coaching-tip"><strong>Coaching Tip:</strong> Introduce a little competitive pressure this week — it prepares players for the tournament. Keep it fun, but let them feel what it's like to play for something.</div>
+    </div>
+  </div>
+
+  <!-- WEEK 8 -->
+  <div class="week-card">
+    <div class="week-card-header">
+      <div>
+        <div class="week-num">Week 8 — Tournament Preparation</div>
+        <div class="week-theme">Tournament Rules Review · Rotations Under Pressure · Mental Preparation</div>
+      </div>
+      <div class="week-phase">Phase 3</div>
+    </div>
+    <div class="week-card-body">
+      <div class="segment">
+        <span class="segment-label">Warm-Up &amp; Ball Control</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Team warm-up: players lead their own warm-up (coach observes) — builds ownership</li>
+          <li>Partner serving warm-up: one player serves, partner receives and passes to target</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Serving</span><span class="segment-time">10 min</span>
+        <ul>
+          <li>Review tournament serving rules for each grade</li>
+          <li>Each player serves from tournament distance — focus on consistency and in-bounds percentage</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Skill Focus — Rotation Quiz</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Put 6 players on the court; call out a score scenario — "We just got a side-out from position 4 — where does everyone move?"</li>
+          <li>Rotate through different scenarios; every player should know their position at any point in the game</li>
+          <li>Reinforce: "Know where you are. Know who serves next."</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Team Play — Simulated Tournament Match</span><span class="segment-time">20 min</span>
+        <ul>
+          <li>Play a full simulated tournament match: best 2 of 3 sets, full tournament rules</li>
+          <li>Coach acts as referee — call faults, track score, run time-outs</li>
+          <li>Debrief: "What did we do well? What do we want to be better at next week?"</li>
+        </ul>
+      </div>
+      <div class="coaching-tip"><strong>Coaching Tip:</strong> The rotation quiz is one of the highest-value activities of the season. Players who know their rotation don't panic in games. Run it fast and make it fun — not a test.</div>
+    </div>
+  </div>
+
+  <!-- WEEK 9 -->
+  <div class="week-card">
+    <div class="week-card-header">
+      <div>
+        <div class="week-num">Week 9 — Tournament Week</div>
+        <div class="week-theme">Light Practice · Mental Readiness · Team Unity</div>
+      </div>
+      <div class="week-phase">Phase 3</div>
+    </div>
+    <div class="week-card-body">
+      <div class="segment">
+        <span class="segment-label">Warm-Up &amp; Ball Control</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Keep it light and fun — no new skills this week</li>
+          <li>Favorite warm-up drill voted on by the team</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Serving</span><span class="segment-time">10 min</span>
+        <ul>
+          <li>Each player serves 5 times from tournament distance — build confidence, not pressure</li>
+          <li>Celebrate every successful serve</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Skill Focus — Team Highlights</span><span class="segment-time">15 min</span>
+        <ul>
+          <li>Coach shares one specific improvement they've noticed in each player — out loud, in front of the team</li>
+          <li>Quick review of tournament format: bracket, schedule, what to bring, arrival time</li>
+        </ul>
+      </div>
+      <div class="segment">
+        <span class="segment-label">Team Play — Fun Scrimmage</span><span class="segment-time">20 min</span>
+        <ul>
+          <li>Scrimmage with fun rules: bonus point for ace serves, bonus point for 3-contact sequences</li>
+          <li>End practice with a team cheer — let the players choose it</li>
+          <li>Remind players: "You've worked hard all season. Go have fun at the tournament."</li>
+        </ul>
+      </div>
+      <div class="coaching-tip"><strong>Coaching Tip:</strong> Week 9 practice is about confidence and energy — not skill work. Your players are ready. Your job this week is to remind them of that.</div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Curriculum Guide — Phase 3 (Weeks 7–9)</span>
+  </div>
+</div>
+
+<!-- PAGE 5: KEY DRILLS LIBRARY -->
+<div class="page page-break">
+  <div class="page-header">
+    <img src="csa_logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball · Season Curriculum &amp; Practice Plan Guide</span>
+  </div>
+
+  <div class="section-header">
+    <div class="section-num">Appendix</div>
+    <h2>Drill Library — Quick Reference</h2>
+  </div>
+
+  <p>Use these drills to supplement or replace segments in the weekly plans. All drills are designed to maximize ball contacts and minimize standing time.</p>
+
+  <div class="drill-card">
+    <h4>Pepper (Pairs)</h4>
+    <div class="drill-meta"><span>Grade: 3rd+</span><span>Players: 2</span><span>Time: 5–10 min</span><span>Skill: Passing, Setting, Hitting</span></div>
+    <p>Player A passes to Player B. B sets back to A. A hits (or downballs) back to B. B digs and the cycle continues. Goal: keep a continuous rally going. Count consecutive contacts without the ball hitting the floor.</p>
+  </div>
+
+  <div class="drill-card">
+    <h4>Queen of the Court</h4>
+    <div class="drill-meta"><span>Grade: 3rd+</span><span>Players: 6–12</span><span>Time: 10–15 min</span><span>Skill: All skills, competition</span></div>
+    <p>Split court into two halves. 3v3 on each side. Winning team (first to 3 points) stays. Losing team rotates off and a new team rotates on. Creates competitive pressure in a fun, fast format.</p>
+  </div>
+
+  <div class="drill-card">
+    <h4>Serve and Shag</h4>
+    <div class="drill-meta"><span>Grade: All</span><span>Players: Full team</span><span>Time: 8–10 min</span><span>Skill: Serving</span></div>
+    <p>Half the team serves from one side; the other half retrieves (shags) balls on the other side. After each player serves 5 balls, teams switch. Fast-paced, maximizes serve repetitions.</p>
+  </div>
+
+  <div class="drill-card">
+    <h4>Toss–Pass–Set–Catch</h4>
+    <div class="drill-meta"><span>Grade: 3rd+</span><span>Players: 3</span><span>Time: 8–10 min</span><span>Skill: Passing, Setting, Sequence</span></div>
+    <p>Player 1 tosses to Player 2. Player 2 passes to Player 3 (setter position). Player 3 sets back to Player 1, who catches. Rotate positions every 5 repetitions. Teaches the Pass–Set sequence without the pressure of a full rally.</p>
+  </div>
+
+  <div class="drill-card">
+    <h4>Down the Line Passing</h4>
+    <div class="drill-meta"><span>Grade: All</span><span>Players: 4–6</span><span>Time: 8–10 min</span><span>Skill: Passing, Movement</span></div>
+    <p>Players line up on one side of the court. Coach stands on the other side of the net and tosses balls to various positions. Players must move to the ball, pass it back over the net, and return to the line. Teaches movement to the ball before passing.</p>
+  </div>
+
+  <div class="drill-card">
+    <h4>Serve Receive Triangle</h4>
+    <div class="drill-meta"><span>Grade: 4th+</span><span>Players: 3</span><span>Time: 10 min</span><span>Skill: Serve receive, passing</span></div>
+    <p>Three players form a triangle: one server, one passer, one target (setter). Server serves from grade-appropriate line. Passer receives and passes to the target. Target catches and feeds ball back to server. Rotate every 5 serves. Simulates game serve receive in a small group.</p>
+  </div>
+
+  <h3>Coach Notes Template</h3>
+  <p>Use this space each week to track player progress and plan adjustments for the following session.</p>
+
+  <table>
+    <thead><tr><th scope="col">Player Name</th><th scope="col">Strength This Week</th><th scope="col">Focus Area for Next Week</th></tr></thead>
+    <tbody>
+      <tr><td style="height:22px;"></td><td></td><td></td></tr>
+      <tr><td style="height:22px;"></td><td></td><td></td></tr>
+      <tr><td style="height:22px;"></td><td></td><td></td></tr>
+      <tr><td style="height:22px;"></td><td></td><td></td></tr>
+      <tr><td style="height:22px;"></td><td></td><td></td></tr>
+      <tr><td style="height:22px;"></td><td></td><td></td></tr>
+      <tr><td style="height:22px;"></td><td></td><td></td></tr>
+      <tr><td style="height:22px;"></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA · www.csalaf.com</span>
+    <span>Curriculum Guide — Drill Library</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSA Volleyball Coach Quick Reference Card</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap');
+  :root {
+    --blue: #1A4F9C;
+    --red: #C0272D;
+    --white: #FFFFFF;
+    --light-gray: #F4F6FA;
+    --dark-gray: #2C2C2C;
+    --mid-gray: #555555;
+    --border: #D0D8E8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Barlow', Arial, sans-serif; font-size: 9pt; color: var(--dark-gray); background: white; }
+
+  @page { size: letter landscape; margin: 0.4in 0.4in; }
+
+  /* SIDE = one page */
+  .side {
+    width: 100%;
+    page-break-after: always;
+  }
+  .side:last-child { page-break-after: auto; }
+
+  /* TOP HEADER BAR */
+  .card-header {
+    background: var(--blue);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 16px;
+    border-radius: 6px 6px 0 0;
+    margin-bottom: 0;
+  }
+  .card-header-left { display: flex; align-items: center; gap: 12px; }
+  .card-header-logo { height: 38px; border-radius: 4px; }
+  .card-header-title { color: white; }
+  .card-header-title .org { font-size: 7.5pt; font-weight: 600; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1.5px; }
+  .card-header-title h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 16pt; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; line-height: 1.1; }
+  .card-header-right { text-align: right; color: rgba(255,255,255,0.8); font-size: 8pt; }
+  .card-header-right strong { color: white; font-size: 9pt; display: block; }
+
+  .red-bar { height: 4px; background: var(--red); margin-bottom: 10px; }
+
+  /* GRID LAYOUT */
+  .card-body { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .card-body-4col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
+
+  /* COLUMN */
+  .col { }
+
+  /* SECTION WITHIN CARD */
+  .card-section { margin-bottom: 10px; }
+  .card-section-title {
+    background: var(--blue); color: white;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 9.5pt; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    padding: 4px 8px; border-radius: 3px 3px 0 0; margin-bottom: 0;
+  }
+  .card-section-title.red { background: var(--red); }
+  .card-section-body { background: var(--light-gray); border: 1px solid var(--border); border-top: none; border-radius: 0 0 3px 3px; padding: 7px 8px; }
+
+  table.ref { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
+  table.ref thead tr { background: rgba(26,79,156,0.12); }
+  table.ref thead th { padding: 4px 6px; text-align: left; font-family: 'Barlow Condensed', sans-serif; font-size: 8.5pt; font-weight: 700; text-transform: uppercase; color: var(--blue); border-bottom: 1px solid var(--border); }
+  table.ref tbody tr:nth-child(even) { background: rgba(255,255,255,0.6); }
+  table.ref tbody td { padding: 4px 6px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.4; }
+  table.ref tbody tr:last-child td { border-bottom: none; }
+
+  ul.ref-list { list-style: none; padding: 0; }
+  ul.ref-list li { padding: 3px 0 3px 14px; position: relative; border-bottom: 1px solid var(--border); font-size: 8.5pt; line-height: 1.4; }
+  ul.ref-list li:last-child { border-bottom: none; }
+  ul.ref-list li::before { content: "▸"; color: var(--red); position: absolute; left: 2px; top: 4px; font-size: 8pt; }
+
+  /* COURT DIAGRAM */
+  .court-mini {
+    background: #E8F0E8; border: 2px solid #2E7D32; border-radius: 4px;
+    padding: 8px; text-align: center; font-family: 'Barlow Condensed', sans-serif;
+  }
+  .court-mini-inner { border: 1.5px solid #2E7D32; display: inline-block; width: 160px; }
+  .court-half-mini { height: 52px; border-bottom: 2px solid var(--blue); display: flex; align-items: center; justify-content: space-around; padding: 0 8px; }
+  .court-half-mini.bottom { border-bottom: none; border-top: none; }
+  .pos-circle { width: 24px; height: 24px; border-radius: 50%; background: var(--blue); color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 10pt; font-weight: 800; }
+  .pos-circle.red { background: var(--red); }
+  .court-mini-label { font-size: 7pt; color: var(--mid-gray); margin-top: 4px; }
+
+  /* PRACTICE SCHEDULE */
+  .practice-bar { display: flex; gap: 4px; margin: 4px 0; }
+  .practice-seg {
+    border-radius: 3px; padding: 4px 6px; font-size: 7.5pt; font-weight: 600;
+    text-align: center; color: white; line-height: 1.3;
+  }
+
+  /* FOOTER */
+  .card-footer {
+    margin-top: 8px; padding-top: 6px; border-top: 2px solid var(--blue);
+    display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--mid-gray);
+  }
+  .footer-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: var(--blue); font-size: 8pt; text-transform: uppercase; }
+
+  .side-label {
+    display: inline-block; background: var(--red); color: white;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 8pt; font-weight: 700;
+    padding: 2px 8px; border-radius: 3px; text-transform: uppercase;
+  }
+
+  .emergency-box {
+    background: #FEF2F2; border: 1.5px solid var(--red); border-radius: 4px;
+    padding: 7px 9px;
+  }
+  .emergency-box .e-title { font-family: 'Barlow Condensed', sans-serif; font-size: 10pt; font-weight: 800; color: var(--red); text-transform: uppercase; margin-bottom: 4px; }
+  .emergency-box .e-item { font-size: 8.5pt; padding: 2px 0; border-bottom: 1px solid rgba(192,39,45,0.2); }
+  .emergency-box .e-item:last-child { border-bottom: none; }
+  .emergency-box .e-num { font-weight: 700; color: var(--red); }
+
+  /* Print fixes for the October 2026 edition. Side 2 carries more than side 1, so it is
+     tightened slightly to print on one page (it used to spill onto three). */
+  @media print {
+    /* keep the header on one line per item (it wrapped to "LA" and "CARD" on their own lines) */
+    .card-header-title .org, .card-header-title h1 { white-space: nowrap; }
+    .side + .side ul.ref-list li, .side + .side table.ref tbody td, .side + .side .emergency-box .e-item { font-size: 7.6pt; line-height: 1.28; }
+    .side + .side .card-section-title { padding: 3px 8px; }
+    .side + .side .red-bar { margin-bottom: 8px; }
+    .side + .side ul.ref-list li { padding: 2px 0 2px 13px; }
+    .side + .side ul.ref-list li::before { top: 2px; }
+    .side + .side table.ref tbody td { padding: 3px 5px; }
+    .side + .side .card-section { margin-bottom: 6px; }
+    .side + .side .card-section-body { padding: 5px 7px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SIDE 1 — RULES, ROTATION, SERVING, PRACTICE STRUCTURE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="side">
+  <div class="card-header">
+    <div class="card-header-left">
+      <img src="csa_logo.jpg" alt="CSA" class="card-header-logo">
+      <div class="card-header-title">
+        <div class="org">Cajun Sports Association · Lafayette, LA</div>
+        <h1>Coach Quick Reference Card</h1>
+      </div>
+    </div>
+    <div class="card-header-right">
+      <strong>CSA Girls Volleyball · Grades 1–6</strong>
+      www.csalaf.com · Volleyball Director: Stephanie Abdalla
+      <br><span class="side-label">Side 1 — Rules &amp; Game Day</span>
+    </div>
+  </div>
+  <div class="red-bar"></div>
+
+  <div class="card-body">
+
+    <!-- COL 1: SERVING RULES + MATCH FORMAT -->
+    <div class="col">
+      <div class="card-section">
+        <div class="card-section-title">Serving Rules by Grade</div>
+        <div class="card-section-body">
+          <table class="ref">
+            <thead><tr><th scope="col">Grade</th><th scope="col">Type</th><th scope="col">Distance</th><th scope="col">Notes</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1–2</strong></td><td>UH only</td><td>10 ft</td><td>3 consec. serves; rotate on side-out</td></tr>
+              <tr><td><strong>3rd</strong></td><td>UH or OH</td><td>UH: 15 ft · OH: 10 ft</td><td>Player chooses</td></tr>
+              <tr><td><strong>4th</strong></td><td>UH or OH</td><td>22 ft</td><td>—</td></tr>
+              <tr><td><strong>5–6</strong></td><td>UH or OH</td><td>End line</td><td>Max 5 consec. pts/server</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="card-section-title">Match Format</div>
+        <div class="card-section-body">
+          <ul class="ref-list">
+            <li>Best 2 of 3 sets · Sets 1&amp;2 to 25 (cap 27) · Set 3 to 15 (cap 17)</li>
+            <li>Rally scoring — point every rally</li>
+            <li>Win by 2 (until cap)</li>
+            <li>2 time-outs per team per set · 1 min each</li>
+            <li>5-in-a-Row Rule: 5 consec. pts → serve changes</li>
+            <li>Coin toss: winner picks serve or side</li>
+            <li>Switch sides each new set · Set 3: switch at 8 pts</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="card-section-title">Net Heights</div>
+        <div class="card-section-body">
+          <table class="ref">
+            <thead><tr><th scope="col">Grade</th><th scope="col">Net Height</th><th scope="col">Ball</th></tr></thead>
+            <tbody>
+              <tr><td>1–2</td><td>6 ft 0 in</td><td>Soft Touch / Volley-Lite</td></tr>
+              <tr><td>3–4</td><td>6 ft 6 in</td><td>Volley-Lite</td></tr>
+              <tr><td>5–6</td><td>7 ft 0 in</td><td>Volley-Lite / Standard</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- COL 2: COURT DIAGRAM + ROTATION + FAULTS -->
+    <div class="col">
+      <div class="card-section">
+        <div class="card-section-title">Court Positions &amp; Rotation</div>
+        <div class="card-section-body">
+          <div class="court-mini">
+            <div class="court-mini-inner">
+              <div class="court-half-mini">
+                <div><div class="pos-circle">4</div><div style="font-size:6.5pt;color:#555;">LF</div></div>
+                <div><div class="pos-circle">3</div><div style="font-size:6.5pt;color:#555;">MF</div></div>
+                <div><div class="pos-circle">2</div><div style="font-size:6.5pt;color:#555;">RF</div></div>
+              </div>
+              <div class="court-half-mini bottom">
+                <div><div class="pos-circle red">5</div><div style="font-size:6.5pt;color:#555;">LB</div></div>
+                <div><div class="pos-circle red">6</div><div style="font-size:6.5pt;color:#555;">MB</div></div>
+                <div><div class="pos-circle red">1</div><div style="font-size:6.5pt;color:#555;">RB/SRV</div></div>
+              </div>
+            </div>
+            <div class="court-mini-label">Rotation: Clockwise ↻ · Pos 1 serves · Side-out = rotate before serving</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="card-section-title red">Common Faults (Point to Opponent)</div>
+        <div class="card-section-body">
+          <ul class="ref-list">
+            <li>Ball lands in-bounds on your side</li>
+            <li>Ball sent out of bounds or outside antenna</li>
+            <li>4 contacts (max is 3)</li>
+            <li>Double contact (same player, twice in a row)</li>
+            <li>Carry / Lift / Throw</li>
+            <li>Net touch while ball is in play</li>
+            <li>Center line violation (interfering with opponent)</li>
+            <li>Rotation fault (wrong position at serve)</li>
+            <li>Serving fault (foot on/over line; ball doesn't cross net)</li>
+            <li>Back-row attack above net height in front of 10-ft line</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- COL 3: PRACTICE STRUCTURE + TEAM RULES -->
+    <div class="col">
+      <div class="card-section">
+        <div class="card-section-title">60-Min Practice Structure</div>
+        <div class="card-section-body">
+          <div class="practice-bar">
+            <div class="practice-seg" style="background:#1A4F9C; flex:3;">Warm-Up &amp; Ball Control<br><strong>15 min</strong></div>
+            <div class="practice-seg" style="background:#C0272D; flex:2;">Serving<br><strong>10 min</strong></div>
+            <div class="practice-seg" style="background:#2E7D32; flex:3;">Skill Focus<br><strong>15 min</strong></div>
+            <div class="practice-seg" style="background:#555; flex:4;">Team Play<br><strong>20 min</strong></div>
+          </div>
+          <p style="font-size:7.5pt; color:#666; margin-top:5px;">Maximize ball contacts. Minimize lines. If players stand still &gt;60 sec, restructure the drill.</p>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="card-section-title">Season Phase Roadmap</div>
+        <div class="card-section-body">
+          <table class="ref">
+            <thead><tr><th scope="col">Phase</th><th scope="col">Weeks</th><th scope="col">Focus</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1 — Foundation</strong></td><td>1–3</td><td>Platform, underhand serve, rotation</td></tr>
+              <tr><td><strong>2 — Development</strong></td><td>4–6</td><td>OH serve, setting, serve receive</td></tr>
+              <tr><td><strong>3 — Application</strong></td><td>7–9</td><td>Pass-Set-Hit, game play, tournament</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="card-section-title">Team Composition Rules</div>
+        <div class="card-section-body">
+          <ul class="ref-list">
+            <li>6 players per side · Min 4 to start</li>
+            <li>15-min grace period · Then forfeit</li>
+            <li>Late player: rotate in at next rotation</li>
+            <li>Borrowed players: same division · Max 4 · Can't start unless needed for min</li>
+            <li>Equal playing time required · No player sits out more than 1 rotation/set</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end card-body -->
+
+  <div class="card-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Coach Quick Reference Card · Side 1 of 2 · {{documents.edition}} edition · Print double-sided and laminate</span>
+    <span>www.csalaf.com</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SIDE 2 — CONDUCT, EMERGENCY, CURRICULUM, KEY CONTACTS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="side">
+  <div class="card-header">
+    <div class="card-header-left">
+      <img src="csa_logo.jpg" alt="CSA" class="card-header-logo">
+      <div class="card-header-title">
+        <div class="org">Cajun Sports Association · Lafayette, LA</div>
+        <h1>Coach Quick Reference Card</h1>
+      </div>
+    </div>
+    <div class="card-header-right">
+      <strong>CSA Girls Volleyball · Grades 1–6</strong>
+      www.csalaf.com · Volleyball Director: Stephanie Abdalla
+      <br><span class="side-label">Side 2 — Conduct &amp; Emergency</span>
+    </div>
+  </div>
+  <div class="red-bar"></div>
+
+  <div class="card-body-4col">
+
+    <!-- COL 1: EMERGENCY ACTION -->
+    <div class="col">
+      <div class="emergency-box">
+        <div class="e-title">🚨 Emergency Protocol</div>
+        <div class="e-item"><span class="e-num">1.</span> Stop play. Clear the court. Stay calm.</div>
+        <div class="e-item"><span class="e-num">2.</span> Assess. Do NOT move player if head/neck injury suspected.</div>
+        <div class="e-item"><span class="e-num">3.</span> Call 911 if serious, unconscious, or unsure.</div>
+        <div class="e-item"><span class="e-num">4.</span> Administer first aid only if trained.</div>
+        <div class="e-item"><span class="e-num">5.</span> Contact parent/guardian using emergency contact on roster.</div>
+        <div class="e-item"><span class="e-num">6.</span> Notify Volleyball Director same day.</div>
+        <div class="e-item"><span class="e-num">7.</span> Document: time, injury, actions, contacts.</div>
+      </div>
+
+      <div class="card-section" style="margin-top:8px;">
+        <div class="card-section-title red">Concussion Rule</div>
+        <div class="card-section-body">
+          <p style="font-size:8.5pt; font-weight:700; color:var(--red);">When in doubt, sit them out.</p>
+          <ul class="ref-list">
+            <li>Any head blow → remove from play immediately</li>
+            <li>Symptoms: headache, dizziness, confusion, nausea, light sensitivity</li>
+            <li>No return to play same day. Ever.</li>
+            <li>Written medical clearance required to return</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="card-section-title">Key Contacts</div>
+        <div class="card-section-body">
+          <table class="ref">
+            <tbody>
+              <tr><td><strong>911</strong></td><td>Life-threatening emergency</td></tr>
+              <tr><td><strong>(337) 291-8400</strong></td><td>LPRD / Comeaux Complex</td></tr>
+              <tr><td><strong>(337) 482-6447</strong></td><td>ULL Campus Police (EKL Gym)</td></tr>
+              <tr><td><strong>1-855-452-5437</strong></td><td>Louisiana CPS Hotline</td></tr>
+              <tr><td><strong>{{director.phone|Phone TBC}}</strong></td><td>Stephanie Abdalla, VB Director</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- COL 2: COACH CODE OF CONDUCT -->
+    <div class="col">
+      <div class="card-section">
+        <div class="card-section-title red">Non-Negotiable Coach Standards</div>
+        <div class="card-section-body">
+          <p style="font-size:8pt; color:var(--red); font-weight:600; margin-bottom:5px;">Violation = immediate removal from coaching role</p>
+          <ul class="ref-list">
+            <li>No physical contact beyond instructional demonstration</li>
+            <li>No yelling at, belittling, or humiliating players</li>
+            <li>No profane/sexual/discriminatory language</li>
+            <li>No 1-on-1 with a player without another adult present (Two-Deep Rule)</li>
+            <li>No personal DMs/texts/social media with players</li>
+            <li>No alcohol or substance use at any CSA event</li>
+            <li>No retaliation against anyone who raises a concern</li>
+            <li>No failure to report known/suspected child abuse</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="card-section-title">Sideline Rules</div>
+        <div class="card-section-body">
+          <ul class="ref-list">
+            <li>Max 1 head coach + 1 assistant on sideline</li>
+            <li>Stay on bench side · Do not cross 10-ft line</li>
+            <li>No arguing with officials — ever</li>
+            <li>Manage parent sideline conduct</li>
+            <li>Deliver coaching calmly and constructively</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="card-section-title">Communication Ladder</div>
+        <div class="card-section-body">
+          <table class="ref">
+            <tbody>
+              <tr><td><strong>Player issue</strong></td><td>Coach → Director (same day if serious)</td></tr>
+              <tr><td><strong>Parent concern</strong></td><td>Parent → Coach → Director</td></tr>
+              <tr><td><strong>Injury/incident</strong></td><td>Coach → Director (phone, same day)</td></tr>
+              <tr><td><strong>Cancellation</strong></td><td>Director → Coach → Parents (2 hr min)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- COL 3: PLAYER & PARENT EXPECTATIONS -->
+    <div class="col">
+      <div class="card-section">
+        <div class="card-section-title">Player Expectations (Quick)</div>
+        <div class="card-section-body">
+          <ul class="ref-list">
+            <li>Attend every practice &amp; game; notify coach if absent</li>
+            <li>Arrive ready: proper attire, water, attitude</li>
+            <li>No jewelry (except medical alert)</li>
+            <li>Listen when coach speaks — stop, face, listen</li>
+            <li>Call "mine" before every contact</li>
+            <li>Cheer for teammates on the bench</li>
+            <li>Handshake line after every match — win or lose</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="card-section-title">Parent Spectator Rules</div>
+        <div class="card-section-body">
+          <ul class="ref-list">
+            <li>Stay in spectator areas — no court access</li>
+            <li>Cheer positively only — no negative comments</li>
+            <li>Do NOT coach from the stands</li>
+            <li>Do NOT approach officials during/after games</li>
+            <li>No profane or abusive language — zero tolerance</li>
+            <li>24-Hour Rule: wait 24 hrs before contacting coach about game concerns</li>
+            <li>Pick up within 15 min of session end</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="card-section-title">Conduct Consequences</div>
+        <div class="card-section-body">
+          <table class="ref">
+            <tbody>
+              <tr><td>Minor violation</td><td>Verbal warning; correct before continuing</td></tr>
+              <tr><td>Repeated minor</td><td>Parent notification; possible removal from session</td></tr>
+              <tr><td>Unsportsmanlike</td><td>Removal from game; parent notification</td></tr>
+              <tr><td>Fighting/threats/abuse</td><td>Immediate removal; suspension pending Director review</td></tr>
+              <tr><td>2nd major offense</td><td>Removal from program; no refund</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- COL 4: SKILLS BY GRADE + DRILLS -->
+    <div class="col">
+      <div class="card-section">
+        <div class="card-section-title">Skills by Grade — Season Goals</div>
+        <div class="card-section-body">
+          <table class="ref">
+            <thead><tr><th scope="col">Grade</th><th scope="col">Key Skills by Season End</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1–2</strong></td><td>Platform form, underhand serve, call "mine," rotate, sportsmanship</td></tr>
+              <tr><td><strong>3–4</strong></td><td>Pass to target, serve progression, Pass-Set-Hit concept, downball, communication</td></tr>
+              <tr><td><strong>5–6</strong></td><td>Consistent pass, overhand serve from endline, overhead set, 3-step approach, W-formation serve receive</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="card-section-title">Top Drills — Quick Reference</div>
+        <div class="card-section-body">
+          <table class="ref">
+            <thead><tr><th scope="col">Drill</th><th scope="col">Grade</th><th scope="col">Skill</th></tr></thead>
+            <tbody>
+              <tr><td>Pepper (pairs)</td><td>3+</td><td>Pass-Set-Hit loop</td></tr>
+              <tr><td>Queen of the Court</td><td>3+</td><td>All skills, competition</td></tr>
+              <tr><td>Serve &amp; Shag</td><td>All</td><td>Serving reps</td></tr>
+              <tr><td>Toss-Pass-Set-Catch</td><td>3+</td><td>Pass-Set sequence</td></tr>
+              <tr><td>Down the Line Passing</td><td>All</td><td>Movement + passing</td></tr>
+              <tr><td>Serve Receive Triangle</td><td>4+</td><td>Serve receive</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="card-section-title">Pre-Season Coach Checklist</div>
+        <div class="card-section-body">
+          <ul class="ref-list">
+            <li>☐ Background check cleared</li>
+            <li>☐ SafeSport training complete (safesport.org)</li>
+            <li>☐ Coach Agreement signed &amp; returned</li>
+            <li>☐ Handbook reviewed</li>
+            <li>☐ Roster + emergency contacts received</li>
+            <li>☐ Curriculum guide reviewed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end card-body-4col -->
+
+  <div class="card-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>{{documents.byline}} · Side 2 of 2 · Print double-sided and laminate</span>
+    <span>www.csalaf.com</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://csa-volleyball-preview.vercel.app/data/facts.schema.json",
+  "title": "CSA Volleyball program facts",
+  "description": "One file for every program fact the site, practice plans and handbooks print. Use null for anything not yet confirmed; pages show it as 'to be confirmed'.",
+  "type": "object",
+  "required": ["confirmed", "program", "director", "season", "seasonWindows", "venues", "divisions", "grades", "documents", "site", "feedback"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "about": { "type": "string" },
+    "confirmed": {
+      "type": "object",
+      "description": "Who signed off on these facts, and when.",
+      "required": ["date", "by"],
+      "properties": {
+        "date": { "$ref": "#/$defs/dateOrNull" },
+        "by": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "program": {
+      "type": "object",
+      "required": ["name", "organization", "place", "gradeRange", "csaPage", "csaSite", "motto"],
+      "properties": {
+        "name": { "type": "string" },
+        "organization": { "type": "string" },
+        "place": { "type": "string" },
+        "gradeRange": { "type": "string" },
+        "focusGrades": { "type": "string" },
+        "csaPage": { "type": "string", "format": "uri" },
+        "csaSite": { "type": "string", "format": "uri" },
+        "motto": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "director": {
+      "type": "object",
+      "required": ["name", "title", "email", "phone"],
+      "properties": {
+        "name": { "type": "string" },
+        "title": { "type": "string" },
+        "email": { "type": ["string", "null"], "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$" },
+        "phone": { "type": ["string", "null"], "pattern": "^\\(?\\d{3}\\)?[ .-]?\\d{3}[ .-]?\\d{4}$" }
+      },
+      "additionalProperties": false
+    },
+    "season": {
+      "type": "object",
+      "description": "The coming season. weekOneStart is the Monday of the week of the first practice.",
+      "required": ["name", "weekOneStart", "tournamentDate", "registrationUrl", "registrationOpens", "registrationCloses", "fee"],
+      "properties": {
+        "name": { "type": ["string", "null"], "examples": ["Spring 2027"] },
+        "weekOneStart": { "$ref": "#/$defs/dateOrNull" },
+        "tournamentDate": { "$ref": "#/$defs/dateOrNull" },
+        "registrationUrl": { "type": ["string", "null"], "format": "uri" },
+        "registrationOpens": { "$ref": "#/$defs/dateOrNull" },
+        "registrationCloses": { "$ref": "#/$defs/dateOrNull" },
+        "fee": { "type": ["string", "null"], "examples": ["$75"] }
+      },
+      "additionalProperties": false
+    },
+    "seasonWindows": {
+      "type": "object",
+      "required": ["fall", "spring"],
+      "properties": {
+        "fall": { "type": "string" },
+        "spring": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "venues": {
+      "type": "object",
+      "required": ["practice", "games"],
+      "properties": {
+        "practice": { "type": "string" },
+        "games": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "photoConsent": {
+      "description": "Set by CSA's counsel: 'opt-out' (registering is consent unless a parent opts out) or 'opt-in'.",
+      "enum": [null, "opt-out", "opt-in"]
+    },
+    "unverified": {
+      "type": "array",
+      "description": "Facts that have values but are not yet confirmed. Remove an entry once the director confirms it.",
+      "items": {
+        "type": "object",
+        "required": ["fact", "why"],
+        "properties": {
+          "fact": { "type": "string" },
+          "why": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "divisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "grades", "label", "ages", "focus", "goals"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z-]+$" },
+          "name": { "type": "string" },
+          "grades": { "type": "array", "items": { "type": "integer", "minimum": 1, "maximum": 6 }, "minItems": 1 },
+          "label": { "type": "string" },
+          "ages": { "type": "string" },
+          "focus": { "type": "string" },
+          "goals": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "grades": {
+      "type": "object",
+      "propertyNames": { "pattern": "^[1-6]$" },
+      "additionalProperties": {
+        "type": "object",
+        "required": ["label", "division", "netFt", "net", "ball", "serve", "serveFt", "note", "skills"],
+        "properties": {
+          "label": { "type": "string" },
+          "division": { "type": "string" },
+          "netFt": { "type": "number", "minimum": 5, "maximum": 8 },
+          "net": { "type": "string" },
+          "ball": { "type": "string" },
+          "serve": { "type": "string" },
+          "serveFt": { "type": "number", "minimum": 5, "maximum": 30 },
+          "overhandFt": { "type": "number", "minimum": 5, "maximum": 30 },
+          "note": { "type": "string" },
+          "skills": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "documents": {
+      "type": "object",
+      "required": ["edition", "byline"],
+      "properties": {
+        "edition": { "type": "string" },
+        "byline": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "site": {
+      "type": "object",
+      "required": ["url", "analytics"],
+      "properties": {
+        "url": { "type": "string", "format": "uri", "pattern": "^https://[^/]+$" },
+        "analytics": { "type": "boolean", "description": "Turn on only after Web Analytics is enabled for the project in Vercel." }
+      },
+      "additionalProperties": false
+    },
+    "feedback": {
+      "type": "object",
+      "required": ["formUrl"],
+      "properties": {
+        "formUrl": { "type": ["string", "null"], "format": "uri" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "dateOrNull": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+  }
+}

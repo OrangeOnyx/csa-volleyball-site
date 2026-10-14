@@ -1,18 +1,19 @@
-// Mobile menu
-const menu = document.querySelector('.menu-toggle');
-const nav = document.querySelector('#nav');
-menu?.addEventListener('click', () => {
-  const open = menu.getAttribute('aria-expanded') !== 'true';
-  menu.setAttribute('aria-expanded', String(open));
-  nav.classList.toggle('open', open);
-});
-nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menu?.setAttribute('aria-expanded', 'false');
-}));
+// Program facts and the season plan come from data/ through the build (see scripts/build.mjs).
+const DATA = JSON.parse(document.getElementById('csa-data').textContent);
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = id => document.getElementById(id);
+let currentWeek = 1;
+
+// The "Open week N" links under the season plan follow the selected week and grade.
+function updateDivisionLinks() {
+  const label = $('dl-week');
+  if (label) label.textContent = currentWeek;
+  document.querySelectorAll('#division-links a[data-division]').forEach(a => {
+    a.href = `/plans/${a.dataset.division}/week-${currentWeek}/`;
+    a.classList.toggle('mine', a.dataset.grades.split(',').includes(String(currentGrade)));
+  });
+}
 
 // Arrow-key movement for radio groups and tab lists (roving tabindex)
 function roving(buttons, select) {
@@ -45,21 +46,7 @@ function el(tag, attrs, parent) {
   return n;
 }
 
-const SKILLS = {
-  young: 'make a passing platform, serve underhand, call the ball, rotate, and cheer for her teammates.',
-  mid: 'pass to a target, move up the serve progression, run pass–set–hit, hit a downball, and talk on the court.',
-  old: 'pass consistently, serve overhand from the end line, set overhead, use a three-step approach, and receive serve in a W formation.'
-};
-const YOUNG = { netFt: 6, net: '6′ 0″', ball: 'Soft Touch or Volley-Lite', serve: 'Underhand only, from 10 ft', ft: 10, note: 'Each player serves up to three in a row, and the serve rotates on a side-out.', skills: SKILLS.young };
-const OLD = { netFt: 7, net: '7′ 0″', ball: 'Volley-Lite or standard', serve: 'Underhand or overhand, from the end line', ft: 30, note: 'A server can score at most five points in a row before the serve changes.', skills: SKILLS.old };
-const GRADES = {
-  1: { label: '1st grade', ...YOUNG },
-  2: { label: '2nd grade', ...YOUNG },
-  3: { label: '3rd grade', netFt: 6.5, net: '6′ 6″', ball: 'Volley-Lite', serve: 'Underhand from 15 ft, or overhand from 10 ft', ft: 15, ohFt: 10, note: 'She chooses underhand or overhand. Coaches encourage overhand attempts.', skills: SKILLS.mid },
-  4: { label: '4th grade', netFt: 6.5, net: '6′ 6″', ball: 'Volley-Lite', serve: 'Underhand or overhand, from 22 ft', ft: 22, note: 'Coaches start pushing toward the overhand serve from 22 feet.', skills: SKILLS.mid },
-  5: { label: '5th grade', ...OLD },
-  6: { label: '6th grade', ...OLD }
-};
+const GRADES = Object.fromEntries(Object.entries(DATA.grades).map(([g, d]) => [g, { ...d, ft: d.serveFt, ohFt: d.overhandFt }]));
 
 // Static scene, painted back to front.
 const scene = document.getElementById('court-scene');
@@ -186,6 +173,7 @@ function setGrade(g, animate = true) {
     b.setAttribute('aria-checked', String(on));
     b.tabIndex = on ? 0 : -1;
   });
+  updateDivisionLinks();
 
   cancelAnimationFrame(tween);
   if (!animate || reduceMotion) {
@@ -245,66 +233,13 @@ if (courtFig && 'IntersectionObserver' in window && !reduceMotion) {
 }
 
 /* ---------- Season plan ----------
-   Source: CSA Season Curriculum & Practice Plan Guide, weeks 1–9 (condensed; wording kept close). */
-const WEEKS = {
-  1: { title: 'First contact', focus: 'Introductions, platform mechanics, underhand serve', seg: [
-    ['Warm-up & ball control', 'Name game with a movement everyone copies. Self-toss and catch, then partner toss and catch from 10 feet. Introduce the platform: arms together, thumbs parallel, elbows locked.'],
-    ['Serving', 'Underhand serve: step with the opposite foot, swing like a pendulum, contact the bottom of the ball. Serve into the net up close first, then back up. Goal: 8–10 serves each.'],
-    ['Skill focus: passing', 'The coach tosses and the player passes back with her platform. Cue: "Thumbs down, elbows locked, platform to the target." Form first; accuracy comes later.'],
-    ['Team play', 'Learn court positions 1–6 and clockwise rotation. In a modified game, the coach tosses each rally in. Everyone calls "mine" before every contact.']],
-    tip: 'Week 1 is about culture, not perfection. Learn every player\'s name. Celebrate every attempt. Set the tone that this is a safe place to try and fail.' },
-  2: { title: 'Platform passing', focus: 'Passing accuracy, serve consistency, communication', seg: [
-    ['Warm-up & ball control', 'Self-bump and count consecutive contacts. Partner passing at 10 feet: five in a row without a drop. "Belly button to the ball": face it before you pass.'],
-    ['Serving', 'Underhand from the grade line, consistency over power. 3rd grade starts overhand mechanics up close: toss, reach, snap. Goal: 10 serves each, counting how many clear the net.'],
-    ['Skill focus: passing to a target', 'A hula hoop or cone marks the setter\'s spot. The coach tosses, the player passes to the target, and the tosses get longer and wider as players improve.'],
-    ['Team play', 'Modified game with a rotation on every side-out. The coach starts rallies with a toss for 1st–2nd; 3rd and up serve. Keep the "mine" calls coming.']],
-    tip: 'Passing to a target is a big jump. Don\'t expect accuracy yet. Reward the attempt and the correct platform form. Accuracy comes with repetition.' },
-  3: { title: 'Serve receive basics', focus: 'Reading the serve, serve-receive positioning, rotation review', seg: [
-    ['Warm-up & ball control', 'Partner passing out to 15 feet. Movement drill: shuffle where the coach points, then pass the toss. Ready position: knees bent, weight forward, eyes on the ball.'],
-    ['Serving', 'Serve from the grade line and aim for the corners. 4th grade moves to 22 feet. 5th–6th serve from the end line, consistency before power.'],
-    ['Skill focus: serve receive', 'Three players across the back row. The coach serves or tosses; the closest player calls "mine" and passes to the target while the others clear out.'],
-    ['Team play', 'Full game with live serving from grade lines. Rotate after every side-out, then debrief: "What position are you in? Who serves next?"']],
-    tip: 'By Week 3, players should know their rotation and call "mine" consistently. If rotation is still shaky, spend extra time on it. It is the foundation for everything in Phase 2.' },
-  4: { title: 'Overhand serve & setting intro', focus: 'Overhand serve mechanics, what a set is, setting hand position', seg: [
-    ['Warm-up & ball control', 'Alternate self-bump and self-set. In pairs, one bumps and one sets, switching after five. Setting hands make a triangle above the forehead: fingerpads, not palms.'],
-    ['Serving', '3rd–6th grade learn the overhand serve from 10 feet (toss high, reach tall, snap the wrist) and move back as mechanics improve. 1st–2nd keep building the underhand serve.'],
-    ['Skill focus: setting', 'Self-set and catch, ten times. Partner sets: three in a row without catching. Cue: "Hands up early, push through the ball, extend fully."'],
-    ['Team play', 'Position 2 becomes the designated setter for the second ball. Encourage pass–set–hit, and celebrate any three-contact sequence, whatever happens next.']],
-    tip: 'Setting is the hardest skill to teach at this age. Don\'t penalize carries aggressively. Focus on hand position and intent. Improvement comes over multiple seasons.' },
-  5: { title: 'Pass, set, hit', focus: 'Connecting three contacts, downball hitting, court awareness', seg: [
-    ['Warm-up & ball control', 'Groups of three: pass to the setter, set to the hitter, hitter catches, rotate. The passer calls "mine," the setter calls "set," the hitter calls "hit."'],
-    ['Serving', 'Serve to zones: deep corners, then short. 5th–6th serve overhand from the end line and aim for the back half.'],
-    ['Skill focus: downball & hitting', 'Downball from behind the 10-foot line: toss and drive it over with an open hand. 3rd–4th stay with the downball. 5th–6th learn the three-step approach.'],
-    ['Team play', 'Each team needs at least two contacts before sending it over. Any three-contact sequence earns a bonus point while the coach narrates: pass, now set, now hit.']],
-    tip: 'The bonus point for three-contact sequences is a powerful motivator. Players start to understand why the sequence matters, not just that they\'re supposed to do it.' },
-  6: { title: 'Serve receive & team defense', focus: 'W formation, base defense, free-ball transition', seg: [
-    ['Warm-up & ball control', 'Longer partner passing, now while moving sideways. Introduce the free ball: an easy ball from the other side means your team goes on offense.'],
-    ['Serving', 'Cones go in the back corners. The team earns a point for every serve that lands within three feet of a cone.'],
-    ['Skill focus: serve-receive formation', '5th–6th learn the W: five players across the back two-thirds of the court. 3rd–4th use three back and three at the net. The coach serves and the team tries to run pass–set–hit.'],
-    ['Team play', 'Live serving, with the formation set before every serve. When the coach calls "Free ball!" the team transitions to offense.']],
-    tip: 'Week 6 is the midpoint. Pause for five minutes and ask, "What\'s one thing you\'ve gotten better at this season?" Recognizing personal growth is a powerful motivator.' },
-  7: { title: 'Game-like drills', focus: 'Competitive drills, pressure situations, serve and receive under pressure', seg: [
-    ['Warm-up & ball control', 'Pepper for 3rd grade and up: pass, set, hit, in a continuous loop. 1st–2nd run partner rallies and count passes without a drop.'],
-    ['Serving', 'Serving competition: five serves each, one point for in, two for the back half. A team total brings low-stakes pressure.'],
-    ['Skill focus: Queen of the Court', '3-on-3 on a half court. The first team to three points stays on; the other rotates off. No silent contacts.'],
-    ['Team play', 'Full game with tournament rules: rally scoring, standard rotation, live serving. The coach notes each player\'s growth for season-end recognition.']],
-    tip: 'Introduce a little competitive pressure this week. It prepares players for the tournament. Keep it fun, but let them feel what it\'s like to play for something.' },
-  8: { title: 'Tournament prep', focus: 'Tournament rules review, rotations under pressure, mental preparation', seg: [
-    ['Warm-up & ball control', 'Players lead their own warm-up while the coach watches. Partner serving warm-up: serve, receive, pass to the target.'],
-    ['Serving', 'Review tournament serving rules for each grade. Every player serves from tournament distance, aiming for consistency.'],
-    ['Skill focus: rotation quiz', 'Six on the court, and the coach calls a scenario: "Side-out from position 4. Where does everyone move?" Know where you are. Know who serves next.'],
-    ['Team play: simulated match', 'Best two of three under full tournament rules. The coach referees, calls faults, keeps score, and runs timeouts. Debrief: what went well, and what\'s next?']],
-    tip: 'The rotation quiz is one of the highest-value activities of the season. Players who know their rotation don\'t panic in games. Run it fast and make it fun, not a test.' },
-  9: { title: 'Tournament week', focus: 'Light practice, mental readiness, team unity', seg: [
-    ['Warm-up & ball control', 'Keep it light, with no new skills. The team votes on its favorite warm-up drill.'],
-    ['Serving', 'Five serves each from tournament distance. Build confidence, not pressure, and celebrate every good serve.'],
-    ['Skill focus: team highlights', 'The coach names one specific improvement for each player, out loud, in front of the team. Then a quick tournament review: bracket, schedule, what to bring, arrival time.'],
-    ['Team play: fun scrimmage', 'Bonus points for aces and three-contact sequences. End with a team cheer the players choose, and one reminder: "Go have fun at the tournament."']],
-    tip: 'Week 9 practice is about confidence and energy, not skill work. Your players are ready. Your job this week is to remind them of that.' }
-};
+   Source: data/plans.json, from the CSA Season Curriculum & Practice Plan Guide (condensed for this page). */
+const WEEKS = Object.fromEntries(DATA.weeks.map(w => [w.n, w]));
 const MINUTES = [15, 10, 15, 20];
 
 function setWeek(n) {
+  n = Number(n);
+  currentWeek = n;
   const w = WEEKS[n];
   $('w-title').textContent = `Week ${n}: ${w.title}`;
   $('w-focus').textContent = w.focus;
@@ -327,6 +262,7 @@ function setWeek(n) {
     t.tabIndex = on ? 0 : -1;
   });
   $('week-panel').setAttribute('aria-labelledby', `wk-${n}`);
+  updateDivisionLinks();
 }
 const tabs = [...document.querySelectorAll('.weeks [role=tab]')];
 tabs.forEach(t => t.addEventListener('click', () => {
@@ -335,7 +271,24 @@ tabs.forEach(t => t.addEventListener('click', () => {
   if (narrow.matches) $('week-panel').scrollIntoView({ block: 'start', behavior: reduceMotion ? 'auto' : 'smooth' });
 }));
 roving(tabs, t => setWeek(t.dataset.week));
-setWeek(1);
+
+// This week of the season, once CSA has confirmed the dates (data/facts.json → season.weekOneStart).
+function seasonWeek(season) {
+  if (!season.weekOneStart) return null;
+  const [y, m, d] = season.weekOneStart.split('-').map(Number);
+  const today = new Date();
+  const days = Math.floor((Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) - Date.UTC(y, m - 1, d)) / 86400000);
+  if (days < 0) return null;
+  const n = Math.floor(days / 7) + 1;
+  return n <= 9 ? n : null;
+}
+const thisWeek = seasonWeek(DATA.season);
+if (thisWeek) {
+  const tw = $('this-week');
+  tw.textContent = `This week: Week ${thisWeek}, ${WEEKS[thisWeek].title}.`;
+  tw.hidden = false;
+}
+setWeek(thisWeek || 1);
 
 /* ---------- Rotation ---------- */
 const SPOTS = { 4: [73, 80], 3: [180, 80], 2: [287, 80], 5: [73, 218], 6: [180, 218], 1: [287, 218] };

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSA Volleyball Player & Parent Handbook</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap');
+  :root {
+    --blue: #1A4F9C;
+    --red: #C0272D;
+    --white: #FFFFFF;
+    --light-gray: #F4F6FA;
+    --dark-gray: #2C2C2C;
+    --mid-gray: #666666;
+    --border: #D0D8E8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Barlow', Arial, sans-serif; font-size: 10.5pt; color: var(--dark-gray); background: white; line-height: 1.6; }
+
+  /* COVER */
+  .cover {
+    background: var(--blue);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    page-break-after: always;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+  }
+  .cover-logo { width: 220px; margin-bottom: 36px; border-radius: 8px; }
+  .cover-accent { width: 60px; height: 5px; background: var(--red); margin: 0 auto 24px; border-radius: 3px; }
+  .cover h1 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 36pt; font-weight: 800; color: white;
+    text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin-bottom: 10px;
+  }
+  .cover h2 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 16pt; font-weight: 700; color: var(--red);
+    text-transform: uppercase; letter-spacing: 3px; margin-bottom: 36px;
+  }
+  .cover-divider { width: 100%; max-width: 420px; height: 1px; background: rgba(255,255,255,0.3); margin: 0 auto 36px; }
+  .cover-meta { color: rgba(255,255,255,0.85); font-size: 11pt; font-weight: 500; line-height: 2.1; }
+  .cover-meta strong { color: white; }
+
+  /* PAGE */
+  .page { padding: 45px 55px 55px; max-width: 850px; margin: 0 auto; }
+  .page-break { page-break-before: always; }
+
+  .page-header {
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 3px solid var(--blue); padding-bottom: 10px; margin-bottom: 28px;
+  }
+  .page-header-logo { height: 34px; }
+  .page-header-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 9.5pt; font-weight: 700;
+    color: var(--blue); text-transform: uppercase; letter-spacing: 1.5px;
+  }
+
+  .section-header {
+    background: var(--blue); color: white; padding: 11px 18px;
+    margin: 30px 0 18px; border-radius: 4px; page-break-after: avoid;
+  }
+  .section-header .section-num { font-size: 8.5pt; font-weight: 600; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2px; }
+  .section-header h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 15pt; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; }
+
+  h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12pt; font-weight: 700;
+    color: var(--red); text-transform: uppercase; letter-spacing: 1px;
+    margin: 20px 0 7px; border-bottom: 1.5px solid var(--red); padding-bottom: 3px;
+  }
+  h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 10.5pt; font-weight: 700; color: var(--blue); text-transform: uppercase; margin: 14px 0 5px; }
+
+  p { margin-bottom: 9px; line-height: 1.65; }
+
+  .callout { background: var(--light-gray); border-left: 5px solid var(--blue); padding: 12px 16px; margin: 14px 0; border-radius: 0 4px 4px 0; }
+  .callout.red { border-left-color: var(--red); background: #FEF2F2; }
+  .callout.green { border-left-color: #2E7D32; background: #F1F8F1; }
+  .callout p { margin-bottom: 4px; }
+
+  .rule-list { list-style: none; padding: 0; margin: 8px 0; }
+  .rule-list li { padding: 6px 10px 6px 28px; position: relative; border-bottom: 1px solid var(--border); line-height: 1.5; font-size: 10pt; }
+  .rule-list li:last-child { border-bottom: none; }
+  .rule-list li::before { content: "▸"; color: var(--red); position: absolute; left: 10px; top: 7px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 9.5pt; }
+  thead tr { background: var(--blue); color: white; }
+  thead th { padding: 8px 12px; text-align: left; font-family: 'Barlow Condensed', sans-serif; font-size: 10pt; font-weight: 700; text-transform: uppercase; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 7px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+
+  /* PLAYER CARD — big visual for the girls */
+  .player-card {
+    background: var(--blue);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    color: white;
+  }
+  .player-card h3 { color: white; border-bottom-color: rgba(255,255,255,0.4); font-size: 14pt; }
+  .player-card .pledge-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);
+    font-size: 10.5pt; line-height: 1.5;
+  }
+  .player-card .pledge-item:last-child { border-bottom: none; }
+  .player-card .pledge-num {
+    background: var(--red); color: white; border-radius: 50%;
+    width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11pt; font-weight: 800;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* PARENT CARD */
+  .parent-card {
+    background: var(--light-gray);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin: 20px 0;
+  }
+  .parent-card h3 { color: var(--blue); border-bottom-color: var(--blue); }
+
+  /* SIGNATURE */
+  .sig-block { border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 20px; margin: 12px 0; background: var(--light-gray); }
+  .sig-row { display: flex; gap: 24px; margin-top: 8px; }
+  .sig-field { flex: 1; }
+  .sig-line { border-bottom: 1.5px solid var(--dark-gray); height: 30px; margin-bottom: 4px; }
+  .sig-label { font-size: 8pt; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .doc-footer {
+    margin-top: 30px; padding-top: 10px; border-top: 2px solid var(--blue);
+    display: flex; justify-content: space-between; font-size: 8.5pt; color: var(--mid-gray);
+  }
+  .footer-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: var(--blue); font-size: 9pt; text-transform: uppercase; }
+
+  .two-col { display: flex; gap: 18px; margin: 14px 0; }
+  .two-col > * { flex: 1 1 0; }
+  .col-box { background: var(--light-gray); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; }
+  .col-box h4 { margin-top: 0; }
+
+  /* Byline and edition (added October 2026) */
+  .cover-byline { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 12pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin: -16px 0 30px; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <img src="csa_logo.jpg" alt="CSA Logo" class="cover-logo">
+  <div class="cover-accent"></div>
+  <h1>Player &amp; Parent<br>Handbook</h1>
+  <h2>CSA Girls Volleyball</h2>
+  <p class="cover-byline">{{documents.byline}}</p>
+  <div class="cover-divider"></div>
+  <div class="cover-meta">
+    <strong>Grades 1–6 · Primary Focus: 3rd, 4th &amp; 5th Grade</strong><br>
+    Cajun Sports Association · Lafayette, Louisiana<br>
+    Edition: {{documents.edition}}<br>
+    Facilities: Comeaux Sports Complex &amp; Earl K. Long Gym, ULL<br>
+    www.csalaf.com
+  </div>
+</div>
+
+<!-- PAGE 1: WELCOME + PLAYER SECTION -->
+<div class="page">
+  <div class="page-header">
+    <img src="csa_logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball · Player &amp; Parent Handbook</span>
+  </div>
+
+  <div class="section-header">
+    <div class="section-num">Welcome</div>
+    <h2>Welcome to CSA Volleyball!</h2>
+  </div>
+
+  <p>We are so glad you are here. Whether this is your daughter's first time touching a volleyball or she has been playing for years, she belongs in this program. CSA Volleyball is a place where every girl gets to play, learn, compete, and have fun — in that order.</p>
+
+  <p>This handbook has two parts. The first part is <strong>for the player</strong> — your daughter. It speaks directly to her about what it means to be a CSA volleyball player. The second part is <strong>for the parent</strong> — it covers what we need from you to make this the best possible experience for your daughter and her team.</p>
+
+  <p>Please read this together. Talk about it. Ask questions. And then sign the acknowledgment at the end so we know you are both on board.</p>
+
+  <!-- ===== FOR THE PLAYER ===== -->
+  <div class="section-header">
+    <div class="section-num">Part 1 — For the Player</div>
+    <h2>Hey, CSA Volleyball Player — This Part Is for You!</h2>
+  </div>
+
+  <p>You signed up for volleyball. That was a great decision. Here is what you need to know about being a CSA volleyball player — and what we expect from you this season.</p>
+
+  <h3>What You Will Learn This Season</h3>
+  <p>Every week at practice, your coach will teach you real volleyball skills. By the end of the season, here is what you will be working toward — based on your grade:</p>
+
+  <table>
+    <thead><tr><th scope="col">Your Grade</th><th scope="col">Skills You Will Learn</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1st &amp; 2nd Grade</strong></td><td>How to make a passing platform, underhand serve, call the ball, rotate, and cheer for your teammates</td></tr>
+      <tr><td><strong>3rd &amp; 4th Grade</strong></td><td>Consistent passing, serve progression, the Pass–Set–Hit sequence, court positions, and downball hitting</td></tr>
+      <tr><td><strong>5th &amp; 6th Grade</strong></td><td>Overhand serve from the end line, setting, full approach hitting, serve receive formation, and team defense</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The CSA Player Pledge</h3>
+  <div class="player-card">
+    <h3>As a CSA Volleyball Player, I Pledge To:</h3>
+    <div class="pledge-item"><div class="pledge-num">1</div><div><strong>Show up.</strong> I will be at every practice and game. If I can't make it, I'll make sure my parent tells my coach ahead of time.</div></div>
+    <div class="pledge-item"><div class="pledge-num">2</div><div><strong>Try hard.</strong> I will give my best effort every single time — even when it's hard, even when I'm tired, even when I mess up.</div></div>
+    <div class="pledge-item"><div class="pledge-num">3</div><div><strong>Be a good teammate.</strong> I will cheer for my teammates, pick them up when they make mistakes, and never make anyone feel bad about their play.</div></div>
+    <div class="pledge-item"><div class="pledge-num">4</div><div><strong>Respect everyone.</strong> My coaches, the officials, the other team, and the facility. Always.</div></div>
+    <div class="pledge-item"><div class="pledge-num">5</div><div><strong>Listen and learn.</strong> When my coach is talking, I stop, face them, and listen. Feedback makes me better.</div></div>
+    <div class="pledge-item"><div class="pledge-num">6</div><div><strong>Have fun.</strong> This is volleyball. It is supposed to be fun. I will bring good energy every time I play.</div></div>
+  </div>
+
+  <h3>What to Bring Every Time</h3>
+  <div class="two-col">
+    <div class="col-box">
+      <h4>Practice</h4>
+      <ul class="rule-list">
+        <li>Athletic clothes (any color)</li>
+        <li>Non-marking athletic shoes</li>
+        <li>Water bottle</li>
+        <li>Knee pads (recommended)</li>
+        <li>Good attitude</li>
+      </ul>
+    </div>
+    <div class="col-box">
+      <h4>Game Day</h4>
+      <ul class="rule-list">
+        <li>Your CSA jersey (required)</li>
+        <li>Athletic shorts</li>
+        <li>Non-marking athletic shoes</li>
+        <li>Water bottle</li>
+        <li>Knee pads (recommended)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout green">
+    <p><strong>No Jewelry Rule:</strong> All jewelry must be removed before you play — earrings, rings, bracelets, necklaces. Medical alert jewelry is the only exception. This is a safety rule, not a style rule.</p>
+  </div>
+
+  <h3>What Happens If You Break the Rules</h3>
+  <p>We are not here to punish anyone. But there are standards, and they exist to protect you and your teammates. If a player repeatedly disrespects a coach, teammate, or official — or behaves in a way that is unsafe — the following steps will happen:</p>
+
+  <table>
+    <thead><tr><th scope="col">Step</th><th scope="col">What Happens</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1st Issue</strong></td><td>Your coach talks to you privately. You get a chance to correct it.</td></tr>
+      <tr><td><strong>2nd Issue</strong></td><td>Your parent is notified. You may sit out part of a practice or game.</td></tr>
+      <tr><td><strong>3rd Issue</strong></td><td>The Volleyball Director gets involved. A meeting with you and your parent may be required.</td></tr>
+      <tr><td><strong>Serious Conduct</strong></td><td>Fighting, threats, or abusive language result in immediate removal from the session, pending Director review.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Player &amp; Parent Handbook — Page 1</span>
+  </div>
+</div>
+
+<!-- PAGE 2: PARENT SECTION + SIGNATURE -->
+<div class="page page-break">
+  <div class="page-header">
+    <img src="csa_logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball · Player &amp; Parent Handbook</span>
+  </div>
+
+  <!-- ===== FOR THE PARENT ===== -->
+  <div class="section-header">
+    <div class="section-num">Part 2 — For the Parent</div>
+    <h2>What We Need from You</h2>
+  </div>
+
+  <p>Your daughter's experience in this program is shaped by three things: her own effort, her coach's guidance, and your support. You are a critical part of this team — even from the bleachers. Here is what we ask of you.</p>
+
+  <h3>Your Role at Games</h3>
+  <div class="parent-card">
+    <h3>The CSA Parent Standard</h3>
+    <ul class="rule-list">
+      <li><strong>Cheer positively.</strong> Cheer for your daughter's team. Cheer for good plays by either team. Keep it positive, always.</li>
+      <li><strong>Don't coach from the stands.</strong> Your daughter has a coach. Conflicting instructions from the bleachers confuse players and undermine the coach. Trust the coach to do their job.</li>
+      <li><strong>Don't argue with officials.</strong> Officials make mistakes. So do coaches. So do parents. Arguing with officials at a youth rec game teaches your daughter the wrong lesson.</li>
+      <li><strong>Stay in spectator areas.</strong> Do not enter the court, bench area, or warm-up zones during practice or games.</li>
+      <li><strong>Model sportsmanship.</strong> Your daughter is watching how you behave. Be the example you want her to follow.</li>
+      <li><strong>No profane or abusive language.</strong> Ever. At any CSA event. This is a zero-tolerance standard.</li>
+    </ul>
+  </div>
+
+  <h3>Drop-Off &amp; Pick-Up</h3>
+  <ul class="rule-list">
+    <li>Do not drop off your daughter more than 15 minutes before the scheduled start of practice or games.</li>
+    <li>Pick up your daughter within 15 minutes of the end of the session. Coaches are not responsible for supervising players after the session ends.</li>
+    <li>If someone else is picking up your daughter, notify the coach in advance.</li>
+    <li>If you are running late, call or text your coach immediately. Do not leave your daughter unattended.</li>
+  </ul>
+
+  <h3>Communication — The Right Way</h3>
+  <p>We know you care deeply about your daughter's experience. When something comes up, please follow this communication ladder:</p>
+
+  <table>
+    <thead><tr><th scope="col">Your Concern</th><th scope="col">Who to Contact First</th></tr></thead>
+    <tbody>
+      <tr><td>Playing time, team dynamics, practice questions</td><td>Your daughter's coach — allow 24–48 hours for a response</td></tr>
+      <tr><td>Coach conduct or unresolved team issue</td><td>Volleyball Director: Stephanie Abdalla (via www.csalaf.com)</td></tr>
+      <tr><td>Program-level issue</td><td>CSA Administration (via www.csalaf.com)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout red">
+    <p><strong>The 24-Hour Rule:</strong> Please wait at least 24 hours after a game before reaching out about a concern that arose during the game. Emotions run high. A calm conversation is always more productive than an immediate reaction.</p>
+  </div>
+
+  <h3>Key Program Information</h3>
+  <table>
+    <thead><tr><th scope="col">Topic</th><th scope="col">Details</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Season Length</strong></td><td>9 weeks · Fall and Spring seasons · 1 practice per week + weekly games</td></tr>
+      <tr><td><strong>Practice Facility</strong></td><td>Comeaux Sports Complex, Lafayette, LA</td></tr>
+      <tr><td><strong>Game Facility</strong></td><td>Earl K. Long Gymnasium, ULL Campus, Lafayette, LA</td></tr>
+      <tr><td><strong>End-of-Season Tournament</strong></td><td>All teams participate · Single elimination · Week 9</td></tr>
+      <tr><td><strong>Cancellations</strong></td><td>Communicated via CSA platform/email · Minimum 2 hours notice when possible</td></tr>
+      <tr><td><strong>Uniforms</strong></td><td>CSA jersey provided · Shorts, shoes, knee pads are family responsibility</td></tr>
+      <tr><td><strong>Questions</strong></td><td>www.csalaf.com or contact your coach</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ACKNOWLEDGMENT -->
+  <h3>Acknowledgment &amp; Sign-Off</h3>
+  <p>By signing below, both the player and parent/guardian confirm that they have read this handbook and agree to uphold the standards of the CSA Volleyball program.</p>
+
+  <div class="sig-block">
+    <p style="font-weight:600; color:var(--blue); margin-bottom:12px;">Player Acknowledgment</p>
+    <p style="font-size:9.5pt; margin-bottom:12px;"><em>"I have read the CSA Player section of this handbook. I understand what is expected of me and I agree to be a good teammate, work hard, and represent CSA with pride."</em></p>
+    <div class="sig-row">
+      <div class="sig-field"><div class="sig-line"></div><div class="sig-label">Player Signature</div></div>
+      <div class="sig-field"><div class="sig-line"></div><div class="sig-label">Player Printed Name</div></div>
+      <div class="sig-field"><div class="sig-line"></div><div class="sig-label">Grade</div></div>
+      <div class="sig-field" style="max-width:120px;"><div class="sig-line"></div><div class="sig-label">Date</div></div>
+    </div>
+  </div>
+
+  <div class="sig-block" style="margin-top:14px;">
+    <p style="font-weight:600; color:var(--blue); margin-bottom:12px;">Parent / Guardian Acknowledgment</p>
+    <p style="font-size:9.5pt; margin-bottom:12px;"><em>"I have read this handbook in full. I agree to support the CSA Volleyball program, follow the parent conduct standards, and model the sportsmanship we expect from our players."</em></p>
+    <div class="sig-row">
+      <div class="sig-field"><div class="sig-line"></div><div class="sig-label">Parent/Guardian Signature</div></div>
+      <div class="sig-field"><div class="sig-line"></div><div class="sig-label">Printed Name</div></div>
+      <div class="sig-field"><div class="sig-line"></div><div class="sig-label">Relationship to Player</div></div>
+      <div class="sig-field" style="max-width:120px;"><div class="sig-line"></div><div class="sig-label">Date</div></div>
+    </div>
+    <div style="margin-top:12px;">
+      <div class="sig-line" style="max-width:320px;"></div>
+      <div class="sig-label">Best Phone Number for Season Communication</div>
+    </div>
+    <div style="margin-top:10px;">
+      <div class="sig-line" style="max-width:380px;"></div>
+      <div class="sig-label">Email Address for Season Communication</div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:16px;">
+    <p><strong>Return this signed page to your coach at the first practice.</strong> Keep the rest of the handbook for your reference throughout the season.</p>
+  </div>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA · www.csalaf.com</span>
+    <span>Player &amp; Parent Handbook — Page 2</span>
+  </div>
+</div>
+
+</body>
+</html>
