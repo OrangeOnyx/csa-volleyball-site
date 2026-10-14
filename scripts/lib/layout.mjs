@@ -134,6 +134,11 @@ export function seasonStatus(facts) {
   if (s.weekOneStart) bits.push(`Week 1 starts ${esc(fmtDate(s.weekOneStart))}`);
   if (s.tournamentDate) bits.push(`Tournament ${esc(fmtDate(s.tournamentDate))}`);
   if (s.weekOneStart) bits.push('<a href="/season.ics">Add the season to your calendar</a>');
+  const coming = [!s.weekOneStart && 'practice dates', !s.fee && 'the fee', !(s.registrationUrl || s.registrationOpens || s.registrationCloses) && 'registration'].filter(Boolean);
+  if (coming.length) {
+    const list = coming.length > 1 ? `${coming.slice(0, -1).join(', ')} and ${coming.at(-1)}` : coming[0];
+    bits.push(`${list[0].toUpperCase()}${list.slice(1)} will be posted here once CSA confirms ${coming.length > 1 || coming[0] === 'practice dates' ? 'them' : 'it'}`);
+  }
   return {
     text: bits.join(' · '),
     link: s.registrationUrl

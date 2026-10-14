@@ -3,7 +3,7 @@
    handbook web pages, the facts on the home page, sitemap, robots and the season calendar.
    Everything it writes lives in website/ and is committed, so Vercel serves plain files.
    Run: npm run build */
-import { readFileSync, writeFileSync, existsSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, rmSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { ROOT, SITE, readJSON, writeSite, tidy, esc, curly, fmtDate, addDays } from './lib/util.mjs';
 import { header, footer, headMeta, seasonStatus, directorContact } from './lib/layout.mjs';
@@ -41,7 +41,12 @@ if (problems.length) {
 const written = [];
 const out = (rel, html) => written.push(writeSite(rel, html));
 
-/* ---------- practice plans: hub, 3 divisions, 27 weeks ---------- */
+/* ---------- practice plans: the hub, then a page per division and per division-week ---------- */
+// A division that left facts.json takes its old pages with it (vercel.json redirects the old URLs).
+const plansDir = join(SITE, 'plans');
+if (existsSync(plansDir)) for (const name of readdirSync(plansDir)) {
+  if (statSync(join(plansDir, name)).isDirectory() && !divIds.has(name)) rmSync(join(plansDir, name), { recursive: true });
+}
 out('plans/index.html', renderHub({ facts, plans }));
 for (const div of facts.divisions) {
   out(`plans/${div.id}/index.html`, renderDivision({ facts, plans, div }));
@@ -87,6 +92,11 @@ ${facts.divisions.map(d => `            <li><a href="${weekPath(d, 1)}" data-div
         <p class="fineprint">From the <a href="/handbooks/curriculum-guide/">Curriculum &amp; Practice Guide</a> by ${esc(facts.director.name)}. See <a href="/plans/">every plan</a> and the <a href="/drills/">drill library</a>.</p>`);
 const contact = directorContact(facts);
 index = inject(index, 'ladder', `              <li><span>Coach conduct, or a team issue that’s still open</span><b>${esc(facts.director.title)} ${esc(facts.director.name)}</b><small>${contact.length ? contact.join(' · ') : 'Through csalaf.com'}</small></li>`);
+index = inject(index, 'where', `            <dl>
+              <div><dt>Practices</dt><dd>${esc(facts.venues.practice)}</dd></div>
+              <div><dt>Games</dt><dd>${esc(facts.venues.games || 'Venue to be announced')}</dd></div>
+              <div><dt>Tournament</dt><dd>${facts.season.tournamentDate ? `${esc(fmtDate(facts.season.tournamentDate))}, week 9` : 'Week 9'}. Every team plays.</dd></div>
+            </dl>`);
 index = inject(index, 'shelf', '        ' + shelf(facts, { indent: '        ' }));
 index = inject(index, 'contact', `        <h2 id="contact-title">See you on the court.</h2>
         <p>CSA posts registration windows, team assignments, and game schedules each season. ${esc(facts.director.title)} ${esc(facts.director.name)} leads the program.</p>
@@ -158,5 +168,5 @@ if (facts.season.weekOneStart) {
 console.log(`Built ${written.length} files.`);
 const nulls = [];
 const walk = (o, p) => { for (const [k, v] of Object.entries(o)) { if (v === null) nulls.push(p + k); else if (v && typeof v === 'object' && !Array.isArray(v)) walk(v, p + k + '.'); } };
-walk({ director: facts.director, season: facts.season, photoConsent: facts.photoConsent, feedback: facts.feedback }, '');
+walk({ director: facts.director, season: facts.season, venues: facts.venues, photoConsent: facts.photoConsent, feedback: facts.feedback }, '');
 if (nulls.length) console.log(`Still to be confirmed (shown as "to be confirmed"): ${nulls.join(', ')}`);

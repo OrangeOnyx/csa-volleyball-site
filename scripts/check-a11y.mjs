@@ -13,7 +13,7 @@ import { startServer } from './serve.mjs';
 const PORT = Number(process.env.PORT || 4321);
 const base = readJSON('data/facts.json').site.url.replace(/\/$/, '');
 let paths = [...readFileSync(join(SITE, 'sitemap.xml'), 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].slice(base.length));
-let phone = ['/', '/plans/', '/plans/developmental/', '/plans/developmental/week-5/', '/method/', '/coaches/', '/drills/', '/handbooks/', '/handbooks/master-handbook/', '/handbooks/quick-reference-card/'];
+let phone = ['/', '/plans/', '/plans/grade-3/', '/plans/grade-4/week-5/', '/method/', '/coaches/', '/drills/', '/handbooks/', '/handbooks/master-handbook/', '/handbooks/quick-reference-card/'];
 // Optional: check only the paths given on the command line, e.g. npm run check:a11y -- /method/
 const only = process.argv.slice(2);
 if (only.length) { paths = paths.filter(p => only.includes(p)); phone = phone.filter(p => only.includes(p)); }
