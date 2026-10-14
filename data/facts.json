@@ -1,0 +1,187 @@
+{
+  "$schema": "./facts.schema.json",
+  "about": "Program facts used by every page, plan and handbook. A null value shows as 'to be confirmed'. After the facts session with the director, fill in the nulls, set confirmed.date and confirmed.by, then run: npm run build && npm run pdf",
+  "confirmed": {
+    "date": null,
+    "by": null
+  },
+  "program": {
+    "name": "CSA Volleyball",
+    "organization": "Cajun Sports Association",
+    "place": "Lafayette, Louisiana",
+    "gradeRange": "1–6",
+    "focusGrades": "3rd, 4th and 5th grade",
+    "csaPage": "https://www.csalaf.com/volleyball/",
+    "csaSite": "https://www.csalaf.com",
+    "motto": "Build skills. Build confidence. Have fun."
+  },
+  "director": {
+    "name": "Stephanie Abdalla",
+    "title": "Volleyball Director",
+    "email": null,
+    "phone": null
+  },
+  "season": {
+    "name": null,
+    "weekOneStart": null,
+    "tournamentDate": null,
+    "registrationUrl": null,
+    "registrationOpens": null,
+    "registrationCloses": null,
+    "fee": null
+  },
+  "seasonWindows": {
+    "fall": "September – November",
+    "spring": "February – April"
+  },
+  "venues": {
+    "practice": "Comeaux Sports Complex",
+    "games": "Earl K. Long Gym, UL Lafayette campus"
+  },
+  "photoConsent": null,
+  "unverified": [
+    {
+      "fact": "seasonWindows",
+      "why": "The Master Handbook says spring runs February to April; TeamSnap shows Spring 2026 ran March 21 to April 25 with a May 2 tournament."
+    },
+    {
+      "fact": "divisions",
+      "why": "The handbooks describe three divisions; Spring 2026 ran four divisions with 27 teams."
+    },
+    {
+      "fact": "venues",
+      "why": "Official venue names have not been confirmed by the director."
+    }
+  ],
+  "divisions": [
+    {
+      "id": "beginner",
+      "name": "Beginner",
+      "grades": [1, 2],
+      "label": "1st–2nd grade",
+      "ages": "6–8",
+      "focus": "Introduction to movement, ball control, underhand serve",
+      "goals": [
+        "Make a proper passing platform (arms together, thumbs parallel)",
+        "Underhand serve from the 10-foot line with reasonable consistency",
+        "Call “mine” before playing the ball",
+        "Rotate clockwise when their team earns the serve",
+        "Demonstrate basic sportsmanship (handshake line, cheering for teammates)"
+      ]
+    },
+    {
+      "id": "developmental",
+      "name": "Developmental",
+      "grades": [3, 4],
+      "label": "3rd–4th grade",
+      "ages": "8–10",
+      "focus": "Passing, setting, serving progression, team concepts",
+      "goals": [
+        "Pass with a consistent, locked platform, directing the ball toward the setter",
+        "Underhand serve from 15 feet; attempt overhand serve from 10 feet",
+        "Understand and attempt the Pass–Set–Hit sequence",
+        "Rotate correctly and understand their court position number",
+        "Open up and face the passer (“belly button to the ball”)",
+        "Hit a downball over the net from behind the 10-foot line",
+        "Communicate with teammates during play"
+      ]
+    },
+    {
+      "id": "intermediate",
+      "name": "Intermediate",
+      "grades": [5, 6],
+      "label": "5th–6th grade",
+      "ages": "10–12",
+      "focus": "Full game play, overhand serve, pass-set-hit system",
+      "goals": [
+        "Pass consistently to a target (setter position)",
+        "Overhand serve from the end line with reasonable accuracy",
+        "Execute a basic overhead set to a hitter",
+        "Run a 3-step approach and contact a set ball",
+        "Understand serve receive formation (“W” formation)",
+        "Play in a base defensive position",
+        "Execute the full Pass–Set–Hit sequence in game situations"
+      ]
+    }
+  ],
+  "grades": {
+    "1": {
+      "label": "1st grade",
+      "division": "beginner",
+      "netFt": 6,
+      "net": "6′ 0″",
+      "ball": "Soft Touch or Volley-Lite",
+      "serve": "Underhand only, from 10 ft",
+      "serveFt": 10,
+      "note": "Each player serves up to three in a row, and the serve rotates on a side-out.",
+      "skills": "make a passing platform, serve underhand, call the ball, rotate, and cheer for her teammates."
+    },
+    "2": {
+      "label": "2nd grade",
+      "division": "beginner",
+      "netFt": 6,
+      "net": "6′ 0″",
+      "ball": "Soft Touch or Volley-Lite",
+      "serve": "Underhand only, from 10 ft",
+      "serveFt": 10,
+      "note": "Each player serves up to three in a row, and the serve rotates on a side-out.",
+      "skills": "make a passing platform, serve underhand, call the ball, rotate, and cheer for her teammates."
+    },
+    "3": {
+      "label": "3rd grade",
+      "division": "developmental",
+      "netFt": 6.5,
+      "net": "6′ 6″",
+      "ball": "Volley-Lite",
+      "serve": "Underhand from 15 ft, or overhand from 10 ft",
+      "serveFt": 15,
+      "overhandFt": 10,
+      "note": "She chooses underhand or overhand. Coaches encourage overhand attempts.",
+      "skills": "pass to a target, move up the serve progression, run pass–set–hit, hit a downball, and talk on the court."
+    },
+    "4": {
+      "label": "4th grade",
+      "division": "developmental",
+      "netFt": 6.5,
+      "net": "6′ 6″",
+      "ball": "Volley-Lite",
+      "serve": "Underhand or overhand, from 22 ft",
+      "serveFt": 22,
+      "note": "Coaches start pushing toward the overhand serve from 22 feet.",
+      "skills": "pass to a target, move up the serve progression, run pass–set–hit, hit a downball, and talk on the court."
+    },
+    "5": {
+      "label": "5th grade",
+      "division": "intermediate",
+      "netFt": 7,
+      "net": "7′ 0″",
+      "ball": "Volley-Lite or standard",
+      "serve": "Underhand or overhand, from the end line",
+      "serveFt": 30,
+      "note": "A server can score at most five points in a row before the serve changes.",
+      "skills": "pass consistently, serve overhand from the end line, set overhead, use a three-step approach, and receive serve in a W formation."
+    },
+    "6": {
+      "label": "6th grade",
+      "division": "intermediate",
+      "netFt": 7,
+      "net": "7′ 0″",
+      "ball": "Volley-Lite or standard",
+      "serve": "Underhand or overhand, from the end line",
+      "serveFt": 30,
+      "note": "A server can score at most five points in a row before the serve changes.",
+      "skills": "pass consistently, serve overhand from the end line, set overhead, use a three-step approach, and receive serve in a W formation."
+    }
+  },
+  "documents": {
+    "edition": "October 2026",
+    "byline": "By Stephanie Abdalla, CSA Volleyball Director"
+  },
+  "site": {
+    "url": "https://csa-volleyball-preview.vercel.app",
+    "analytics": false
+  },
+  "feedback": {
+    "formUrl": null
+  }
+}

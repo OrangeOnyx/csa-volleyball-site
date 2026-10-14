@@ -1,0 +1,327 @@
+{
+  "about": "Drills from Stephanie Abdalla's Season Curriculum & Practice Plan Guide: the six in her drill library, plus the named activities from her weekly plans. 'from' says where each one appears. minGrade 1 means all grades.",
+  "skills": [
+    "Ball control",
+    "Passing",
+    "Serving",
+    "Setting",
+    "Hitting",
+    "Serve receive",
+    "Team play"
+  ],
+  "drills": [
+    {
+      "id": "pepper",
+      "name": "Pepper",
+      "library": true,
+      "minGrade": 3,
+      "players": "2",
+      "time": "5–10 min",
+      "skills": [
+        "Passing",
+        "Setting",
+        "Hitting"
+      ],
+      "how": "Player A passes to Player B. B sets back to A. A hits (or downballs) back to B. B digs and the cycle continues.",
+      "goal": "Keep a continuous rally going. Count consecutive contacts without the ball hitting the floor.",
+      "from": [
+        "Drill library",
+        "Week 7 warm-up"
+      ]
+    },
+    {
+      "id": "queen-of-the-court",
+      "name": "Queen of the Court",
+      "library": true,
+      "minGrade": 3,
+      "players": "6–12",
+      "time": "10–15 min",
+      "skills": [
+        "Team play"
+      ],
+      "how": "Split the court into two halves, 3v3 on each side. The winning team (first to 3 points) stays. The losing team rotates off and a new team rotates on.",
+      "goal": "Competitive pressure in a fun, fast format. No silent contacts.",
+      "from": [
+        "Drill library",
+        "Week 7 skill focus"
+      ]
+    },
+    {
+      "id": "serve-and-shag",
+      "name": "Serve and Shag",
+      "library": true,
+      "minGrade": 1,
+      "players": "Full team",
+      "time": "8–10 min",
+      "skills": [
+        "Serving"
+      ],
+      "how": "Half the team serves from one side; the other half retrieves (shags) balls on the other side. After each player serves 5 balls, teams switch.",
+      "goal": "Fast-paced, maximizes serve repetitions.",
+      "from": [
+        "Drill library"
+      ]
+    },
+    {
+      "id": "toss-pass-set-catch",
+      "name": "Toss–Pass–Set–Catch",
+      "library": true,
+      "minGrade": 3,
+      "players": "3",
+      "time": "8–10 min",
+      "skills": [
+        "Passing",
+        "Setting"
+      ],
+      "how": "Player 1 tosses to Player 2. Player 2 passes to Player 3 (setter position). Player 3 sets back to Player 1, who catches. Rotate positions every 5 repetitions.",
+      "goal": "Teaches the Pass–Set sequence without the pressure of a full rally.",
+      "from": [
+        "Drill library"
+      ]
+    },
+    {
+      "id": "down-the-line-passing",
+      "name": "Down the Line Passing",
+      "library": true,
+      "minGrade": 1,
+      "players": "4–6",
+      "time": "8–10 min",
+      "skills": [
+        "Passing"
+      ],
+      "how": "Players line up on one side of the court. The coach stands on the other side of the net and tosses balls to various positions. Players move to the ball, pass it back over the net, and return to the line.",
+      "goal": "Teaches movement to the ball before passing.",
+      "from": [
+        "Drill library"
+      ]
+    },
+    {
+      "id": "serve-receive-triangle",
+      "name": "Serve Receive Triangle",
+      "library": true,
+      "minGrade": 4,
+      "players": "3",
+      "time": "10 min",
+      "skills": [
+        "Serve receive",
+        "Passing"
+      ],
+      "how": "Three players form a triangle: one server, one passer, one target (setter). The server serves from the grade-appropriate line. The passer receives and passes to the target. The target catches and feeds the ball back to the server. Rotate every 5 serves.",
+      "goal": "Simulates game serve receive in a small group.",
+      "from": [
+        "Drill library"
+      ]
+    },
+    {
+      "id": "name-game",
+      "name": "Name Game",
+      "minGrade": 1,
+      "players": "Full team",
+      "skills": [
+        "Team play"
+      ],
+      "how": "Each player says her name and does a movement; everyone else copies it.",
+      "goal": "Learn every name on day one.",
+      "from": [
+        "Week 1 warm-up"
+      ]
+    },
+    {
+      "id": "toss-and-catch",
+      "name": "Toss and Catch",
+      "minGrade": 1,
+      "players": "1–2",
+      "skills": [
+        "Ball control"
+      ],
+      "how": "Self-toss: toss the ball above your head, let it bounce once, catch. Then partner toss and catch: 10 feet apart, underhand toss, two-hand catch.",
+      "goal": "Get comfortable with the ball.",
+      "from": [
+        "Week 1 warm-up"
+      ]
+    },
+    {
+      "id": "self-bump-count",
+      "name": "Self-Bump Count",
+      "minGrade": 1,
+      "players": "1",
+      "skills": [
+        "Ball control",
+        "Passing"
+      ],
+      "how": "Bump the ball to yourself and keep it going. Count consecutive contacts.",
+      "goal": "Platform control.",
+      "from": [
+        "Week 2 warm-up"
+      ]
+    },
+    {
+      "id": "five-in-a-row",
+      "name": "Partner Passing: Five in a Row",
+      "minGrade": 1,
+      "players": "2",
+      "skills": [
+        "Passing"
+      ],
+      "how": "Partners 10 feet apart pass back and forth. Week 3 moves out to 15 feet; Week 6 adds passing while moving laterally.",
+      "goal": "Five consecutive passes without the ball hitting the floor.",
+      "cue": "Belly button to the ball: always face the incoming ball before passing.",
+      "from": [
+        "Week 2 warm-up",
+        "Week 3 warm-up",
+        "Week 6 warm-up"
+      ]
+    },
+    {
+      "id": "pass-to-target",
+      "name": "Passing to a Target",
+      "minGrade": 1,
+      "players": "Coach + 1",
+      "skills": [
+        "Passing"
+      ],
+      "how": "Place a hula hoop or cone at the setter position (right front, position 2/3). The coach tosses; the player passes to the target zone. Increase toss distance and vary angles as players improve.",
+      "goal": "Reward the attempt and the correct platform form; accuracy comes with repetition.",
+      "cue": "Thumbs down, elbows locked, platform to the target.",
+      "from": [
+        "Week 2 skill focus"
+      ]
+    },
+    {
+      "id": "shuffle-and-pass",
+      "name": "Shuffle and Pass",
+      "minGrade": 1,
+      "players": "Coach + team",
+      "skills": [
+        "Passing"
+      ],
+      "how": "The coach points left or right and players shuffle; then the coach tosses and the player passes back.",
+      "goal": "Move to the ball, then pass from a ready position.",
+      "cue": "Ready position: knees bent, weight forward, hands together, eyes on the ball.",
+      "from": [
+        "Week 3 warm-up"
+      ]
+    },
+    {
+      "id": "three-player-receive-line",
+      "name": "Three-Player Serve Receive",
+      "minGrade": 1,
+      "players": "3 + coach",
+      "skills": [
+        "Serve receive"
+      ],
+      "how": "Three players in a line across the back row. The coach serves (or tosses) from the other side; the back-row players call the ball and pass to the target.",
+      "goal": "The player closest to the ball calls “mine”; the others move out of the way.",
+      "from": [
+        "Week 3 skill focus"
+      ]
+    },
+    {
+      "id": "setting-hands",
+      "name": "Self-Set and Partner Set",
+      "minGrade": 1,
+      "players": "1–2",
+      "skills": [
+        "Setting"
+      ],
+      "how": "Self-set: toss the ball above your head, set to self, catch, ten times. Partner set: toss to your partner, who sets back. Hands form a triangle above the forehead; contact with fingerpads, not palms.",
+      "goal": "Three consecutive partner sets without catching.",
+      "cue": "Hands up early, push through the ball, extend arms fully.",
+      "from": [
+        "Week 4 warm-up",
+        "Week 4 skill focus"
+      ]
+    },
+    {
+      "id": "three-person-pass-set-catch",
+      "name": "Three-Person Pass, Set, Catch",
+      "minGrade": 1,
+      "players": "3",
+      "skills": [
+        "Passing",
+        "Setting",
+        "Team play"
+      ],
+      "how": "Player 1 passes to player 2 (setter), player 2 sets to player 3, player 3 catches. Rotate positions.",
+      "goal": "Build communication habits: the passer calls “mine,” the setter calls “set,” the hitter calls “hit.”",
+      "from": [
+        "Week 5 warm-up"
+      ]
+    },
+    {
+      "id": "downball",
+      "name": "Downball",
+      "minGrade": 1,
+      "players": "1+",
+      "skills": [
+        "Hitting"
+      ],
+      "how": "Stand behind the 10-foot line, toss to yourself, and contact the ball with an open hand, driving it over the net. 3rd–4th grade: downball only, no jump required.",
+      "goal": "Attack mechanics before a full approach.",
+      "cue": "Reach high, contact the top of the ball, follow through.",
+      "from": [
+        "Week 5 skill focus"
+      ],
+      "note": "The guide gives downball notes for 3rd–6th grade; use with 1st–2nd is awaiting the director’s review."
+    },
+    {
+      "id": "three-step-approach",
+      "name": "Three-Step Approach",
+      "minGrade": 5,
+      "players": "1+",
+      "skills": [
+        "Hitting"
+      ],
+      "how": "Right-left-right (for right-handers), jump, reach, contact.",
+      "goal": "Contact a set ball at the top of the jump.",
+      "cue": "Reach high, contact the top of the ball, follow through.",
+      "from": [
+        "Week 5 skill focus"
+      ]
+    },
+    {
+      "id": "cone-targets",
+      "name": "Cone Targets",
+      "minGrade": 1,
+      "players": "Full team",
+      "skills": [
+        "Serving"
+      ],
+      "how": "Place cones in the back corners. Players aim their serves at them.",
+      "goal": "The team earns a point for every serve that lands within 3 feet of a cone.",
+      "from": [
+        "Week 6 serving"
+      ]
+    },
+    {
+      "id": "free-ball",
+      "name": "Free Ball Transition",
+      "minGrade": 1,
+      "players": "Full team",
+      "skills": [
+        "Team play"
+      ],
+      "how": "During live play, when a team receives an easy ball the coach calls “FREE BALL!” and the team transitions to offense.",
+      "goal": "Recognize an easy ball and turn it into pass, set, hit.",
+      "from": [
+        "Week 6 warm-up",
+        "Week 6 team play"
+      ]
+    },
+    {
+      "id": "rotation-quiz",
+      "name": "Rotation Quiz",
+      "minGrade": 1,
+      "players": "6",
+      "skills": [
+        "Team play"
+      ],
+      "how": "Put six players on the court and call out a scenario: “We just got a side-out from position 4. Where does everyone move?” Rotate through different scenarios.",
+      "goal": "Every player knows her position at any point in the game. Run it fast and make it fun, not a test.",
+      "cue": "Know where you are. Know who serves next.",
+      "from": [
+        "Week 8 skill focus"
+      ]
+    }
+  ]
+}

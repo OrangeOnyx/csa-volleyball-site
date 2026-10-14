@@ -1,0 +1,25 @@
+{
+  "name": "csa-volleyball-site",
+  "private": true,
+  "type": "module",
+  "description": "CSA Volleyball public site. website/ is what Vercel serves; data/ and handbooks/src are the sources.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "pdf": "python3 scripts/build_pdfs.py",
+    "check": "node scripts/check.mjs",
+    "check:a11y": "node scripts/check-a11y.mjs",
+    "serve": "node scripts/serve.mjs",
+    "og-image": "node scripts/make-og-image.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "html-validate": "9.4.1",
+    "pdfjs-dist": "4.10.38",
+    "playwright": "1.56.0"
+  }
+}

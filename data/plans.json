@@ -1,0 +1,440 @@
+{
+  "about": "Stephanie Abdalla's nine-week CSA curriculum, split by division. Every item comes from her Season Curriculum & Practice Plan Guide; an item with no 'for' list applies to every division. 'overview' holds the condensed text shown on the home page. 'swaps' suggest drills from her library; 'flags' are open questions for her review.",
+  "source": "Season Curriculum & Practice Plan Guide, by Stephanie Abdalla",
+  "review": {
+    "status": "draft",
+    "reviewedBy": null,
+    "date": null
+  },
+  "principle": "Every player should touch the ball as many times as possible in every practice. Maximize repetitions. Minimize lines. If players are standing still for more than 60 seconds, restructure the drill.",
+  "segments": [
+    { "id": "warmup", "name": "Warm-up & ball control", "short": "Warm-up", "minutes": 15, "purpose": "Physical preparation, individual touch, partner work" },
+    { "id": "serving", "name": "Serving", "short": "Serving", "minutes": 10, "purpose": "Grade-appropriate serving repetitions; progressive distance" },
+    { "id": "skill", "name": "Skill focus", "short": "Skill", "minutes": 15, "purpose": "Primary skill of the week: passing, setting, or serve receive" },
+    { "id": "team", "name": "Team play", "short": "Team play", "minutes": 20, "purpose": "Game-like application, rotation practice, competitive play" }
+  ],
+  "phases": [
+    { "id": "foundation", "name": "Foundation", "weeks": [1, 2, 3], "theme": "Individual skills & ball control", "focus": "Individual ball control, passing platform mechanics, underhand serve, and basic rotation. Establish team culture and communication habits from Day 1." },
+    { "id": "development", "name": "Development", "weeks": [4, 5, 6], "theme": "Team concepts & skill progression", "focus": "Overhand serve progression, introduction of setting, team communication, and the Pass–Set–Hit concept. Players begin connecting individual skills into team sequences." },
+    { "id": "application", "name": "Application", "weeks": [7, 8, 9], "theme": "Game play & tournament prep", "focus": "Applying all skills in game-like situations. Tournament preparation. Competitive drills. Building team identity and confidence heading into the end-of-season tournament." }
+  ],
+  "weeks": [
+    {
+      "n": 1,
+      "phase": "foundation",
+      "title": "First contact",
+      "tabLabel": "First contact",
+      "themes": ["Introductions", "Platform mechanics", "Underhand serve"],
+      "focus": "Introductions, platform mechanics, underhand serve",
+      "names": { "skill": "Skill focus: passing" },
+      "overview": {
+        "warmup": "Name game with a movement everyone copies. Self-toss and catch, then partner toss and catch from 10 feet. Introduce the platform: arms together, thumbs parallel, elbows locked.",
+        "serving": "Underhand serve: step with the opposite foot, swing like a pendulum, contact the bottom of the ball. Serve into the net up close first, then back up. Goal: 8–10 serves each.",
+        "skill": "The coach tosses and the player passes back with her platform. Cue: \"Thumbs down, elbows locked, platform to the target.\" Form first; accuracy comes later.",
+        "team": "Learn court positions 1–6 and clockwise rotation. In a modified game, the coach tosses each rally in. Everyone calls \"mine\" before every contact."
+      },
+      "items": {
+        "warmup": [
+          { "t": "Name game: each player says their name and does a movement (others copy)." },
+          { "t": "Self-toss and catch: toss ball above head, let it bounce once, catch — get comfortable with the ball." },
+          { "t": "Partner toss and catch: 10 feet apart, underhand toss, two-hand catch." },
+          { "t": "Introduce the platform: arms together, thumbs parallel, elbows locked, contact between wrists and elbows." }
+        ],
+        "serving": [
+          { "t": "Teach underhand serve mechanics: step with opposite foot, swing arm like a pendulum, contact the bottom of the ball." },
+          { "t": "Serve into the net from close range first, then back up to the grade-appropriate line." },
+          { "t": "Goal: every player gets 8–10 serve attempts." }
+        ],
+        "skill": [
+          { "t": "Coach tosses ball to each player; player passes back to coach using platform." },
+          { "t": "Key cues: “Thumbs down, elbows locked, platform to the target.”", "cue": true },
+          { "t": "Focus on platform formation — accuracy is secondary this week." }
+        ],
+        "team": [
+          { "t": "Introduce court positions (1–6) and clockwise rotation." },
+          { "t": "Play a modified game: coach tosses ball over net to start each rally; teams play it out." },
+          { "t": "Emphasize calling “mine” before every contact." }
+        ]
+      },
+      "tip": "Week 1 is about culture, not perfection. Learn every player's name. Celebrate every attempt. Set the tone that this is a safe place to try and fail.",
+      "recap": {
+        "did": "we learned names, the passing platform and the underhand serve, and our court positions 1 to 6",
+        "ask": "Ask her to show you her platform: “Thumbs down, elbows locked, platform to the target.”"
+      },
+      "diagrams": [ { "segment": "team", "scene": "rotation" } ],
+      "swaps": [ { "segment": "serving", "drill": "serve-and-shag" } ],
+      "flags": []
+    },
+    {
+      "n": 2,
+      "phase": "foundation",
+      "title": "Platform passing",
+      "tabLabel": "Platform passing",
+      "themes": ["Passing accuracy", "Serve consistency", "Communication"],
+      "focus": "Passing accuracy, serve consistency, communication",
+      "names": { "skill": "Skill focus: passing to a target" },
+      "overview": {
+        "warmup": "Self-bump and count consecutive contacts. Partner passing at 10 feet: five in a row without a drop. \"Belly button to the ball\": face it before you pass.",
+        "serving": "Underhand from the grade line, consistency over power. 3rd grade starts overhand mechanics up close: toss, reach, snap. Goal: 10 serves each, counting how many clear the net.",
+        "skill": "A hula hoop or cone marks the setter's spot. The coach tosses, the player passes to the target, and the tosses get longer and wider as players improve.",
+        "team": "Modified game with a rotation on every side-out. The coach starts rallies with a toss for 1st–2nd; 3rd and up serve. Keep the \"mine\" calls coming."
+      },
+      "items": {
+        "warmup": [
+          { "t": "Individual: self-bump (bump the ball to yourself, keep it going) — count consecutive contacts." },
+          { "t": "Partner passing: 10 feet apart, pass back and forth — goal is 5 consecutive without the ball hitting the floor." },
+          { "t": "Introduce “belly button to the ball” — always face the incoming ball before passing.", "cue": true }
+        ],
+        "serving": [
+          { "t": "Underhand serve from the grade-appropriate line — focus on consistency over power." },
+          { "t": "3rd grade: introduce overhand serve mechanics (toss, reach, snap wrist) from close range.", "for": ["developmental"] },
+          { "t": "Goal: 10 serve attempts per player; track how many clear the net." }
+        ],
+        "skill": [
+          { "t": "Place a hula hoop or cone at the setter position (right front, position 2/3)." },
+          { "t": "Coach tosses; player passes to the target zone." },
+          { "t": "Progression: increase toss distance and vary angles as players improve." }
+        ],
+        "team": [
+          { "t": "Modified game with rotation: every side-out, serving team rotates." },
+          { "t": "Coach starts each rally with a toss — no serve yet for 1st and 2nd grade.", "for": ["beginner"] },
+          { "t": "Players serve to start each rally (3rd grade and up).", "for": ["developmental", "intermediate"] },
+          { "t": "Reinforce “mine” calls and rotation movement." }
+        ]
+      },
+      "tip": "Passing to a target is a big jump. Don't expect accuracy yet — reward the attempt and the correct platform form. Accuracy comes with repetition.",
+      "recap": {
+        "did": "we passed to a target, served for consistency, and kept calling “mine”",
+        "ask": "Ask her what “belly button to the ball” means."
+      },
+      "diagrams": [ { "segment": "skill", "scene": "pass-to-target" } ],
+      "swaps": [ { "segment": "skill", "drill": "down-the-line-passing" } ],
+      "flags": []
+    },
+    {
+      "n": 3,
+      "phase": "foundation",
+      "title": "Serve receive basics",
+      "tabLabel": "Serve receive",
+      "themes": ["Reading the serve", "Serve receive positioning", "Rotation review"],
+      "focus": "Reading the serve, serve-receive positioning, rotation review",
+      "names": { "skill": "Skill focus: serve receive" },
+      "overview": {
+        "warmup": "Partner passing out to 15 feet. Movement drill: shuffle where the coach points, then pass the toss. Ready position: knees bent, weight forward, eyes on the ball.",
+        "serving": "Serve from the grade line and aim for the corners. 4th grade moves to 22 feet. 5th–6th serve from the end line, consistency before power.",
+        "skill": "Three players across the back row. The coach serves or tosses; the closest player calls \"mine\" and passes to the target while the others clear out.",
+        "team": "Full game with live serving from grade lines. Rotate after every side-out, then debrief: \"What position are you in? Who serves next?\""
+      },
+      "items": {
+        "warmup": [
+          { "t": "Partner passing: increase distance to 15 feet — maintain platform form." },
+          { "t": "Movement drill: coach points left/right, players shuffle; then coach tosses — player passes back." },
+          { "t": "Introduce “ready position”: knees bent, weight forward, hands together, eyes on the ball.", "cue": true }
+        ],
+        "serving": [
+          { "t": "Serve from the grade-appropriate line — focus on placement (aim for corners)." },
+          { "t": "4th grade: introduce serving from 22 feet if not already there.", "for": ["developmental"] },
+          { "t": "5th and 6th grade: serve from the end line; work on consistency before adding power.", "for": ["intermediate"] }
+        ],
+        "skill": [
+          { "t": "Introduce basic serve receive: 3 players in a line across the back row." },
+          { "t": "Coach serves (or tosses) from the other side; back-row players call the ball and pass to target." },
+          { "t": "Key concept: the player closest to the ball calls “mine” — others move out of the way.", "cue": true }
+        ],
+        "team": [
+          { "t": "Full game with live serving (all grades use the grade-appropriate serve line)." },
+          { "t": "Emphasize rotation after every side-out." },
+          { "t": "Debrief: ask players “What position are you in? Who serves next?”" }
+        ]
+      },
+      "tip": "By Week 3, players should know their rotation and call “mine” consistently. If rotation is still shaky, spend extra time on it — it is the foundation for everything in Phase 2.",
+      "recap": {
+        "did": "we practiced receiving serves, aimed our serves at the corners, and reviewed our rotation",
+        "ask": "Ask her to show you her ready position: knees bent, weight forward, eyes on the ball."
+      },
+      "diagrams": [ { "segment": "skill", "scene": "serve-receive-line" } ],
+      "swaps": [
+        { "segment": "warmup", "drill": "down-the-line-passing" },
+        { "segment": "skill", "drill": "serve-receive-triangle" }
+      ],
+      "flags": []
+    },
+    {
+      "n": 4,
+      "phase": "development",
+      "title": "Overhand serve & setting intro",
+      "tabLabel": "Setting intro",
+      "themes": ["Overhand serve mechanics", "What is a set?", "Setting hand position"],
+      "focus": "Overhand serve mechanics, what a set is, setting hand position",
+      "names": { "skill": "Skill focus: setting" },
+      "overview": {
+        "warmup": "Alternate self-bump and self-set. In pairs, one bumps and one sets, switching after five. Setting hands make a triangle above the forehead: fingerpads, not palms.",
+        "serving": "3rd–6th grade learn the overhand serve from 10 feet (toss high, reach tall, snap the wrist) and move back as mechanics improve. 1st–2nd keep building the underhand serve.",
+        "skill": "Self-set and catch, ten times. Partner sets: three in a row without catching. Cue: \"Hands up early, push through the ball, extend fully.\"",
+        "team": "Position 2 becomes the designated setter for the second ball. Encourage pass–set–hit, and celebrate any three-contact sequence, whatever happens next."
+      },
+      "items": {
+        "warmup": [
+          { "t": "Individual: alternate self-bump and self-set — get comfortable with overhead contact." },
+          { "t": "Partner: one player bumps, one player sets — switch after 5 contacts." },
+          { "t": "Introduce setting hand position: hands form a triangle above forehead, contact with fingerpads not palms." }
+        ],
+        "serving": [
+          { "t": "Overhand serve mechanics from close range (10 feet) — toss high, reach tall, snap wrist.", "for": ["developmental", "intermediate"] },
+          { "t": "Progress back to the grade-appropriate line as mechanics improve.", "for": ["developmental", "intermediate"] },
+          { "t": "Continue the underhand serve from the 10-foot line; focus on consistency.", "for": ["beginner"] }
+        ],
+        "skill": [
+          { "t": "Self-set: toss ball above head, set to self, catch — repeat 10 times." },
+          { "t": "Partner set: toss to partner, partner sets back — goal is 3 consecutive sets without catching." },
+          { "t": "Key cues: “Hands up early, push through the ball, extend arms fully.”", "cue": true }
+        ],
+        "team": [
+          { "t": "Introduce the concept of a designated setter: position 2 (right front) always tries to set the second ball." },
+          { "t": "Play game; encourage (but don't require) the Pass–Set–Hit sequence." },
+          { "t": "Celebrate any successful 3-contact sequence, regardless of outcome." }
+        ]
+      },
+      "tip": "Setting is the hardest skill to teach at this age. Don't penalize carries aggressively — focus on the hand position and the intent. Improvement comes over multiple seasons.",
+      "recap": {
+        "did": "we learned what a set is, made setting hands, and worked on our serve",
+        "ask": "Ask her to make her setting triangle above her forehead: “Hands up early, push through the ball.”"
+      },
+      "recapBy": {
+        "developmental": { "did": "we learned what a set is, made setting hands, and started the overhand serve from 10 feet" },
+        "intermediate": { "did": "we learned what a set is, made setting hands, and started the overhand serve from 10 feet" }
+      },
+      "diagrams": [ { "segment": "team", "scene": "pass-set-hit" } ],
+      "swaps": [ { "segment": "skill", "drill": "toss-pass-set-catch" } ],
+      "flags": []
+    },
+    {
+      "n": 5,
+      "phase": "development",
+      "title": "Pass, set, hit",
+      "tabLabel": "Pass, set, hit",
+      "themes": ["Connecting the three contacts", "Downball hitting", "Court awareness"],
+      "focus": "Connecting three contacts, downball hitting, court awareness",
+      "names": { "skill": "Skill focus: downball & hitting" },
+      "overview": {
+        "warmup": "Groups of three: pass to the setter, set to the hitter, hitter catches, rotate. The passer calls \"mine,\" the setter calls \"set,\" the hitter calls \"hit.\"",
+        "serving": "Serve to zones: deep corners, then short. 5th–6th serve overhand from the end line and aim for the back half.",
+        "skill": "Downball from behind the 10-foot line: toss and drive it over with an open hand. 3rd–4th stay with the downball. 5th–6th learn the three-step approach.",
+        "team": "Each team needs at least two contacts before sending it over. Any three-contact sequence earns a bonus point while the coach narrates: pass, now set, now hit."
+      },
+      "items": {
+        "warmup": [
+          { "t": "3-person groups: player 1 passes to player 2 (setter), player 2 sets to player 3, player 3 catches — rotate positions." },
+          { "t": "Focus: passer calls “mine,” setter calls “set,” hitter calls “hit” — build communication habits.", "cue": true }
+        ],
+        "serving": [
+          { "t": "Serve from the grade-appropriate line; focus on serving to specific zones (deep corners, short)." },
+          { "t": "Overhand serve from the end line — track accuracy (aim for the back half of the court).", "for": ["intermediate"] }
+        ],
+        "skill": [
+          { "t": "Introduce downball: standing behind the 10-foot line, toss to self, contact ball with open hand driving it over the net." },
+          { "t": "Downball only (no jump required).", "for": ["developmental"] },
+          { "t": "Introduce the 3-step approach: right-left-right (for right-handers), jump, reach, contact.", "for": ["intermediate"] },
+          { "t": "Key cue: “Reach high, contact the top of the ball, follow through.”", "cue": true }
+        ],
+        "team": [
+          { "t": "Game with a rule: every team must attempt at least two contacts before sending the ball over." },
+          { "t": "Award a bonus point for any successful 3-contact sequence." },
+          { "t": "Coach narrates: “That was a pass — now set it — now hit it!” to reinforce the sequence." }
+        ]
+      },
+      "tip": "The bonus point for 3-contact sequences is a powerful motivator. Players will start to understand WHY the sequence matters — not just that they're supposed to do it.",
+      "recap": {
+        "did": "we linked pass, set and hit, and learned the downball",
+        "ask": "Ask her what the passer, setter and hitter each call out: “mine,” “set,” “hit.”"
+      },
+      "recapBy": {
+        "intermediate": { "did": "we linked pass, set and hit, learned the downball, and started the three-step approach" }
+      },
+      "diagrams": [ { "segment": "warmup", "scene": "pass-set-hit" } ],
+      "swaps": [
+        { "segment": "warmup", "drill": "toss-pass-set-catch" },
+        { "segment": "serving", "drill": "serve-and-shag" }
+      ],
+      "flags": [
+        { "division": "beginner", "segment": "skill", "text": "The guide gives downball notes for 3rd–4th and 5th–6th only. This draft keeps the general downball introduction for 1st–2nd. Confirm, or name a different skill for the youngest players." }
+      ]
+    },
+    {
+      "n": 6,
+      "phase": "development",
+      "title": "Serve receive & team defense",
+      "tabLabel": "Team defense",
+      "themes": ["W formation", "Base defense", "Free ball transition"],
+      "focus": "W formation, base defense, free-ball transition",
+      "names": { "skill": "Skill focus: serve-receive formation" },
+      "overview": {
+        "warmup": "Longer partner passing, now while moving sideways. Introduce the free ball: an easy ball from the other side means your team goes on offense.",
+        "serving": "Cones go in the back corners. The team earns a point for every serve that lands within three feet of a cone.",
+        "skill": "5th–6th learn the W: five players across the back two-thirds of the court. 3rd–4th use three back and three at the net. The coach serves and the team tries to run pass–set–hit.",
+        "team": "Live serving, with the formation set before every serve. When the coach calls \"Free ball!\" the team transitions to offense."
+      },
+      "items": {
+        "warmup": [
+          { "t": "Partner passing: increase distance; work on passing while moving laterally." },
+          { "t": "Introduce the “free ball” concept: when the opponent sends an easy ball, your team transitions to offense." }
+        ],
+        "serving": [
+          { "t": "Serving to specific targets — place cones in the back corners; players aim for them." },
+          { "t": "Competition: team earns a point for every serve that lands within 3 feet of a cone." }
+        ],
+        "skill": [
+          { "t": "Introduce the “W” formation — 5 players in a W shape across the back two-thirds of the court.", "for": ["intermediate"] },
+          { "t": "Simplified version: 3 back-row players spread across the baseline, 3 front-row players at the net.", "for": ["developmental"] },
+          { "t": "Coach serves; team receives and attempts to run Pass–Set–Hit." }
+        ],
+        "team": [
+          { "t": "Full game with live serving; emphasize serve-receive formation before each serve." },
+          { "t": "When a team receives a free ball, coach calls “FREE BALL!” — team must transition to offense.", "cue": true }
+        ]
+      },
+      "tip": "Week 6 is the midpoint. Pause for 5 minutes and ask players: “What's one thing you've gotten better at this season?” Recognition of personal growth is a powerful motivator.",
+      "recap": {
+        "did": "we set up to receive serve as a team, served at targets, and learned what to do on a free ball",
+        "ask": "Ask her what the team does when the coach calls “Free ball!”"
+      },
+      "diagrams": [
+        { "segment": "skill", "scene": "w-formation", "for": ["intermediate"] },
+        { "segment": "skill", "scene": "three-back", "for": ["developmental"] },
+        { "segment": "team", "scene": "free-ball" }
+      ],
+      "swaps": [ { "segment": "skill", "drill": "serve-receive-triangle" } ],
+      "flags": [
+        { "division": "beginner", "segment": "skill", "text": "The guide names a serve-receive formation for 3rd–4th and 5th–6th, not for 1st–2nd. Name one, or keep the Week 3 three-player line." }
+      ]
+    },
+    {
+      "n": 7,
+      "phase": "application",
+      "title": "Game-like drills",
+      "tabLabel": "Game-like drills",
+      "themes": ["Competitive drills", "Pressure situations", "Serve & receive under pressure"],
+      "focus": "Competitive drills, pressure situations, serve and receive under pressure",
+      "names": { "skill": "Skill focus: Queen of the Court" },
+      "overview": {
+        "warmup": "Pepper for 3rd grade and up: pass, set, hit, in a continuous loop. 1st–2nd run partner rallies and count passes without a drop.",
+        "serving": "Serving competition: five serves each, one point for in, two for the back half. A team total brings low-stakes pressure.",
+        "skill": "3-on-3 on a half court. The first team to three points stays on; the other rotates off. No silent contacts.",
+        "team": "Full game with tournament rules: rally scoring, standard rotation, live serving. The coach notes each player's growth for season-end recognition."
+      },
+      "items": {
+        "warmup": [
+          { "t": "“Pepper” drill: player 1 passes to player 2, player 2 sets to player 1, player 1 hits back to player 2 — continuous loop.", "for": ["developmental", "intermediate"] },
+          { "t": "Partner passing rally — count consecutive passes without the ball hitting the floor.", "for": ["beginner"] }
+        ],
+        "serving": [
+          { "t": "Serving competition: each player gets 5 serves; score 1 point for in, 2 points for landing in the back half." },
+          { "t": "Team total — creates low-stakes competitive pressure similar to game situations." }
+        ],
+        "skill": [
+          { "t": "“Queen of the Court”: 3v3 on a half-court; winning team stays, losing team rotates off; first to 3 points wins the side." },
+          { "t": "Emphasize communication and calling the ball — no silent contacts.", "cue": true }
+        ],
+        "team": [
+          { "t": "Full game with tournament rules (rally scoring, standard rotation, live serving)." },
+          { "t": "Coach observes and takes notes on individual player growth for end-of-season recognition." }
+        ]
+      },
+      "tip": "Introduce a little competitive pressure this week — it prepares players for the tournament. Keep it fun, but let them feel what it's like to play for something.",
+      "recap": {
+        "did": "we played competitive drills and a full game under tournament rules",
+        "ask": "Ask her what “no silent contacts” means."
+      },
+      "diagrams": [],
+      "swaps": [],
+      "flags": [
+        { "division": "beginner", "segment": "skill", "text": "Her drill library marks Queen of the Court for 3rd grade and up. Confirm it for 1st–2nd, or swap in Down the Line Passing, which is marked for all grades." }
+      ]
+    },
+    {
+      "n": 8,
+      "phase": "application",
+      "title": "Tournament prep",
+      "tabLabel": "Tournament prep",
+      "themes": ["Tournament rules review", "Rotations under pressure", "Mental preparation"],
+      "focus": "Tournament rules review, rotations under pressure, mental preparation",
+      "names": { "skill": "Skill focus: rotation quiz", "team": "Team play: simulated match" },
+      "overview": {
+        "warmup": "Players lead their own warm-up while the coach watches. Partner serving warm-up: serve, receive, pass to the target.",
+        "serving": "Review tournament serving rules for each grade. Every player serves from tournament distance, aiming for consistency.",
+        "skill": "Six on the court, and the coach calls a scenario: \"Side-out from position 4. Where does everyone move?\" Know where you are. Know who serves next.",
+        "team": "Best two of three under full tournament rules. The coach referees, calls faults, keeps score, and runs timeouts. Debrief: what went well, and what's next?"
+      },
+      "items": {
+        "warmup": [
+          { "t": "Team warm-up: players lead their own warm-up (coach observes) — builds ownership." },
+          { "t": "Partner serving warm-up: one player serves, partner receives and passes to target." }
+        ],
+        "serving": [
+          { "t": "Review tournament serving rules for each grade." },
+          { "t": "Each player serves from tournament distance — focus on consistency and in-bounds percentage." }
+        ],
+        "skill": [
+          { "t": "Put 6 players on the court; call out a score scenario — “We just got a side-out from position 4 — where does everyone move?”" },
+          { "t": "Rotate through different scenarios; every player should know their position at any point in the game." },
+          { "t": "Reinforce: “Know where you are. Know who serves next.”", "cue": true }
+        ],
+        "team": [
+          { "t": "Play a full simulated tournament match: best 2 of 3 sets, full tournament rules." },
+          { "t": "Coach acts as referee — call faults, track score, run time-outs." },
+          { "t": "Debrief: “What did we do well? What do we want to be better at next week?”" }
+        ]
+      },
+      "tip": "The rotation quiz is one of the highest-value activities of the season. Players who know their rotation don't panic in games. Run it fast and make it fun — not a test.",
+      "recap": {
+        "did": "we reviewed tournament rules, quizzed our rotations, and played a practice match",
+        "ask": "Ask her: “Know where you are. Know who serves next.” Then ask who serves after position 1."
+      },
+      "diagrams": [ { "segment": "skill", "scene": "rotation" } ],
+      "swaps": [ { "segment": "warmup", "drill": "serve-receive-triangle" } ],
+      "flags": []
+    },
+    {
+      "n": 9,
+      "phase": "application",
+      "title": "Tournament week",
+      "tabLabel": "Tournament week",
+      "themes": ["Light practice", "Mental readiness", "Team unity"],
+      "focus": "Light practice, mental readiness, team unity",
+      "names": { "skill": "Skill focus: team highlights", "team": "Team play: fun scrimmage" },
+      "overview": {
+        "warmup": "Keep it light, with no new skills. The team votes on its favorite warm-up drill.",
+        "serving": "Five serves each from tournament distance. Build confidence, not pressure, and celebrate every good serve.",
+        "skill": "The coach names one specific improvement for each player, out loud, in front of the team. Then a quick tournament review: bracket, schedule, what to bring, arrival time.",
+        "team": "Bonus points for aces and three-contact sequences. End with a team cheer the players choose, and one reminder: \"Go have fun at the tournament.\""
+      },
+      "items": {
+        "warmup": [
+          { "t": "Keep it light and fun — no new skills this week." },
+          { "t": "Favorite warm-up drill voted on by the team." }
+        ],
+        "serving": [
+          { "t": "Each player serves 5 times from tournament distance — build confidence, not pressure." },
+          { "t": "Celebrate every successful serve." }
+        ],
+        "skill": [
+          { "t": "Coach shares one specific improvement they've noticed in each player — out loud, in front of the team." },
+          { "t": "Quick review of tournament format: bracket, schedule, what to bring, arrival time." }
+        ],
+        "team": [
+          { "t": "Scrimmage with fun rules: bonus point for ace serves, bonus point for 3-contact sequences." },
+          { "t": "End practice with a team cheer — let the players choose it." },
+          { "t": "Remind players: “You've worked hard all season. Go have fun at the tournament.”", "cue": true }
+        ]
+      },
+      "tip": "Week 9 practice is about confidence and energy — not skill work. Your players are ready. Your job this week is to remind them of that.",
+      "recap": {
+        "did": "we had a light practice, celebrated how much everyone improved, and got ready for the tournament",
+        "ask": "Ask her what her coach said she has gotten better at this season."
+      },
+      "diagrams": [],
+      "swaps": [],
+      "flags": []
+    }
+  ]
+}
