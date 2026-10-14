@@ -1,0 +1,1435 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1a4f9c">
+  <title>Master Handbook | CSA Volleyball</title>
+  <meta name="description" content="The CSA Volleyball program handbook: mission, rules by grade, facility rules, coach and parent expectations, SafeSport, emergency plan and tournament.">
+  <link rel="canonical" href="https://csa-volleyball-preview.vercel.app/handbooks/master-handbook/">
+  <meta property="og:title" content="Master Handbook | CSA Volleyball">
+  <meta property="og:description" content="The CSA Volleyball program handbook: mission, rules by grade, facility rules, coach and parent expectations, SafeSport, emergency plan and tournament.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://csa-volleyball-preview.vercel.app/handbooks/master-handbook/">
+  <meta property="og:image" content="https://csa-volleyball-preview.vercel.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+    --blue: #1A4F9C;
+    --red: #C0272D;
+    --white: #FFFFFF;
+    --light-gray: #F4F6FA;
+    --dark-gray: #2C2C2C;
+    --mid-gray: #666666;
+    --border: #D0D8E8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Barlow', 'Arial', sans-serif;
+    font-size: 10.5pt;
+    color: var(--dark-gray);
+    background: white;
+    line-height: 1.6;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    background: var(--blue);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    page-break-after: always;
+    padding: 60px 40px;
+    text-align: center;
+  }
+
+  .cover-logo {
+    width: 260px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+  }
+
+  .cover-rule {
+    width: 80px;
+    height: 5px;
+    background: var(--red);
+    margin: 0 auto 30px;
+    border-radius: 3px;
+  }
+
+  .cover h1 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 38pt;
+    font-weight: 800;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .cover h2 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+  }
+
+  .cover-divider {
+    width: 100%;
+    max-width: 500px;
+    height: 2px;
+    background: rgba(255,255,255,0.3);
+    margin: 0 auto 40px;
+  }
+
+  .cover-meta {
+    color: rgba(255,255,255,0.85);
+    font-size: 11pt;
+    font-weight: 500;
+    line-height: 2;
+  }
+
+  .cover-meta strong {
+    color: white;
+  }
+
+  .cover-footer {
+    position: absolute;
+    bottom: 30px;
+    color: rgba(255,255,255,0.5);
+    font-size: 9pt;
+  }
+
+  /* ── PAGE LAYOUT ── */
+  .page {
+    padding: 50px 55px 60px;
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  /* ── PAGE HEADER (running) ── */
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid var(--blue);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+  }
+
+  .page-header-logo {
+    height: 36px;
+  }
+
+  .page-header-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    background: var(--blue);
+    color: white;
+    padding: 12px 20px;
+    margin: 35px 0 20px;
+    border-radius: 4px;
+    page-break-after: avoid;
+  }
+
+  .section-header h2 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 16pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .section-header .section-num {
+    font-size: 9pt;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+  }
+
+  /* ── SUBSECTION HEADERS ── */
+  h3 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 13pt;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 22px 0 8px;
+    border-bottom: 1.5px solid var(--red);
+    padding-bottom: 3px;
+  }
+
+  h4 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 16px 0 6px;
+  }
+
+  /* ── BODY TEXT ── */
+  p {
+    margin-bottom: 10px;
+    line-height: 1.65;
+  }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    background: var(--light-gray);
+    border-left: 5px solid var(--blue);
+    padding: 14px 18px;
+    margin: 18px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout.red {
+    border-left-color: var(--red);
+    background: #FEF2F2;
+  }
+
+  .callout.green {
+    border-left-color: #2E7D32;
+    background: #F1F8F1;
+  }
+
+  .callout p { margin-bottom: 4px; }
+  .callout strong { color: var(--blue); }
+  .callout.red strong { color: var(--red); }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 9.5pt;
+  }
+
+  thead tr {
+    background: var(--blue);
+    color: white;
+  }
+
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody tr:nth-child(odd) { background: white; }
+
+  tbody td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  /* ── RULE LISTS ── */
+  .rule-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  .rule-list li {
+    padding: 7px 12px 7px 32px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+  }
+
+  .rule-list li:last-child { border-bottom: none; }
+
+  .rule-list li::before {
+    content: "▸";
+    color: var(--red);
+    font-size: 10pt;
+    position: absolute;
+    left: 12px;
+    top: 8px;
+  }
+
+  /* ── NUMBERED LISTS ── */
+  ol.styled {
+    padding-left: 22px;
+    margin: 10px 0;
+  }
+
+  ol.styled li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  /* ── COURT DIAGRAM ── */
+  .court-diagram {
+    background: #E8F0E8;
+    border: 3px solid #2E7D32;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    position: relative;
+  }
+
+  .court-inner {
+    border: 2px solid #2E7D32;
+    display: inline-block;
+    width: 400px;
+    position: relative;
+  }
+
+  .court-half {
+    height: 140px;
+    border-bottom: 3px solid #1A4F9C;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .court-half.bottom { border-bottom: none; border-top: none; }
+
+  .net-label {
+    position: absolute;
+    left: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 9pt;
+    font-weight: 700;
+    color: #1A4F9C;
+    text-transform: uppercase;
+  }
+
+  .position-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13pt;
+    font-weight: 800;
+    margin: 4px;
+  }
+
+  .position-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .court-label {
+    font-size: 8pt;
+    color: var(--mid-gray);
+    margin-top: 8px;
+  }
+
+  /* ── SERVE LINE DIAGRAM ── */
+  .serve-diagram {
+    background: #F0F4FF;
+    border: 2px solid var(--blue);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+
+  /* ── SIGNATURE BLOCK ── */
+  .sig-block {
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    background: var(--light-gray);
+  }
+
+  .sig-line {
+    border-bottom: 1px solid var(--dark-gray);
+    height: 28px;
+    margin: 8px 0 4px;
+  }
+
+  .sig-label {
+    font-size: 8.5pt;
+    color: var(--mid-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── PAGE BREAK ── */
+  .page-break { page-break-before: always; }
+
+  /* ── TOC ── */
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px dotted var(--border);
+  }
+
+  .toc-item .toc-title {
+    font-weight: 600;
+    color: var(--blue);
+  }
+
+  .toc-item .toc-page {
+    font-size: 9pt;
+    color: var(--mid-gray);
+    min-width: 30px;
+    text-align: right;
+  }
+
+  .toc-sub {
+    padding-left: 20px;
+    font-size: 9.5pt;
+    color: var(--mid-gray);
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    margin-top: 40px;
+    padding-top: 12px;
+    border-top: 2px solid var(--blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8.5pt;
+    color: var(--mid-gray);
+  }
+
+  .doc-footer .footer-brand {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 9pt;
+    text-transform: uppercase;
+  }
+
+  /* ── BADGE ── */
+  .badge {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-size: 8pt;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 6px;
+  }
+
+  .badge.blue { background: var(--blue); }
+
+  /* ── HIGHLIGHT ── */
+  .highlight {
+    background: #FFF3CD;
+    border: 1px solid #FFC107;
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 9.5pt;
+  }
+
+  /* ── GRID 2-COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 16px 0;
+  }
+
+  .col-box {
+    background: var(--light-gray);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+
+  .col-box h4 { margin-top: 0; }
+
+  /* ── PHASE CARD ── */
+  .phase-card {
+    border: 2px solid var(--blue);
+    border-radius: 8px;
+    margin: 16px 0;
+    overflow: hidden;
+  }
+
+  .phase-card-header {
+    background: var(--blue);
+    color: white;
+    padding: 10px 16px;
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 12pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .phase-card-body {
+    padding: 14px 16px;
+  }
+
+
+  /* Byline and edition (added October 2026) */
+  .cover-byline { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 12pt; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin: -16px 0 30px; }
+  a.toc-item { color: inherit; text-decoration: none; }
+  a.toc-item::after { content: target-counter(attr(href), page); font-size: 9pt; color: var(--mid-gray); min-width: 30px; text-align: right; }
+  </style>
+  <link rel="stylesheet" href="/handbook.css">
+</head>
+<body class="hb hb-master-handbook">
+  <a class="hb-skip" href="#main">Skip to content</a>
+  <header class="hb-bar">
+    <a class="hb-home" href="/" aria-label="CSA Volleyball home"><img src="/assets/csa-logo-200.png" alt="" width="84" height="40"><span>Volleyball</span></a>
+    <nav class="hb-nav" aria-label="Handbook">
+      <a href="/handbooks/">All handbooks</a>
+      <a class="hb-pdf" href="/resources/CSA_Volleyball_Master_Handbook.pdf">Download PDF</a>
+    </nav>
+  </header>
+  <main id="main" class="hb-doc">
+<div class="cover">
+  <img src="/handbooks/csa-logo.jpg" alt="CSA Logo" class="cover-logo">
+  <div class="cover-rule"></div>
+  <h1>CSA Volleyball<br>Program Handbook</h1>
+  <h2>Cajun Sports Association</h2>
+  <p class="cover-byline">By Stephanie Abdalla, CSA Volleyball Director</p>
+  <div class="cover-divider"></div>
+  <div class="cover-meta">
+    <strong>Edition:</strong> October 2026<br>
+    <strong>Program:</strong> Girls Recreational Volleyball — Grades 1–6<br>
+    <strong>Primary Focus:</strong> 3rd, 4th &amp; 5th Grade<br>
+    <strong>Facilities:</strong> Comeaux Sports Complex &amp; Earl K. Long Gym, ULL<br>
+    <strong>Season:</strong> Fall &amp; Spring | 9-Week Season<br>
+    <strong>Organization:</strong> Cajun Sports Association · Lafayette, Louisiana<br>
+    <strong>Website:</strong> www.csalaf.com
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header">
+    <div class="section-num">Navigation</div>
+    <h2>Table of Contents</h2>
+  </div>
+
+  <a class="toc-item" href="#section-1"><span class="toc-title">Section 1 — Welcome &amp; Program Mission</span></a>
+  <a class="toc-item" href="#section-2"><span class="toc-title">Section 2 — Program Overview</span></a>
+  <div class="toc-item toc-sub"><span>Age Groups &amp; Eligibility · Season Structure · Registration · Uniforms &amp; Equipment</span></div>
+  <a class="toc-item" href="#section-3"><span class="toc-title">Section 3 — Facility Rules</span></a>
+  <div class="toc-item toc-sub"><span>Comeaux Sports Complex · Earl K. Long Gym (ULL) · General Conduct</span></div>
+  <a class="toc-item" href="#section-4"><span class="toc-title">Section 4 — Volleyball Rules (CSA Grades 1–6)</span></a>
+  <div class="toc-item toc-sub"><span>Court &amp; Equipment · Scoring &amp; Match Format · Serving Rules by Grade · Rotation · Faults</span></div>
+  <a class="toc-item" href="#section-5"><span class="toc-title">Section 5 — Coach Guidelines &amp; Expectations</span></a>
+  <div class="toc-item toc-sub"><span>Eligibility · SafeSport &amp; Background Checks · Code of Conduct · Communication Policy</span></div>
+  <a class="toc-item" href="#section-6"><span class="toc-title">Section 6 — Player Expectations</span></a>
+  <a class="toc-item" href="#section-7"><span class="toc-title">Section 7 — Parent &amp; Spectator Expectations</span></a>
+  <a class="toc-item" href="#section-8"><span class="toc-title">Section 8 — SafeSport &amp; Background Check Policy</span></a>
+  <a class="toc-item" href="#section-9"><span class="toc-title">Section 9 — Photography &amp; Social Media Policy</span></a>
+  <a class="toc-item" href="#section-10"><span class="toc-title">Section 10 — Emergency Action Plan</span></a>
+  <a class="toc-item" href="#section-11"><span class="toc-title">Section 11 — End-of-Season Tournament</span></a>
+  <a class="toc-item" href="#section-12"><span class="toc-title">Section 12 — Skill Development Curriculum Overview</span></a>
+  <a class="toc-item" href="#section-13"><span class="toc-title">Section 13 — Volleyball Glossary</span></a>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>www.csalaf.com</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-1">
+    <div class="section-num">Section 1</div>
+    <h2>Welcome &amp; Program Mission</h2>
+  </div>
+
+  <h3>A Message from the Volleyball Director</h3>
+  <p>Welcome to CSA Volleyball. My name is Stephanie Abdalla, and I serve as the Volleyball Director for the Cajun Sports Association here in Lafayette, Louisiana. I am proud to lead a program that is rooted in community, built on a love of the game, and committed to developing young athletes the right way.</p>
+
+  <p>This handbook exists because our players, their families, and our volunteer coaches deserve clarity. You deserve to know exactly what this program stands for, what we expect from everyone involved, and what your daughter will learn from the first day of practice to the last point of the season. Nothing in here is arbitrary — every rule, every expectation, and every practice plan has been designed with one goal in mind: to give every girl in this program a great experience with volleyball.</p>
+
+  <p>CSA Volleyball is a <strong>recreational, developmental league</strong>. That means we are not a club program, we do not cut players, and we do not prioritize winning over learning. What we do prioritize is effort, attitude, skill growth, and sportsmanship. A player who hustles every practice, encourages her teammates, and improves her serve over nine weeks is a success story — regardless of the scoreboard.</p>
+
+  <p>Please read this handbook carefully. Share it with your daughter. If you are a coach, treat it as your operating manual. If you are a parent, treat it as your partnership agreement with this program. And if you ever have questions, my door is open.</p>
+
+  <p style="margin-top: 16px;"><em>— Stephanie Abdalla, CSA Volleyball Director</em></p>
+
+  <h3>Program Mission</h3>
+  <div class="callout">
+    <p><strong>CSA Volleyball Mission:</strong> To provide every girl in grades 1–6 with a safe, fun, and structured environment to learn the game of volleyball — building athletic skills, teamwork, confidence, and a love of sport that lasts a lifetime.</p>
+  </div>
+
+  <h3>Core Values</h3>
+  <section class="hb-table" tabindex="0" aria-label="Table: Core Values"><table>
+    <thead><tr><th scope="col">Value</th><th scope="col">What It Looks Like in Practice</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Fun First</strong></td><td>Every practice and game should leave players wanting to come back. Coaches design sessions that are energetic, positive, and engaging.</td></tr>
+      <tr><td><strong>Development Over Winning</strong></td><td>Scores matter less than skill growth. We celebrate improvement at every level, not just victories.</td></tr>
+      <tr><td><strong>Respect</strong></td><td>For teammates, opponents, coaches, officials, and the facility. Always.</td></tr>
+      <tr><td><strong>Effort</strong></td><td>We ask every player to give her best — not someone else's best. Consistent effort is the standard.</td></tr>
+      <tr><td><strong>Inclusion</strong></td><td>Every registered player plays. No one sits the bench for an entire game. No one is made to feel unwelcome.</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Section 1 — Welcome &amp; Mission</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-2">
+    <div class="section-num">Section 2</div>
+    <h2>Program Overview</h2>
+  </div>
+
+  <h3>Age Groups &amp; Eligibility</h3>
+  <p>CSA Volleyball is open to girls in grades 1 through 6. All ages are determined by the player's grade level at the start of the season. Players are grouped into divisions designed to match physical development and skill level. The primary focus of this handbook and curriculum is the <strong>3rd, 4th, and 5th grade divisions</strong>, which represent the core developmental years of the program.</p>
+
+  <section class="hb-table" tabindex="0" aria-label="Table: Age Groups &amp; Eligibility"><table>
+    <thead><tr><th scope="col">Division</th><th scope="col">Grades</th><th scope="col">Approx. Ages</th><th scope="col">Focus</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Beginner</strong></td><td>1st &amp; 2nd Grade</td><td>6–8</td><td>Introduction to movement, ball control, underhand serve</td></tr>
+      <tr><td><strong>Developmental</strong></td><td>3rd &amp; 4th Grade</td><td>8–10</td><td>Passing, setting, serving progression, team concepts</td></tr>
+      <tr><td><strong>Intermediate</strong></td><td>5th &amp; 6th Grade</td><td>10–12</td><td>Full game play, overhand serve, pass-set-hit system</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="callout green">
+    <p><strong>No-Cut Policy:</strong> CSA Volleyball does not cut players. Every registered girl is placed on a team and participates in the full season. Equal playing time is a priority at all grade levels.</p>
+  </div>
+
+  <h3>Season Structure</h3>
+  <p>CSA Volleyball runs <strong>two seasons per year</strong> — Fall and Spring. Each season is <strong>nine weeks</strong> in length, consisting of one practice per week and weekly games. The season concludes with an <strong>end-of-season tournament</strong> (see Section 11).</p>
+
+  <section class="hb-table" tabindex="0" aria-label="Table: Season Structure"><table>
+    <thead><tr><th scope="col">Season</th><th scope="col">Approximate Dates</th><th scope="col">Weeks</th><th scope="col">Practice Frequency</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Fall</strong></td><td>September – November</td><td>9</td><td>1 per week</td></tr>
+      <tr><td><strong>Spring</strong></td><td>February – April</td><td>9</td><td>1 per week</td></tr>
+    </tbody>
+  </table></section>
+
+  <h3>Registration</h3>
+  <p>Registration is handled through the CSA website at <strong>www.csalaf.com</strong>. Deadlines are posted on the site prior to each season. Late registrations may be accepted on a space-available basis. All players must be registered before participating in any practice or game. Registration fees, payment options, and scholarship information are available through the CSA office.</p>
+
+  <h3>Team Formation</h3>
+  <p>Teams are formed by the Volleyball Director following registration close. Teams are balanced by grade level and, where possible, by prior experience. Players may request to be placed with a friend, but team balance takes priority. Rosters are finalized before the first practice and will not be changed except in extraordinary circumstances.</p>
+
+  <h3>Uniforms &amp; Equipment</h3>
+  <p>Each registered player will receive a CSA volleyball jersey as part of their registration. Players are responsible for wearing their assigned jersey to every game. Shorts, knee pads, and athletic shoes are the player's responsibility.</p>
+
+  <section class="hb-table" tabindex="0" aria-label="Table: Uniforms &amp; Equipment"><table>
+    <thead><tr><th scope="col">Item</th><th scope="col">Provided By</th><th scope="col">Requirements</th></tr></thead>
+    <tbody>
+      <tr><td>Jersey</td><td>CSA (included in registration)</td><td>Must be worn at all games; no alterations</td></tr>
+      <tr><td>Shorts</td><td>Player/Family</td><td>Athletic shorts; no jeans or skirts</td></tr>
+      <tr><td>Athletic Shoes</td><td>Player/Family</td><td>Non-marking soles required in gym; no sandals, boots, or open-toe shoes</td></tr>
+      <tr><td>Knee Pads</td><td>Player/Family (strongly recommended)</td><td>Optional but highly encouraged for all grades</td></tr>
+      <tr><td>Volleyballs</td><td>CSA</td><td>Age-appropriate balls provided; players may bring their own for warm-up</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Section 2 — Program Overview</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-3">
+    <div class="section-num">Section 3</div>
+    <h2>Facility Rules</h2>
+  </div>
+
+  <p>CSA Volleyball uses two facilities. <strong>Practices</strong> are held at the Comeaux Sports Complex in Lafayette. <strong>Games</strong> are played at the Earl K. Long Gymnasium on the University of Louisiana at Lafayette (ULL) campus. All participants — players, coaches, and spectators — are expected to follow the rules of both facilities at all times. Failure to comply may result in removal from the facility and/or suspension from the program.</p>
+
+  <h3>Comeaux Sports Complex — Practice Facility</h3>
+  <p>The Comeaux Sports Complex is a Lafayette Parish Recreation District (LPRD) facility. All LPRD rules apply in addition to the CSA-specific rules below.</p>
+
+  <ul class="rule-list">
+    <li>Entry and exit must be through designated entrances only. Do not prop open emergency exits.</li>
+    <li>Players must be accompanied by a parent or guardian until their coach arrives. Do not leave children unattended at the facility.</li>
+    <li>No outside food or drinks are permitted inside the gym. Water in sealed, non-glass containers is the only exception.</li>
+    <li>No gum, sunflower seeds, or other shelled products inside the gym or on the courts.</li>
+    <li>No glass bottles or containers anywhere in the facility.</li>
+    <li>Alcohol, smoking, vaping, and all tobacco products are strictly prohibited inside the facility and on all grounds.</li>
+    <li>No profane, obscene, or racially/sexually offensive language at any time.</li>
+    <li>No fighting, bullying, or threatening behavior. Any such conduct results in immediate removal.</li>
+    <li>Non-marking athletic shoes are required on all gym floors. Street shoes, boots, sandals, and cleats are not permitted.</li>
+    <li>No dunking, hanging on rims, backboards, or nets. No throwing, kicking, or striking balls outside of organized activity.</li>
+    <li>Equipment setup and takedown must be handled by CSA staff or designated coaches only. Do not move or adjust nets, standards, or court equipment without authorization.</li>
+    <li>Pets are not permitted inside the facility.</li>
+    <li>All bags are subject to inspection by facility staff.</li>
+    <li>Injuries, accidents, or equipment failures must be reported immediately to a CSA coach or facility staff member.</li>
+    <li>Players must be picked up within 15 minutes of the end of practice. Coaches are not responsible for supervising players after the scheduled session ends.</li>
+    <li>No personal sports equipment (other than personal knee pads and water bottles) may be brought to practice without coach approval.</li>
+  </ul>
+
+  <h3>Earl K. Long Gymnasium — Game Facility (ULL Campus)</h3>
+  <p>The Earl K. Long Gymnasium is a University of Louisiana at Lafayette facility. All ULL facility policies apply. CSA is a guest of ULL and all participants are expected to represent the program with professionalism and respect.</p>
+
+  <ul class="rule-list">
+    <li>All participants must enter and exit through the designated CSA program entrance. Follow posted signage and staff direction.</li>
+    <li>No outside food or beverages are permitted inside the gymnasium. Water in sealed, non-glass containers is permitted for players on the bench.</li>
+    <li>Spectators must remain in designated spectator areas. Do not enter the court, bench areas, or warm-up zones.</li>
+    <li>Non-marking athletic shoes are required on the gymnasium floor at all times. No exceptions.</li>
+    <li>No profane language, taunting, or unsportsmanlike conduct toward players, coaches, officials, or opposing teams.</li>
+    <li>No alcohol, smoking, or vaping on ULL property.</li>
+    <li>Photography and video recording are subject to CSA's Photography &amp; Social Media Policy (Section 9).</li>
+    <li>Parking is available in designated lots. Do not park in reserved or restricted areas.</li>
+    <li>ULL facility staff have authority to remove any individual who violates facility policies.</li>
+    <li>All CSA facility rules (above) also apply at this location.</li>
+  </ul>
+
+  <h3>General Conduct — Both Facilities</h3>
+  <div class="callout red">
+    <p><strong>Zero Tolerance:</strong> Fighting, physical intimidation, racial or sexual slurs, and threats of any kind will result in immediate removal from the facility and suspension from the program. There are no warnings for these behaviors.</p>
+  </div>
+
+  <section class="hb-table" tabindex="0" aria-label="Table: General Conduct — Both Facilities"><table>
+    <thead><tr><th scope="col">Behavior</th><th scope="col">Consequence</th></tr></thead>
+    <tbody>
+      <tr><td>Minor rule violation (e.g., food in gym, wrong shoes)</td><td>Verbal warning; correction required before participation continues</td></tr>
+      <tr><td>Repeated minor violations</td><td>Parent/guardian notification; possible removal from session</td></tr>
+      <tr><td>Unsportsmanlike conduct (taunting, arguing with officials)</td><td>Removal from game/practice; parent notification</td></tr>
+      <tr><td>Fighting, threats, or abusive language</td><td>Immediate removal; suspension pending review by Director</td></tr>
+      <tr><td>Second major offense</td><td>Removal from program; no refund</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Section 3 — Facility Rules</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-4">
+    <div class="section-num">Section 4</div>
+    <h2>Volleyball Rules — CSA Grades 1–6</h2>
+  </div>
+
+  <p>CSA volleyball rules are adapted from USA Volleyball guidelines and modified to be age-appropriate for recreational, developmental play. The goal is to maximize ball contacts, keep rallies going, and teach proper technique — not to replicate the adult game at the expense of player development.</p>
+
+  <h3>Court &amp; Equipment Specifications</h3>
+
+  <section class="hb-table" tabindex="0" aria-label="Table: Court &amp; Equipment Specifications"><table>
+    <thead><tr><th scope="col">Grade</th><th scope="col">Net Height</th><th scope="col">Ball Type</th><th scope="col">Court Size</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1st &amp; 2nd Grade</strong></td><td>6 feet</td><td>Soft Touch / Volley-Lite</td><td>Standard (modified as needed)</td></tr>
+      <tr><td><strong>3rd &amp; 4th Grade</strong></td><td>6 feet 6 inches</td><td>Volley-Lite</td><td>Standard</td></tr>
+      <tr><td><strong>5th &amp; 6th Grade</strong></td><td>7 feet</td><td>Volley-Lite / Standard</td><td>Standard</td></tr>
+    </tbody>
+  </table></section>
+
+  <h3>Team Composition</h3>
+  <ul class="rule-list">
+    <li>Six players per side on the court at one time.</li>
+    <li>A team may begin play with a minimum of four players.</li>
+    <li>If a team cannot field four players within 15 minutes of the scheduled start time, the match is forfeited.</li>
+    <li>A late-arriving player may rotate into the lineup at the team's next rotation without penalty.</li>
+    <li>Teams may borrow players from the same age division with the Volleyball Director's approval. Borrowed players may not start unless needed to reach the minimum of four. Maximum of four borrowed players per match.</li>
+  </ul>
+
+  <h3>Match Format &amp; Scoring</h3>
+  <ul class="rule-list">
+    <li>Matches are best two out of three sets. Sets 1 and 2 are played to 25 points. If a third set is required, it is played to 15 points.</li>
+    <li>A team must win by two points. Point caps are set at 27 (sets 1 &amp; 2) and 17 (set 3). The first team to reach the cap wins the set regardless of the two-point margin.</li>
+    <li><strong>Rally scoring</strong> is used: a point is awarded on every rally, regardless of which team served.</li>
+    <li>Each team receives two time-outs per set, each lasting one minute.</li>
+    <li>A two-minute rest is allowed between sets.</li>
+    <li>A coin toss before the match determines first serve or side. The winning team chooses; the losing team gets the remaining option. A new coin toss is held before any third set.</li>
+    <li>Teams switch sides at the start of each new set. In a third set, teams switch sides when one team reaches 8 points.</li>
+    <li><strong>5-in-a-Row Rule (all grades):</strong> If one team scores five consecutive points, the serve is awarded to the opposing team. This rule promotes competitive balance and keeps all players engaged.</li>
+  </ul>
+
+  <h3>Serving Rules by Grade</h3>
+  <p>Serving rules are graduated by grade level to match physical development and ensure players experience success. The serving lines referenced below correspond to court markings at CSA facilities.</p>
+
+  <section class="hb-table" tabindex="0" aria-label="Table: Serving Rules by Grade"><table>
+    <thead><tr><th scope="col">Grade</th><th scope="col">Serve Type</th><th scope="col">Serving Distance</th><th scope="col">Consecutive Serves</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1st &amp; 2nd</strong></td><td>Underhand only</td><td>10-foot line</td><td>3 consecutive serves per player, then rotate</td></tr>
+      <tr><td><strong>3rd</strong></td><td>Underhand or Overhand</td><td>Underhand: 15 ft · Overhand: 10 ft</td><td>Rally scoring; standard rotation</td></tr>
+      <tr><td><strong>4th</strong></td><td>Underhand or Overhand</td><td>22 feet from net</td><td>Rally scoring; standard rotation</td></tr>
+      <tr><td><strong>5th &amp; 6th</strong></td><td>Underhand or Overhand</td><td>End line (full court)</td><td>Rally scoring; max 5 consecutive points per server</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="callout">
+    <p><strong>Re-toss Rule:</strong> After a ball is tossed for an overhand serve, the server may catch or let it drop and re-toss <em>one time only</em> per serve attempt. A second dropped toss results in a fault.</p>
+  </div>
+
+  <h3>Rotation</h3>
+  <p>Players rotate <strong>clockwise</strong> each time their team wins the serve from the opposing team. The player in position 1 (right back) serves. After each side-out, the new serving team rotates before the serve.</p>
+
+  <div class="court-diagram">
+    <strong style="font-size:10pt; color:#1A4F9C; display:block; margin-bottom:12px;">COURT POSITIONS &amp; ROTATION ORDER</strong>
+    <div class="court-inner">
+      <div class="court-half">
+        <span class="net-label">NET ↕</span>
+        <div style="width:100%;">
+          <div class="position-row">
+            <div><div class="position-circle">4</div><div class="court-label">Left Front</div></div>
+            <div><div class="position-circle">3</div><div class="court-label">Middle Front</div></div>
+            <div><div class="position-circle">2</div><div class="court-label">Right Front</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="court-half bottom">
+        <div style="width:100%; padding-top:10px;">
+          <div class="position-row">
+            <div><div class="position-circle" style="background:#C0272D;">5</div><div class="court-label">Left Back</div></div>
+            <div><div class="position-circle" style="background:#C0272D;">6</div><div class="court-label">Middle Back</div></div>
+            <div><div class="position-circle" style="background:#C0272D;">1</div><div class="court-label">Right Back<br><em style="font-size:7pt;">(Server)</em></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:8pt; color:#666; margin-top:10px;">Rotation is clockwise ↻ · Position 1 always serves · Front row = positions 2, 3, 4 · Back row = positions 1, 5, 6</p>
+  </div>
+
+  <ul class="rule-list">
+    <li>Teams starting the game receiving serve will rotate before their first serve opportunity.</li>
+    <li>Teams must begin the second set in the positions in which they ended the first set. Teams may reset their lineup before the third set.</li>
+    <li>One coach and one assistant coach may stand on the sideline (bench side). Coaches must remain off the court and may not cross the 10-foot line toward the net during play.</li>
+  </ul>
+
+  <h3>Ball in Play</h3>
+  <ul class="rule-list">
+    <li>Each team is allowed a maximum of three contacts to return the ball over the net. A block touch does not count as one of the three contacts.</li>
+    <li>A player may not contact the ball twice in succession, except when the first touch is a block.</li>
+    <li>If two teammates contact the ball simultaneously, it counts as one contact and either player may play the next ball.</li>
+    <li>A ball that touches the net and continues over to the opponent's court is in play (let serve and let ball are both legal).</li>
+    <li>A ball is in if it touches any part of the boundary line.</li>
+    <li>A ball is out if it lands outside the boundary lines, passes outside the antenna, or touches the ceiling or any overhead obstruction.</li>
+    <li>A player may play a ball that is out of bounds on their side, provided they do not touch the opponent's court.</li>
+  </ul>
+
+  <h3>Faults (Point Awarded to Opponent)</h3>
+  <section class="hb-table" tabindex="0" aria-label="Table: Faults (Point Awarded to Opponent)"><table>
+    <thead><tr><th scope="col">Fault</th><th scope="col">Description</th></tr></thead>
+    <tbody>
+      <tr><td>Ball lands in-bounds on your side</td><td>The ball hits the floor within your court boundaries</td></tr>
+      <tr><td>Ball out of bounds</td><td>Your team sends the ball outside the court or antenna</td></tr>
+      <tr><td>Four contacts</td><td>Your team contacts the ball more than three times before returning it</td></tr>
+      <tr><td>Double contact</td><td>A player contacts the ball twice in succession (except on a block)</td></tr>
+      <tr><td>Held ball / Carry</td><td>The ball is caught, held, scooped, or thrown rather than cleanly contacted</td></tr>
+      <tr><td>Net fault</td><td>A player touches the net while the ball is in play (except when the net is driven into the player)</td></tr>
+      <tr><td>Center line violation</td><td>A player crosses the center line and interferes with the opponent's play</td></tr>
+      <tr><td>Rotation fault</td><td>A team is out of correct rotation position at the moment of the serve</td></tr>
+      <tr><td>Serving fault</td><td>Server steps on or over the service line before contacting the ball; ball fails to cross the net</td></tr>
+      <tr><td>Back-row attack</td><td>A back-row player attacks the ball above net height from in front of the 10-foot line</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Section 4 — Volleyball Rules</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-5">
+    <div class="section-num">Section 5</div>
+    <h2>Coach Guidelines &amp; Expectations</h2>
+  </div>
+
+  <p>CSA Volleyball coaches are volunteers who give their time to make this program possible. That commitment is valued and respected. In return, coaches agree to uphold the standards of this program, follow all CSA policies, and serve as positive role models for every player in their care.</p>
+
+  <h3>Coach Eligibility</h3>
+  <ul class="rule-list">
+    <li>Head coaches must be at least 18 years of age. Assistant coaches may be 16–17 with direct adult supervision.</li>
+    <li>All coaches must complete a CSA volunteer registration form prior to their first practice.</li>
+    <li>All coaches must pass a background check before working with players (see Section 8).</li>
+    <li>All coaches must complete USA Volleyball's SafeSport training before the season begins (see Section 8).</li>
+    <li>Each team is permitted one head coach and one assistant coach on the sideline during games. Additional coaches must remain in the spectator area.</li>
+  </ul>
+
+  <h3>Coach Responsibilities</h3>
+  <ul class="rule-list">
+    <li>Arrive at least 15 minutes before the start of every practice and game to set up and prepare.</li>
+    <li>Remain at the facility until every player has been picked up by a parent or guardian.</li>
+    <li>Follow the season curriculum and practice plan framework provided in the Coach Practice Plan Guide (separate document).</li>
+    <li>Ensure all players receive equal playing time in every game. No player should sit out more than one rotation per set without a documented reason (injury, disciplinary).</li>
+    <li>Communicate any player concerns, injuries, or behavioral issues to the Volleyball Director promptly.</li>
+    <li>Maintain a positive, encouraging tone at all times during practice and games.</li>
+    <li>Teach skills progressively — do not advance players to more complex techniques before foundational skills are established.</li>
+    <li>Keep practice sessions organized and on-schedule. A 60-minute practice should follow the four-phase structure outlined in the curriculum guide.</li>
+  </ul>
+
+  <h3>Coach Code of Conduct</h3>
+  <div class="callout red">
+    <p><strong>Non-Negotiable Standards:</strong> The following behaviors will result in immediate removal from the coaching role and review by the Volleyball Director. No exceptions.</p>
+  </div>
+  <ul class="rule-list">
+    <li>No physical contact with players beyond age-appropriate instruction (e.g., demonstrating proper arm position). When in doubt, demonstrate on yourself.</li>
+    <li>No yelling at, belittling, or publicly embarrassing any player — regardless of performance or behavior.</li>
+    <li>No profane, sexual, or discriminatory language in the presence of players or at any CSA event.</li>
+    <li>No one-on-one contact with a player outside of the team setting without another adult present (two-deep leadership rule).</li>
+    <li>No communication with players via personal social media, direct messaging, or text outside of official team channels.</li>
+    <li>No arguing with officials, opposing coaches, or parents during games. Disputes must be addressed calmly and through the Volleyball Director.</li>
+    <li>No alcohol or substance use before or during any CSA event.</li>
+  </ul>
+
+  <h3>Communication Policy</h3>
+  <p>Clear communication protects everyone. The following chain of communication must be followed:</p>
+
+  <section class="hb-table" tabindex="0" aria-label="Table: Communication Policy"><table>
+    <thead><tr><th scope="col">Situation</th><th scope="col">Who to Contact</th><th scope="col">Method</th></tr></thead>
+    <tbody>
+      <tr><td>Practice schedule change</td><td>Volleyball Director → Coach → Parents</td><td>CSA communication platform or email</td></tr>
+      <tr><td>Player injury or incident</td><td>Coach → Volleyball Director immediately</td><td>Phone call (same day)</td></tr>
+      <tr><td>Parent concern about a player</td><td>Parent → Coach first</td><td>In person or email</td></tr>
+      <tr><td>Unresolved parent concern</td><td>Parent → Volleyball Director</td><td>Email or in-person meeting</td></tr>
+      <tr><td>Coach concern about a player</td><td>Coach → Volleyball Director</td><td>Private conversation</td></tr>
+      <tr><td>Game cancellation / weather</td><td>Volleyball Director → Coaches → Parents</td><td>CSA platform or email; minimum 2 hours notice</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="callout">
+    <p><strong>Two-Deep Rule:</strong> Coaches must never be alone with a single player. At least two adults must be present whenever a coach is working with players. This protects both the player and the coach.</p>
+  </div>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Section 5 — Coach Guidelines</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-6">
+    <div class="section-num">Section 6</div>
+    <h2>Player Expectations</h2>
+  </div>
+
+  <p>Being a CSA volleyball player is a privilege and a responsibility. The expectations below apply to every player, at every practice and every game, regardless of grade level or experience. These are not optional guidelines — they are the standard of conduct for this program.</p>
+
+  <h3>Attendance &amp; Punctuality</h3>
+  <ul class="rule-list">
+    <li>Players are expected to attend every scheduled practice and game. Consistent attendance is essential for team development.</li>
+    <li>If a player cannot attend, the parent or guardian must notify the coach as early as possible — ideally 24 hours in advance.</li>
+    <li>Players who miss more than three practices without communication may lose their starting rotation position for the following game.</li>
+    <li>Players should arrive ready to participate — in proper attire, with water, and mentally prepared to work.</li>
+  </ul>
+
+  <h3>Attitude &amp; Effort</h3>
+  <ul class="rule-list">
+    <li>Give your best effort every time you step on the court. Best effort looks different for every player — what matters is that you are trying.</li>
+    <li>Stay positive. Mistakes happen. How you respond to a mistake matters more than the mistake itself.</li>
+    <li>Support your teammates. Celebrate their successes. Encourage them when they struggle.</li>
+    <li>Listen to your coach. When a coach is speaking, players stop, face the coach, and listen.</li>
+    <li>Accept coaching. Feedback is not criticism — it is how you get better.</li>
+  </ul>
+
+  <h3>Sportsmanship</h3>
+  <ul class="rule-list">
+    <li>Respect your opponents. They are not your enemies — they are other kids who love volleyball just like you.</li>
+    <li>Respect officials. Referees make mistakes. Arguing with or taunting officials is never acceptable.</li>
+    <li>Win with class. Lose with grace. Neither outcome defines you as a player or a person.</li>
+    <li>No taunting, trash-talking, or celebrating at the expense of the other team.</li>
+    <li>Line up and shake hands with the opposing team at the end of every match — win or lose.</li>
+  </ul>
+
+  <h3>Uniform &amp; Equipment</h3>
+  <ul class="rule-list">
+    <li>Wear your assigned CSA jersey to every game. Practices may be in any athletic clothing.</li>
+    <li>Wear non-marking athletic shoes to every practice and game. No exceptions at the gym.</li>
+    <li>Remove all jewelry before participating. Earrings, rings, bracelets, and necklaces must come off. Medical alert jewelry is the only exception.</li>
+    <li>Bring a water bottle to every practice and game. Staying hydrated is part of being a prepared athlete.</li>
+  </ul>
+
+  <h3>Behavior at Practice vs. Games</h3>
+  <section class="hb-table" tabindex="0" aria-label="Table: Behavior at Practice vs. Games"><table>
+    <thead><tr><th scope="col">Setting</th><th scope="col">Expectation</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Practice</strong></td><td>Focus on learning. Ask questions. Try new skills even if you fail. Practice is where mistakes are welcome.</td></tr>
+      <tr><td><strong>Games</strong></td><td>Apply what you've learned. Compete hard. Play your role on the team. Cheer for your teammates on the bench.</td></tr>
+      <tr><td><strong>Bench</strong></td><td>Stay engaged. Watch the game. Cheer for your teammates. No phones, no wandering, no disengagement.</td></tr>
+      <tr><td><strong>Warm-Up</strong></td><td>Take warm-up seriously. It prepares your body and your mind. Goofing off during warm-up leads to injuries and poor performance.</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Section 6 — Player Expectations</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-7">
+    <div class="section-num">Section 7</div>
+    <h2>Parent &amp; Spectator Expectations</h2>
+  </div>
+
+  <p>Parents and spectators are a vital part of the CSA volleyball experience. Your energy, encouragement, and presence make a real difference to your daughter and her teammates. We ask that you channel that energy positively. The standards below are not suggestions — they are requirements for participation in CSA events.</p>
+
+  <h3>The Role of a CSA Volleyball Parent</h3>
+  <p>Your job at a CSA volleyball game is simple: <strong>cheer, encourage, and enjoy.</strong> Your daughter's coach has a plan. The officials are doing their job. Your role is to be the loudest, most positive voice in the gym — for your daughter's team and, when appropriate, for the other team too. Youth sports are better when adults model the sportsmanship we ask of our kids.</p>
+
+  <h3>Sideline Conduct</h3>
+  <ul class="rule-list">
+    <li>Remain in designated spectator areas at all times. Do not enter the court, bench area, or warm-up zones during practice or games.</li>
+    <li>Cheer for your team positively. Avoid negative comments about players — including your own daughter — coaches, or officials.</li>
+    <li>Do not coach from the sideline. Your daughter has a coach. Conflicting instructions from the stands confuse players and undermine the coach's authority.</li>
+    <li>Do not approach officials during or immediately after a game to dispute calls. If you have a concern, speak with the Volleyball Director.</li>
+    <li>Do not approach opposing coaches or parents in a confrontational manner. Any dispute must go through the Volleyball Director.</li>
+    <li>Profane, abusive, or threatening language directed at anyone — player, coach, official, or spectator — will result in removal from the facility.</li>
+    <li>Silence your phone during play. Step out of the gym to take calls.</li>
+  </ul>
+
+  <h3>Drop-Off &amp; Pick-Up Policy</h3>
+  <ul class="rule-list">
+    <li>Players must not be dropped off at the facility more than 15 minutes before the scheduled start of practice or games.</li>
+    <li>Players must be picked up within 15 minutes of the end of the session. Coaches are not responsible for supervising players after the session ends.</li>
+    <li>If you are running late, contact your coach immediately. Do not leave your child unattended at the facility.</li>
+    <li>If someone other than a parent or guardian is picking up your daughter, notify the coach in advance.</li>
+  </ul>
+
+  <h3>Communication Ladder</h3>
+  <p>Following the communication ladder prevents misunderstandings, protects the coach-player relationship, and ensures concerns are addressed properly.</p>
+
+  <section class="hb-table" tabindex="0" aria-label="Table: Communication Ladder"><table>
+    <thead><tr><th scope="col">Step</th><th scope="col">Who</th><th scope="col">When</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>Parent → Coach</td><td>First point of contact for any concern about your daughter's experience, playing time, or team dynamics. Allow 24–48 hours for a response.</td></tr>
+      <tr><td><strong>2</strong></td><td>Parent → Volleyball Director</td><td>If the concern is not resolved after speaking with the coach, or if the concern involves the coach's conduct.</td></tr>
+      <tr><td><strong>3</strong></td><td>Parent → CSA Administration</td><td>For issues that cannot be resolved at the program level. Contact through www.csalaf.com.</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="callout red">
+    <p><strong>24-Hour Rule:</strong> Please wait at least 24 hours after a game before contacting a coach about a concern that arose during the game. Emotions run high in competition. A calm, productive conversation is always more effective than an immediate reaction.</p>
+  </div>
+
+  <h3>Volunteer Opportunities</h3>
+  <p>CSA is an all-volunteer organization. We welcome parent involvement at every level — from helping with equipment setup to assisting with the end-of-season tournament. If you are interested in volunteering, contact the Volleyball Director at the start of the season. All volunteers working directly with players must complete a background check (see Section 8).</p>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Section 7 — Parent &amp; Spectator Expectations</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-8">
+    <div class="section-num">Section 8</div>
+    <h2>SafeSport &amp; Background Check Policy</h2>
+  </div>
+
+  <p>The safety of every player in this program is the highest priority. CSA Volleyball is committed to creating an environment where children are protected from abuse, misconduct, and harm. This section outlines the mandatory requirements for all adults working with CSA volleyball players.</p>
+
+  <h3>Background Check Requirements</h3>
+  <p>All coaches, assistant coaches, and any adult volunteer who has regular, direct contact with players must complete a background check before participating in any CSA volleyball activity. Background checks are administered through CSA's approved screening provider. Results are reviewed by CSA administration. Any individual with a disqualifying offense will not be permitted to serve in any capacity involving player contact.</p>
+
+  <ul class="rule-list">
+    <li>Background checks must be completed and cleared before the first practice of the season.</li>
+    <li>Background checks must be renewed annually.</li>
+    <li>The cost of the background check is the responsibility of the volunteer, unless otherwise communicated by CSA.</li>
+    <li>Failure to complete a background check disqualifies an individual from coaching or volunteering with players.</li>
+  </ul>
+
+  <h3>SafeSport Training</h3>
+  <p>USA Volleyball's SafeSport program is the national standard for protecting youth athletes from abuse and misconduct in volleyball. CSA requires all coaches and adult volunteers to complete the SafeSport Trained certification before the season begins.</p>
+
+  <ul class="rule-list">
+    <li>SafeSport training is completed online at <strong>safesport.org</strong> and takes approximately 90 minutes.</li>
+    <li>Certification must be current (renewed annually).</li>
+    <li>Coaches must provide proof of completion to the Volleyball Director before their first practice.</li>
+    <li>SafeSport training covers: recognizing abuse and misconduct, reporting obligations, boundary violations, and creating a safe environment for youth athletes.</li>
+  </ul>
+
+  <h3>Reporting Obligations</h3>
+  <div class="callout red">
+    <p><strong>Mandatory Reporting:</strong> Any adult associated with CSA Volleyball who witnesses or has reasonable suspicion of child abuse, neglect, or misconduct is required by Louisiana law to report it immediately. Do not investigate on your own. Do not wait. Report to:</p>
+    <p style="margin-top:8px;"><strong>Louisiana Child Protective Services:</strong> 1-855-4LA-KIDS (1-855-452-5437)<br>
+    <strong>Local Law Enforcement:</strong> 911 (if immediate danger)<br>
+    <strong>CSA Volleyball Director:</strong> Notify after contacting authorities</p>
+  </div>
+
+  <h3>Two-Deep Leadership</h3>
+  <p>At no time should any adult be alone with a single player. This rule protects players from potential misconduct and protects coaches from false allegations. At least two adults must be present whenever coaches are working with players. If a player needs to speak privately with a coach, the conversation must take place in a visible, public area with another adult nearby.</p>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Section 8 — SafeSport &amp; Background Checks</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-9">
+    <div class="section-num">Section 9</div>
+    <h2>Photography &amp; Social Media Policy</h2>
+  </div>
+
+  <p>CSA Volleyball embraces the enthusiasm of families who want to document and share their daughters' athletic experiences. At the same time, we have a responsibility to protect the privacy and safety of all minors in our program. This policy applies to all participants, spectators, coaches, and CSA staff at all CSA volleyball events.</p>
+
+  <h3>Photography &amp; Video at Events</h3>
+  <ul class="rule-list">
+    <li>Parents and family members are welcome to photograph and video record their own children at CSA volleyball events.</li>
+    <li>Photography of other people's children requires the consent of that child's parent or guardian. When in doubt, ask.</li>
+    <li>No photography or video recording is permitted in locker rooms, restrooms, or any private area.</li>
+    <li>Individuals who are asked to stop photographing a specific child must comply immediately.</li>
+    <li>CSA reserves the right to photograph and video record players, coaches, and events for program promotion. By registering for CSA Volleyball, families consent to this use unless they submit a written opt-out request to the Volleyball Director before the season begins.</li>
+  </ul>
+
+  <h3>Social Media Guidelines</h3>
+  <ul class="rule-list">
+    <li>When posting photos or videos that include other children, tag only your own child and obtain permission before tagging or identifying other minors by name.</li>
+    <li>Do not post content that could embarrass, humiliate, or negatively portray any player, coach, or official — including your own child.</li>
+    <li>Do not post content that reveals the schedule, location, or personal information of any player other than your own.</li>
+    <li>Coaches may not post photos or videos of players on personal social media accounts without written parental consent. Team accounts managed through official CSA channels are the appropriate platform for team content.</li>
+    <li>Negative commentary about officials, opposing teams, or other CSA families on social media reflects on the entire program and is prohibited.</li>
+  </ul>
+
+  <h3>Opt-Out Process</h3>
+  <p>Families who do not wish their child to appear in CSA-produced photography or promotional materials must submit a written opt-out request to the Volleyball Director before the first game of the season. Opt-out requests will be honored and communicated to the CSA photography team. Note that CSA cannot control photography taken by other families at events.</p>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Section 9 — Photography &amp; Social Media Policy</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-10">
+    <div class="section-num">Section 10</div>
+    <h2>Emergency Action Plan</h2>
+  </div>
+
+  <p>Every coach must be familiar with this Emergency Action Plan before the first practice. In any emergency, the priority order is: <strong>(1) Ensure safety, (2) Call for help, (3) Notify parents, (4) Notify the Volleyball Director.</strong></p>
+
+  <h3>Medical Emergency Protocol</h3>
+  <div class="callout red">
+    <p><strong>If a player is unconscious, not breathing, or in severe distress — call 911 immediately. Do not wait.</strong></p>
+  </div>
+
+  <ol class="styled">
+    <li><strong>Stop play immediately.</strong> Clear the court. Keep other players calm and away from the injured player.</li>
+    <li><strong>Assess the situation.</strong> Do not move the player if a head, neck, or spine injury is suspected.</li>
+    <li><strong>Call 911</strong> if the injury is serious, the player is unconscious, or you are unsure of the severity.</li>
+    <li><strong>Administer first aid</strong> if you are trained to do so and it is safe. Do not exceed your training.</li>
+    <li><strong>Contact the player's parent or guardian</strong> using the emergency contact information on file.</li>
+    <li><strong>Notify the Volleyball Director</strong> by phone as soon as the player is stable and parents have been contacted.</li>
+    <li><strong>Document the incident</strong> in writing as soon as possible, including time, nature of injury, actions taken, and who was notified.</li>
+  </ol>
+
+  <h3>Concussion Protocol</h3>
+  <p>Any player who sustains a blow to the head, or who displays symptoms of a concussion (headache, dizziness, confusion, nausea, sensitivity to light), must be removed from play immediately. The player may not return to play the same day. A written medical clearance from a licensed healthcare provider is required before the player may return to practice or games.</p>
+
+  <div class="callout">
+    <p><strong>When in doubt, sit them out.</strong> This is the standard in youth sports. No game or practice is worth a player's long-term health.</p>
+  </div>
+
+  <h3>Weather &amp; Cancellation Policy</h3>
+  <ul class="rule-list">
+    <li>The Volleyball Director will communicate cancellations due to weather or facility issues as early as possible — ideally at least two hours before the scheduled event.</li>
+    <li>Cancellation notices will be sent through the official CSA communication platform and/or email. Coaches are responsible for relaying cancellations to their team.</li>
+    <li>Do not travel to the facility if a cancellation has been announced. If you are unsure, contact your coach before leaving home.</li>
+    <li>Makeup dates for cancelled practices will be scheduled at the Director's discretion based on facility availability.</li>
+    <li>Games cancelled due to weather will be rescheduled when possible. The tournament schedule will be adjusted accordingly.</li>
+  </ul>
+
+  <h3>Facility Emergency Contacts</h3>
+  <section class="hb-table" tabindex="0" aria-label="Table: Facility Emergency Contacts"><table>
+    <thead><tr><th scope="col">Situation</th><th scope="col">Contact</th><th scope="col">Number</th></tr></thead>
+    <tbody>
+      <tr><td>Life-threatening emergency</td><td>911</td><td>911</td></tr>
+      <tr><td>Comeaux Sports Complex — facility staff</td><td>LPRD Main Office</td><td>(337) 291-8400</td></tr>
+      <tr><td>ULL Earl K. Long Gym — facility staff</td><td>ULL Campus Police</td><td>(337) 482-6447</td></tr>
+      <tr><td>CSA Volleyball Director</td><td>Stephanie Abdalla</td><td>To be confirmed</td></tr>
+      <tr><td>Louisiana Child Protective Services</td><td>Hotline</td><td>1-855-452-5437</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Section 10 — Emergency Action Plan</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-11">
+    <div class="section-num">Section 11</div>
+    <h2>End-of-Season Tournament</h2>
+  </div>
+
+  <p>Each CSA volleyball season concludes with an end-of-season tournament. The tournament is a celebration of the season — a chance for players to compete, showcase what they've learned, and finish the year on a high note. All teams participate regardless of their regular-season record.</p>
+
+  <h3>Tournament Format</h3>
+  <ul class="rule-list">
+    <li>All teams in each grade division are invited to participate in the end-of-season tournament.</li>
+    <li>Tournament seeding is based on regular-season record (wins, then set differential, then point differential).</li>
+    <li>The tournament is single-elimination, bracket-style.</li>
+    <li>All tournament matches follow standard CSA game rules (Section 4).</li>
+    <li>Only players on the official team roster who have participated in at least one regular-season game are eligible for the tournament.</li>
+    <li>Rosters are frozen at the end of the regular season. No new players may be added for the tournament.</li>
+  </ul>
+
+  <h3>Tournament Day Expectations</h3>
+  <ul class="rule-list">
+    <li>Teams must arrive at least 30 minutes before their first scheduled match for check-in and warm-up.</li>
+    <li>All regular CSA rules for uniforms, conduct, and facility use apply throughout the tournament.</li>
+    <li>Coaches are responsible for communicating the tournament schedule to their team and families at least one week in advance.</li>
+    <li>The tournament is a family event. Spectators are encouraged to attend and cheer — within the conduct standards of Section 7.</li>
+  </ul>
+
+  <h3>Recognition &amp; Awards</h3>
+  <p>CSA Volleyball believes in recognizing effort, growth, and character — not just wins. End-of-season recognition may include:</p>
+
+  <section class="hb-table" tabindex="0" aria-label="Table: Recognition &amp; Awards"><table>
+    <thead><tr><th scope="col">Award</th><th scope="col">Criteria</th></tr></thead>
+    <tbody>
+      <tr><td>Participation Certificate</td><td>All registered players who complete the season</td></tr>
+      <tr><td>Most Improved Player</td><td>Selected by coach — player who demonstrated the greatest growth over the season</td></tr>
+      <tr><td>Team Spirit Award</td><td>Player who best exemplified CSA's core values of effort, attitude, and sportsmanship</td></tr>
+      <tr><td>Tournament Champion</td><td>First-place team in each grade division</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Section 11 — End-of-Season Tournament</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-12">
+    <div class="section-num">Section 12</div>
+    <h2>Skill Development Curriculum Overview</h2>
+  </div>
+
+  <p>The CSA volleyball curriculum is built around a simple truth: <strong>players learn best when they are having fun and touching the ball often.</strong> Every practice is structured to maximize ball contacts, build skills progressively, and keep players engaged from warm-up to the final whistle. The full weekly practice plan guide is provided as a separate document for coaches.</p>
+
+  <h3>Season Phases</h3>
+  <p>The 9-week season is divided into three phases. Each phase builds on the previous one, moving from individual skill development to team play.</p>
+
+  <section class="hb-table" tabindex="0" aria-label="Table: Season Phases"><table>
+    <thead><tr><th scope="col">Phase</th><th scope="col">Weeks</th><th scope="col">Focus</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Phase 1 — Foundation</strong></td><td>Weeks 1–3</td><td>Ball control, underhand serve, passing platform, basic rotation</td></tr>
+      <tr><td><strong>Phase 2 — Development</strong></td><td>Weeks 4–6</td><td>Overhand serve progression, setting introduction, serve receive, team concepts</td></tr>
+      <tr><td><strong>Phase 3 — Application</strong></td><td>Weeks 7–9</td><td>Pass-set-hit system, game-like drills, tournament preparation</td></tr>
+    </tbody>
+  </table></section>
+
+  <h3>Skills by Grade Level</h3>
+
+  <div class="phase-card">
+    <div class="phase-card-header">1st &amp; 2nd Grade — Beginner Division</div>
+    <div class="phase-card-body">
+      <p><strong>By end of season, players should be able to:</strong></p>
+      <ul class="rule-list">
+        <li>Make a proper passing platform (arms together, thumbs parallel)</li>
+        <li>Underhand serve from the 10-foot line with reasonable consistency</li>
+        <li>Call "mine" before playing the ball</li>
+        <li>Rotate clockwise when their team earns the serve</li>
+        <li>Demonstrate basic sportsmanship (handshake line, cheering for teammates)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-card-header">3rd &amp; 4th Grade — Developmental Division</div>
+    <div class="phase-card-body">
+      <p><strong>By end of season, players should be able to:</strong></p>
+      <ul class="rule-list">
+        <li>Pass with a consistent, locked platform — directing the ball toward the setter</li>
+        <li>Underhand serve from 15 feet; attempt overhand serve from 10 feet</li>
+        <li>Understand and attempt the Pass–Set–Hit sequence</li>
+        <li>Rotate correctly and understand their court position number</li>
+        <li>Open up and face the passer ("belly button to the ball")</li>
+        <li>Hit a downball over the net from behind the 10-foot line</li>
+        <li>Communicate with teammates during play</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-card">
+    <div class="phase-card-header">5th &amp; 6th Grade — Intermediate Division</div>
+    <div class="phase-card-body">
+      <p><strong>By end of season, players should be able to:</strong></p>
+      <ul class="rule-list">
+        <li>Pass consistently to a target (setter position)</li>
+        <li>Overhand serve from the end line with reasonable accuracy</li>
+        <li>Execute a basic overhead set to a hitter</li>
+        <li>Run a 3-step approach and contact a set ball</li>
+        <li>Understand serve receive formation ("W" formation)</li>
+        <li>Play in a base defensive position</li>
+        <li>Execute the full Pass–Set–Hit sequence in game situations</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Practice Structure (60 Minutes)</h3>
+  <section class="hb-table" tabindex="0" aria-label="Table: Practice Structure (60 Minutes)"><table>
+    <thead><tr><th scope="col">Segment</th><th scope="col">Time</th><th scope="col">Purpose</th></tr></thead>
+    <tbody>
+      <tr><td>Warm-Up &amp; Ball Control</td><td>15 min</td><td>Physical preparation, individual skill repetition, partner work</td></tr>
+      <tr><td>Serving</td><td>10 min</td><td>Grade-appropriate serving practice; progressive distance</td></tr>
+      <tr><td>Serve Receive / Passing</td><td>15 min</td><td>Passing to target, serve receive formation, communication</td></tr>
+      <tr><td>Team Component / Scrimmage</td><td>20 min</td><td>Game-like play, rotation practice, competitive drills</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>Section 12 — Skill Development Curriculum</span>
+  </div>
+</div>
+
+<div class="page page-break">
+  <div class="page-header">
+    <img src="/handbooks/csa-logo.jpg" alt="CSA" class="page-header-logo">
+    <span class="page-header-title">CSA Volleyball Program Handbook</span>
+  </div>
+
+  <div class="section-header" id="section-13">
+    <div class="section-num">Section 13</div>
+    <h2>Volleyball Glossary</h2>
+  </div>
+
+  <p>This glossary is designed for players and parents who are new to volleyball. Understanding the language of the game helps players learn faster and helps parents follow along during games.</p>
+
+  <section class="hb-table" tabindex="0" aria-label="Table: Volleyball Glossary"><table>
+    <thead><tr><th scope="col">Term</th><th scope="col">Definition</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ace</strong></td><td>A serve that lands in-bounds without being touched by the opposing team, scoring a direct point.</td></tr>
+      <tr><td><strong>Attack / Hit / Spike</strong></td><td>An offensive action where a player strikes the ball forcefully downward into the opponent's court. The arm creates a whip-like motion at the peak of the reach.</td></tr>
+      <tr><td><strong>Block</strong></td><td>A defensive action at the net where front-row players jump and extend their arms above the net to deflect an opponent's attack. A block touch does not count as one of the team's three contacts.</td></tr>
+      <tr><td><strong>Carry / Lift</strong></td><td>An illegal contact where the ball is held, scooped, or thrown rather than cleanly struck. Results in a fault.</td></tr>
+      <tr><td><strong>Dig</strong></td><td>A defensive pass used to keep an attacked ball from hitting the floor. Typically played with the forearm platform.</td></tr>
+      <tr><td><strong>Double Contact</strong></td><td>An illegal play where the same player contacts the ball twice in succession (except on a block). Results in a fault.</td></tr>
+      <tr><td><strong>Downball</strong></td><td>An attack hit from behind the 10-foot line without jumping. Used to teach attacking mechanics before players are ready for a full approach.</td></tr>
+      <tr><td><strong>Fault</strong></td><td>A rule violation that awards a point to the opposing team.</td></tr>
+      <tr><td><strong>Forearm Pass / Bump</strong></td><td>The most common first contact. Arms are joined together with thumbs parallel to create a flat platform. The ball is contacted between the wrists and elbows.</td></tr>
+      <tr><td><strong>Free Ball</strong></td><td>An easy ball sent over the net by the opponent — typically a pass or underhand hit rather than an attack. Teams transition to offense when a free ball is coming.</td></tr>
+      <tr><td><strong>Let Serve</strong></td><td>A serve that touches the top of the net but still crosses to the opponent's court. In CSA play, a let serve is legal and in play.</td></tr>
+      <tr><td><strong>Net Fault</strong></td><td>Touching the net while the ball is in play. Results in a fault for the player who touched the net.</td></tr>
+      <tr><td><strong>Overhand Serve</strong></td><td>A serve where the player tosses the ball above their head and strikes it with an open hand. More powerful and accurate than an underhand serve.</td></tr>
+      <tr><td><strong>Pass-Set-Hit</strong></td><td>The ideal three-contact sequence: the first player passes to the setter, the setter sets to a hitter, and the hitter attacks the ball over the net.</td></tr>
+      <tr><td><strong>Platform</strong></td><td>The flat surface created by joining the forearms together for a forearm pass. A good platform is flat, firm, and angled toward the target.</td></tr>
+      <tr><td><strong>Rally</strong></td><td>The sequence of play from the serve until the ball hits the floor or a fault is committed.</td></tr>
+      <tr><td><strong>Rally Scoring</strong></td><td>A scoring system where a point is awarded on every rally, regardless of which team served. CSA uses rally scoring for all grades.</td></tr>
+      <tr><td><strong>Rotation</strong></td><td>The clockwise movement of players each time their team earns the serve from the opponent.</td></tr>
+      <tr><td><strong>Serve Receive</strong></td><td>The act of passing the opponent's serve. The "W" formation is the standard serve receive alignment for 5th/6th grade.</td></tr>
+      <tr><td><strong>Set / Overhead Pass</strong></td><td>A contact made with both hands open above the forehead, using the pads of the fingertips. Used to deliver the ball to a hitter.</td></tr>
+      <tr><td><strong>Side-Out</strong></td><td>When the receiving team wins the rally and earns the right to serve. The receiving team must rotate before serving.</td></tr>
+      <tr><td><strong>Underhand Serve</strong></td><td>A serve where the player holds the ball in the non-dominant hand and swings the dominant arm in an arc to strike the ball. The standard serve for beginners.</td></tr>
+    </tbody>
+  </table></section>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA · www.csalaf.com</span>
+    <span>Section 13 — Glossary</span>
+  </div>
+</div>
+  </main>
+  <footer class="hb-foot">
+    <p>By Stephanie Abdalla, CSA Volleyball Director · October 2026 edition</p>
+    <p><a href="/">CSA Volleyball home</a> · <a href="/handbooks/">All handbooks</a> · <a href="/resources/CSA_Volleyball_Master_Handbook.pdf">PDF version</a></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSA Volleyball Coach Agreement & Code of Conduct</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap');
+  :root {
+    --blue: #1A4F9C;
+    --red: #C0272D;
+    --white: #FFFFFF;
+    --light-gray: #F4F6FA;
+    --dark-gray: #2C2C2C;
+    --mid-gray: #666666;
+    --border: #D0D8E8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Barlow', Arial, sans-serif; font-size: 10.5pt; color: var(--dark-gray); background: white; line-height: 1.6; }
+
+  .page { padding: 45px 55px 55px; max-width: 850px; margin: 0 auto; }
+
+  .doc-header {
+    background: var(--blue);
+    padding: 0;
+    margin: -45px -55px 30px;
+    display: flex;
+    align-items: stretch;
+  }
+  .doc-header-logo-box {
+    background: white;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+  }
+  .doc-header-logo { height: 60px; }
+  .doc-header-text {
+    padding: 18px 28px;
+    color: white;
+  }
+  .doc-header-text .org {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .doc-header-text h1 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 22pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.1;
+  }
+  .doc-header-text .sub {
+    font-size: 10pt;
+    color: rgba(255,255,255,0.8);
+    margin-top: 4px;
+  }
+  .red-bar { height: 4px; background: var(--red); margin: 0 -55px 28px; }
+
+  h2 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 14pt;
+    font-weight: 800;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--blue);
+    padding-bottom: 4px;
+    margin: 24px 0 12px;
+  }
+  h3 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 18px 0 6px;
+  }
+  p { margin-bottom: 9px; line-height: 1.65; }
+
+  .callout {
+    background: var(--light-gray);
+    border-left: 5px solid var(--blue);
+    padding: 12px 16px;
+    margin: 14px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout.red { border-left-color: var(--red); background: #FEF2F2; }
+
+  .rule-list { list-style: none; padding: 0; margin: 8px 0; }
+  .rule-list li {
+    padding: 6px 10px 6px 28px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+    font-size: 10pt;
+  }
+  .rule-list li:last-child { border-bottom: none; }
+  .rule-list li::before { content: "▸"; color: var(--red); position: absolute; left: 10px; top: 7px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 9.5pt; }
+  thead tr { background: var(--blue); color: white; }
+  thead th { padding: 8px 12px; text-align: left; font-family: 'Barlow Condensed', sans-serif; font-size: 10pt; font-weight: 700; text-transform: uppercase; }
+  tbody tr:nth-child(even) { background: var(--light-gray); }
+  tbody td { padding: 7px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+
+  .sig-section { margin-top: 28px; }
+  .sig-block { border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 20px; margin: 12px 0; background: var(--light-gray); }
+  .sig-row { display: flex; gap: 30px; margin-top: 8px; }
+  .sig-field { flex: 1; }
+  .sig-line { border-bottom: 1.5px solid var(--dark-gray); height: 30px; margin-bottom: 4px; }
+  .sig-label { font-size: 8pt; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .checkbox-list { list-style: none; padding: 0; margin: 8px 0; }
+  .checkbox-list li {
+    padding: 7px 10px 7px 32px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+    font-size: 10pt;
+  }
+  .checkbox-list li:last-child { border-bottom: none; }
+  .checkbox-list li::before {
+    content: "☐";
+    position: absolute;
+    left: 8px;
+    top: 7px;
+    font-size: 12pt;
+    color: var(--blue);
+  }
+
+  .doc-footer {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 2px solid var(--blue);
+    display: flex;
+    justify-content: space-between;
+    font-size: 8.5pt;
+    color: var(--mid-gray);
+  }
+  .footer-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: var(--blue); font-size: 9pt; text-transform: uppercase; }
+
+  .page-break { page-break-before: always; }
+
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0; }
+  .info-field { }
+  .info-line { border-bottom: 1.5px solid var(--dark-gray); height: 28px; margin-bottom: 4px; }
+  .info-label { font-size: 8.5pt; color: var(--mid-gray); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .badge-required {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-size: 7.5pt;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* Print fixes for the October 2026 edition: slightly tighter spacing so each half of the form
+     ends on a full page instead of spilling one row (or just the footer) onto a nearly blank
+     page, and real page numbers in the bottom margin in place of "Page 1 of 2". */
+  @page { @bottom-right { content: "Page " counter(page) " of " counter(pages); font-family: 'Barlow', Arial, sans-serif; font-size: 8pt; color: #666666; } }
+  @media print {
+    p { margin-bottom: 7px; }
+    h2 { margin: 18px 0 10px; }
+    tbody td { padding: 5px 10px; }
+    thead th { padding: 6px 10px; }
+    .rule-list li, .checkbox-list li { padding-top: 4px; padding-bottom: 4px; }
+    .doc-footer { margin-top: 16px; }
+    h3 { margin: 14px 0 5px; }
+    .callout { margin: 10px 0; padding: 10px 14px; }
+    .sig-section { margin-top: 18px; }
+    .sig-block { margin: 8px 0; padding: 12px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="doc-header">
+    <div class="doc-header-logo-box">
+      <img src="csa_logo.jpg" alt="CSA Logo" class="doc-header-logo">
+    </div>
+    <div class="doc-header-text">
+      <div class="org">Cajun Sports Association · Lafayette, Louisiana</div>
+      <h1>Coach Agreement &amp;<br>Code of Conduct</h1>
+      <div class="sub">CSA Girls Volleyball Program · Grades 1–6 · www.csalaf.com · {{documents.edition}} edition</div>
+    </div>
+  </div>
+  <div class="red-bar"></div>
+
+  <p>This agreement must be completed and returned to the Volleyball Director <strong>before your first practice</strong>. By signing below, you acknowledge that you have read, understood, and agree to abide by all CSA Volleyball policies, this Code of Conduct, and all applicable facility rules. Coaching is a privilege — and this document is your commitment to the players, families, and program you serve.</p>
+
+  <!-- COACH INFORMATION -->
+  <h2>Coach Information</h2>
+  <div class="info-grid">
+    <div class="info-field"><div class="info-line"></div><div class="info-label">Full Name (Print)</div></div>
+    <div class="info-field"><div class="info-line"></div><div class="info-label">Phone Number</div></div>
+    <div class="info-field"><div class="info-line"></div><div class="info-label">Email Address</div></div>
+    <div class="info-field"><div class="info-line"></div><div class="info-label">Season (e.g., Fall 2025)</div></div>
+    <div class="info-field"><div class="info-line"></div><div class="info-label">Team / Grade Division</div></div>
+    <div class="info-field"><div class="info-line"></div><div class="info-label">Role: ☐ Head Coach &nbsp; ☐ Assistant Coach</div></div>
+  </div>
+
+  <!-- PRE-SEASON REQUIREMENTS CHECKLIST -->
+  <h2>Pre-Season Requirements Checklist <span class="badge-required">All Required</span></h2>
+  <p>All items below must be completed before you may coach any CSA volleyball practice or game. Initial each line to confirm completion.</p>
+
+  <table>
+    <thead><tr><th scope="col" style="width:60px;">Initial</th><th scope="col">Requirement</th><th scope="col">Status / Notes</th></tr></thead>
+    <tbody>
+      <tr><td></td><td><strong>CSA Volunteer Registration Form</strong> — Completed and submitted to the Volleyball Director</td><td>☐ Complete &nbsp; ☐ Pending</td></tr>
+      <tr><td></td><td><strong>Background Check</strong> — Passed through CSA's approved screening provider (renewed annually)</td><td>☐ Complete &nbsp; ☐ Pending</td></tr>
+      <tr><td></td><td><strong>SafeSport Training</strong> — Completed at safesport.org; current certification provided to Director</td><td>☐ Complete &nbsp; ☐ Pending</td></tr>
+      <tr><td></td><td><strong>Handbook Review</strong> — Read and understood the CSA Volleyball Program Handbook in full</td><td>☐ Complete &nbsp; ☐ Pending</td></tr>
+      <tr><td></td><td><strong>Practice Plan Guide Review</strong> — Reviewed the Season Curriculum &amp; Weekly Practice Plan Guide</td><td>☐ Complete &nbsp; ☐ Pending</td></tr>
+      <tr><td></td><td><strong>Emergency Contact List</strong> — Received roster with emergency contacts for all players on your team</td><td>☐ Complete &nbsp; ☐ Pending</td></tr>
+    </tbody>
+  </table>
+
+  <!-- COACHING COMMITMENTS -->
+  <h2>Coaching Commitments</h2>
+  <p>By initialing each item below, you confirm your understanding and agreement with each commitment.</p>
+
+  <table>
+    <thead><tr><th scope="col" style="width:60px;">Initial</th><th scope="col">Commitment</th></tr></thead>
+    <tbody>
+      <tr><td></td><td>I will arrive at least <strong>15 minutes before</strong> every scheduled practice and game to set up and prepare.</td></tr>
+      <tr><td></td><td>I will remain at the facility until <strong>every player has been picked up</strong> by a parent or guardian.</td></tr>
+      <tr><td></td><td>I will follow the <strong>CSA season curriculum</strong> and practice plan framework for my grade division.</td></tr>
+      <tr><td></td><td>I will ensure <strong>equal playing time</strong> for all players. No player will sit out more than one rotation per set without a documented reason.</td></tr>
+      <tr><td></td><td>I will maintain a <strong>positive, encouraging coaching environment</strong> at all times. I will not yell at, belittle, or publicly embarrass any player.</td></tr>
+      <tr><td></td><td>I understand and will follow the <strong>Two-Deep Leadership Rule</strong>: I will never be alone with a single player. At least two adults must be present at all times.</td></tr>
+      <tr><td></td><td>I will <strong>not communicate with players via personal social media</strong>, direct messaging, or personal text messages outside of official team channels.</td></tr>
+      <tr><td></td><td>I will report any player injury, incident, or concern to the <strong>Volleyball Director promptly</strong> — the same day if possible.</td></tr>
+      <tr><td></td><td>I will follow the <strong>communication ladder</strong>: concerns go Coach → Director → CSA Administration. I will not encourage parents to bypass this chain.</td></tr>
+      <tr><td></td><td>I will <strong>not argue with officials</strong> during games. I will address any officiating concerns calmly and through the Volleyball Director.</td></tr>
+      <tr><td></td><td>I understand that my role is <strong>developmental and recreational</strong>. Winning is secondary to player development, safety, and enjoyment.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>{{documents.byline}}</span>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page page-break">
+  <div class="doc-header">
+    <div class="doc-header-logo-box">
+      <img src="csa_logo.jpg" alt="CSA Logo" class="doc-header-logo">
+    </div>
+    <div class="doc-header-text">
+      <div class="org">Cajun Sports Association · Lafayette, Louisiana</div>
+      <h1>Coach Agreement &amp;<br>Code of Conduct</h1>
+      <div class="sub">CSA Girls Volleyball Program · Grades 1–6 · www.csalaf.com · {{documents.edition}} edition</div>
+    </div>
+  </div>
+  <div class="red-bar"></div>
+
+  <!-- CODE OF CONDUCT -->
+  <h2>Code of Conduct — Non-Negotiable Standards</h2>
+  <div class="callout red">
+    <p><strong>The following behaviors constitute immediate grounds for removal from the coaching role, pending review by the Volleyball Director. No warnings will be issued for these violations.</strong></p>
+  </div>
+
+  <ul class="rule-list">
+    <li>Physical contact with players beyond age-appropriate, instructional demonstration. When in doubt, demonstrate on yourself.</li>
+    <li>Any form of verbal abuse, public humiliation, or demeaning language directed at a player, regardless of the player's behavior or performance.</li>
+    <li>Profane, sexual, or discriminatory language in the presence of players or at any CSA event.</li>
+    <li>One-on-one contact with a player outside of the team setting without another adult present (violation of Two-Deep Rule).</li>
+    <li>Private communication with players via personal social media, direct messaging, or text.</li>
+    <li>Alcohol or substance use before or during any CSA volleyball event.</li>
+    <li>Retaliation against a player, parent, or official who raises a concern or complaint.</li>
+    <li>Failure to report a known or suspected incident of child abuse or misconduct.</li>
+  </ul>
+
+  <h3>Sideline Conduct During Games</h3>
+  <ul class="rule-list">
+    <li>Coaches must remain on the bench side of the court and may not cross the 10-foot line toward the net during play.</li>
+    <li>A maximum of one head coach and one assistant coach may stand on the sideline. Additional coaches must remain in the spectator area.</li>
+    <li>Coaching instructions must be delivered calmly and constructively. No screaming, no negative body language directed at players.</li>
+    <li>Coaches are responsible for managing parent behavior on the sideline. If a parent is violating the spectator code of conduct, the coach must address it — or notify the Volleyball Director.</li>
+  </ul>
+
+  <h3>Handling Difficult Situations</h3>
+  <table>
+    <thead><tr><th scope="col">Situation</th><th scope="col">Correct Response</th></tr></thead>
+    <tbody>
+      <tr><td>Player is upset or crying</td><td>Speak calmly and privately. Involve a parent if needed. Never dismiss or mock the emotion.</td></tr>
+      <tr><td>Parent disputes a coaching decision</td><td>Listen respectfully. Explain your reasoning briefly. Refer ongoing disputes to the Director.</td></tr>
+      <tr><td>Player behavioral issue at practice</td><td>Address privately, not in front of the team. Document and notify the Director if it recurs.</td></tr>
+      <tr><td>Suspected abuse or neglect</td><td>Do not investigate. Report to Louisiana CPS (1-855-452-5437) and notify the Director immediately.</td></tr>
+      <tr><td>Player injury</td><td>Stop play. Assess. Call 911 if serious. Contact parent. Document and notify Director same day.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ACKNOWLEDGMENT & SIGNATURE -->
+  <h2>Acknowledgment &amp; Signature</h2>
+  <p>I have read the CSA Volleyball Program Handbook, this Coach Agreement, and the Code of Conduct in their entirety. I understand my responsibilities as a CSA volleyball coach. I agree to uphold the standards of this program and to act in the best interest of every player in my care at all times.</p>
+
+  <div class="sig-block">
+    <p style="font-weight:600; color:var(--blue); margin-bottom:14px;">Coach Signature</p>
+    <div class="sig-row">
+      <div class="sig-field">
+        <div class="sig-line"></div>
+        <div class="sig-label">Coach Signature</div>
+      </div>
+      <div class="sig-field">
+        <div class="sig-line"></div>
+        <div class="sig-label">Printed Name</div>
+      </div>
+      <div class="sig-field" style="max-width:140px;">
+        <div class="sig-line"></div>
+        <div class="sig-label">Date</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sig-block" style="margin-top:16px;">
+    <p style="font-weight:600; color:var(--blue); margin-bottom:14px;">Volleyball Director Acknowledgment</p>
+    <div class="sig-row">
+      <div class="sig-field">
+        <div class="sig-line"></div>
+        <div class="sig-label">Director Signature</div>
+      </div>
+      <div class="sig-field">
+        <div class="sig-line"></div>
+        <div class="sig-label">Printed Name</div>
+      </div>
+      <div class="sig-field" style="max-width:140px;">
+        <div class="sig-line"></div>
+        <div class="sig-label">Date</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:20px;">
+    <p><strong>Return this completed form to:</strong> Stephanie Abdalla, CSA Volleyball Director<br>
+    Questions? Contact via www.csalaf.com or the CSA contact form.</p>
+  </div>
+
+  <div class="doc-footer">
+    <span class="footer-brand">CSA · Cajun Sports Association · Lafayette, LA</span>
+    <span>{{documents.byline}}</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+/* Handbook pages: the print documents from handbooks/src, adjusted for screens.
+   Loaded after each document's own styles, so these rules win. */
+
+.hb-skip { position: absolute; left: -9999px; top: 8px; z-index: 99; background: #fff; color: #13213a; padding: 8px 12px; }
+.hb-skip:focus { left: 8px; }
+:focus-visible { outline: 3px solid #1a4f9c; outline-offset: 3px; }
+.hb-bar :focus-visible, .cover :focus-visible { outline-color: #ffcf32; }
+
+.hb-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px max(16px, calc(50vw - 440px)); background: #1a4f9c; border-top: 4px solid #c0272d; }
+.hb-home { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+.hb-home img { display: block; border-radius: 3px; width: 70px; height: auto; }
+.hb-home span { font: 800 22px/1 'Barlow Condensed', 'Arial Narrow', sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.hb-nav { display: flex; align-items: center; gap: 16px; }
+.hb-nav a { color: #fff; font: 600 14px/1.2 'Barlow', Arial, sans-serif; text-decoration: none; }
+.hb-nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.hb-nav .hb-pdf { background: #c0272d; padding: 9px 14px; border-radius: 4px; }
+.hb-nav .hb-pdf:hover { background: #9a1f24; text-decoration: none; }
+
+.hb-foot { padding: 28px 16px 40px; background: #0a1730; color: #b9c8de; text-align: center; font: 400 14px/1.6 'Barlow', Arial, sans-serif; }
+.hb-foot p { margin: 4px 0; }
+.hb-foot a { color: #fff; }
+
+@media screen {
+  body.hb { font-size: 16px; background: #f4f6fa; }
+  .hb-doc { padding-bottom: 32px; }
+  /* The cover becomes a header band */
+  .hb .cover { min-height: 0 !important; height: auto !important; padding: 48px 20px 40px !important; }
+  .hb .cover-logo { width: 180px !important; margin-bottom: 24px !important; }
+  /* Pages flow into one column; per-page headers and footers repeat in print only */
+  .hb .page { max-width: 880px; margin: 0 auto; padding: 8px 28px 8px; background: #fff; }
+  .hb .page:last-child { padding-bottom: 36px; }
+  .hb .page-header, .hb .doc-footer, .hb .card-footer { display: none; }
+  .hb .page-break { page-break-before: auto; }
+  .hb p, .hb li, .hb td { font-size: 16px; }
+  .hb .rule-list li, .hb tbody td { font-size: 15px; }
+  .hb .hb-table { overflow-x: auto; margin: 12px 0; }
+  .hb .hb-table table { margin: 0; min-width: 520px; }
+  /* Contents links */
+  .hb a.toc-item { color: inherit; text-decoration: none; }
+  .hb a.toc-item:hover .toc-title { text-decoration: underline; }
+  .hb .section-header { scroll-margin-top: 80px; }
+  /* Quick reference card: sides stack, the print grid reflows to two columns, type grows to reading size */
+  .hb .side { max-width: 880px; margin: 0 auto 24px; background: #fff; padding: 16px; }
+  .hb .card-body, .hb .card-body-4col { grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 16px; }
+  .hb .card-body > *, .hb .card-body-4col > * { min-width: 0; }
+  .hb .side .hb-table table { min-width: 0; }
+  .hb .card-header-title h1 { font-size: 26px; }
+  .hb .card-header-title .org, .hb .card-header-right, .hb .side-label { font-size: 12px; }
+  .hb .card-header-right strong { font-size: 14px; }
+  .hb .card-section-title { font-size: 15px; padding: 6px 10px; }
+  .hb table.ref, .hb table.ref tbody td, .hb ul.ref-list li, .hb .emergency-box .e-item { font-size: 15px; }
+  .hb table.ref thead th { font-size: 13px; }
+  .hb .emergency-box .e-title { font-size: 16px; }
+  .hb .practice-seg, .hb .court-mini-label { font-size: 13px; }
+  /* Coach Agreement: its header bleeds into the print page margin; match the screen padding instead */
+  .hb .page > .doc-header { margin: -8px -28px 0; }
+  .hb .page > .red-bar { margin: 0 -28px 24px; }
+  /* Screen contrast. The print covers set the subtitle in red on blue (1.4:1) and the section
+     numbers in 65% white (4.3:1); on screen they get a light red tint (6:1) and 85% white (6.3:1). */
+  .hb .cover h2 { color: #ffd6d8; }
+  .hb .section-header .section-num { color: rgba(255, 255, 255, .85); }
+  .hb .week-card-body .coaching-tip strong { color: #a63c00; }
+  /* Signature lines are for the printed copy */
+  .hb .sig-block::before { content: 'Print the PDF to sign.'; display: block; margin-bottom: 6px; font-size: 13px; color: #666; }
+}
+
+@media screen and (max-width: 720px) {
+  .hb-bar { padding: 8px 12px; }
+  .hb-home span { display: none; }
+  .hb-nav { gap: 12px; }
+  .hb .page { padding: 4px 16px; }
+  .hb .two-col, .hb .info-grid, .hb .card-body, .hb .card-body-4col { display: block !important; }
+  .hb .two-col > *, .hb .info-grid > *, .hb .card-body > *, .hb .card-body-4col > * { margin-bottom: 12px; }
+  .hb .sig-row, .hb .card-header, .hb .doc-header { flex-wrap: wrap; }
+  .hb .cover h1 { font-size: 30pt !important; }
+  .hb .page > .doc-header { margin: -4px -16px 0; }
+  .hb .page > .red-bar { margin: 0 -16px 20px; }
+  /* Master Handbook rotation diagram: fixed 400px court and a label hung outside it */
+  .hb .court-diagram { padding: 14px 10px; }
+  .hb .court-inner { width: 100%; max-width: 400px; }
+  .hb .net-label { left: 6px; top: 12px; transform: none; font-size: 11px; }
+}
+
+@media print {
+  .hb-bar, .hb-foot, .hb-skip { display: none; }
+}
