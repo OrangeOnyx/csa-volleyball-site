@@ -1,0 +1,43 @@
+name: Checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build pages from data/
+        run: npm run build
+
+      - name: Committed pages match the sources
+        run: |
+          if [ -n "$(git status --porcelain -- website)" ]; then
+            echo "::error::website/ is out of date with data/ or handbooks/src. Run npm run build and commit the result."
+            git status --short -- website
+            exit 1
+          fi
+
+      - name: Facts, HTML, links, sitemap, placeholders, PDFs
+        run: npm run check
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Accessibility (axe, WCAG 2.2 AA) and script errors
+        run: npm run check:a11y
