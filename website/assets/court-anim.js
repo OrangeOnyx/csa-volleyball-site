@@ -61,7 +61,8 @@
   }
 
   // Returns the court's text labels, which call-outs keep clear of, and the layer for trails,
-  // which sits over the floor and its lines but under the labels so they stay readable.
+  // which sits over the floor and its lines but under the labels. A label on our side is edged
+  // with the floor's own paint, so a trail passing under it stops short of the letters.
   function drawCourt(svg, scene, gradId, height) {
     const g = el('g', {}, svg);
     el('rect', { x: 0, y: 0, width: 340, height, fill: '#0b1830', class: 'ca-bg' }, g);
@@ -79,7 +80,11 @@
     for (const x of [0, 30]) el('rect', { x: PX(x) - 2, y: PY(0) - 9, width: 4, height: 18, fill: '#c0272d' }, g);
     const trails = el('g', { class: 'ca-trails' }, g);
     const labels = [];
-    const txt = (x, y, s, cls) => { const t = el('text', { x, y, class: cls }, g); t.textContent = s; labels.push(t); return t; };
+    const txt = (x, y, s, cls) => {
+      const t = el('text', { x, y, class: cls }, g);
+      if (y > PY(0)) t.setAttribute('stroke', `url(#${gradId})`);
+      t.textContent = s; labels.push(t); return t;
+    };
     // with spot labels shown, the spot 3 label sits where this one would, so it drops below the line
     txt(PX(15), scene.spots ? PY(10) + 18 : PY(10) - 7, '10-FOOT LINE', 'ca-floor');
     txt(PX(15), PY(30) - 7, 'END LINE', 'ca-floor');
@@ -112,7 +117,8 @@
     const svg = el('svg', { viewBox: `0 0 340 ${height}`, class: 'ca-svg', role: 'img', 'aria-label': data.summary }, null);
     const defs = el('defs', {}, svg);
     const gradId = `ca-maple-${idx}`, arrowId = `ca-arrow-${idx}`;
-    const grad = el('linearGradient', { id: gradId, x1: 0, x2: 0, y1: 0, y2: 1 }, defs);
+    // in court units, so the labels' edging (see drawCourt) matches the floor exactly beneath them
+    const grad = el('linearGradient', { id: gradId, gradientUnits: 'userSpaceOnUse', x1: 0, x2: 0, y1: PY(0), y2: PY(30) }, defs);
     el('stop', { offset: 0, 'stop-color': '#d9ae75' }, grad);
     el('stop', { offset: 1, 'stop-color': '#ecc994' }, grad);
     const arrow = el('marker', { id: arrowId, viewBox: '0 0 10 10', refX: 7, refY: 5, markerWidth: 4, markerHeight: 4, orient: 'auto-start-reverse' }, defs);
@@ -123,7 +129,7 @@
     const actors = {};
     for (const a of data.actors) {
       const coach = a.kind === 'coach';
-      const g = el('g', { class: 'ca-actor' + (coach ? ' coach' : '') }, svg);
+      const g = el('g', { class: 'ca-actor' + (coach ? ' coach' : ''), 'data-id': a.id }, svg);
       const r = coach ? 15 : 14;
       el('circle', { r }, g);
       const t = el('text', { 'text-anchor': 'middle', dy: 7 }, g);
@@ -244,7 +250,8 @@
     }
 
     // Call-outs go where they cover nothing: above the player, else beside her, else below,
-    // never across the net, a court label, another player or the ball.
+    // never across the net, a court label, another player or the ball, and clear of the trails
+    // where there is room, so the arrow or arc that shows what she did stays in view.
     function drawCalls(s) {
       calls.replaceChildren();
       const ballAt = s.ball && atShoulder(s.ball, s.pos);
@@ -255,10 +262,14 @@
         const [x, y] = s.pos[id], r = actors[id].r + 3;
         taken.push({ id, x: PX(x) - r, y: PY(y) - r, w: 2 * r, h: 2 * r });
       }
+      for (const p of trails.querySelectorAll('.ca-flight, .ca-move')) {
+        const L = p.getTotalLength();
+        for (let d = 0; d <= L; d += 6) { const q = p.getPointAtLength(d); taken.push({ x: q.x - 3, y: q.y - 3, w: 6, h: 6 }); }
+      }
       for (const id in s.calls) {
         const a = actors[id], at = s.pos[id];
         if (!a || !at) continue;
-        const g = el('g', { class: 'ca-call' }, calls);
+        const g = el('g', { class: 'ca-call', 'data-by': id }, calls);
         const tail = el('path', { class: 'ca-call-tail' }, g), rect = el('rect', { rx: 12, height: 24 }, g), edge = el('path', { class: 'ca-call-edge' }, g);
         const text = el('text', { 'text-anchor': 'middle' }, g);
         text.textContent = s.calls[id];

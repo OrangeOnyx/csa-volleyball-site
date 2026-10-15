@@ -22,10 +22,44 @@ const only = process.argv.slice(2);
 if (only.length) { paths = paths.filter(p => only.includes(p)); phone = phone.filter(p => only.includes(p)); }
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
 
+/* What a settled step draws, checked in the page (court units: the net band runs from y 115 to
+   125, our side is below it). No call-out sits on the net, a court label, another player or the
+   ball (a sliver under 16 square units is allowed); a pass or set that starts and ends on our
+   side keeps the whole ball under the net; and every label on our side is edged with the floor,
+   so a trail passing beneath it doesn't strike through the letters. */
+function drawingProblems(fig) {
+  const svg = fig.querySelector('svg'), out = [];
+  const overlap = (a, b) => Math.max(0, Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x)) * Math.max(0, Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y));
+  const at = g => g.transform.baseVal.consolidate()?.matrix;
+  const labels = [...svg.querySelectorAll('text.ca-floor, text.ca-spot, text.ca-side, text.ca-net, text.ca-mark')];
+  const things = [{ what: 'the net', x: 0, y: 115, w: 340, h: 10 }];
+  for (const t of labels) { const b = t.getBBox(); things.push({ what: `the “${t.textContent}” label`, x: b.x, y: b.y, w: b.width, h: b.height }); }
+  for (const g of svg.querySelectorAll('.ca-actor')) {
+    const m = at(g), r = Number(g.querySelector('circle').getAttribute('r'));
+    if (m && g.style.display !== 'none') things.push({ id: g.dataset.id, what: `player ${g.textContent}`, x: m.e - r, y: m.f - r, w: 2 * r, h: 2 * r });
+  }
+  const ball = svg.querySelector('.ca-ball'), bm = at(ball);
+  if (bm && ball.getAttribute('visibility') !== 'hidden') things.push({ what: 'the ball', x: bm.e - 7, y: bm.f - 7, w: 14, h: 14 });
+  for (const call of svg.querySelectorAll('.ca-call')) {
+    const b = call.querySelector('rect').getBBox(), box = { x: b.x, y: b.y, w: b.width, h: b.height };
+    for (const t of things) if (t.id !== call.dataset.by && overlap(box, t) >= 16) out.push(`the “${call.textContent}” call-out covers ${t.what}`);
+  }
+  for (const p of svg.querySelectorAll('.ca-flight')) {
+    const L = p.getTotalLength(), first = p.getPointAtLength(0), last = p.getPointAtLength(L);
+    if (first.y < 110 || last.y < 110) continue;
+    let top = Infinity;
+    for (let d = 0; d <= L; d += 1) top = Math.min(top, p.getPointAtLength(d).y);
+    if (top - 7 < 125) out.push(`a pass on our side is drawn over the net (ball top at ${Math.round(top - 7)})`);
+  }
+  for (const t of labels) if (Number(t.getAttribute('y')) > 125 && getComputedStyle(t).stroke === 'none') out.push(`the “${t.textContent}” label has no floor edging`);
+  return out;
+}
+
 /* The court diagrams with motion on (the pass above runs with reduced motion): each scene once,
    on a phone. It plays by itself when scrolled into view, the step buttons work by keyboard,
    focus stays put at the first and last step, the current step is marked for screen readers,
-   the caption matches it, and the figure doesn't change height from step to step. */
+   the caption matches it, the figure doesn't change height from step to step, and every step
+   draws cleanly (see drawingProblems). */
 async function checkDiagrams() {
   const plans = readJSON('data/plans.json');
   const facts = readJSON('data/facts.json');
@@ -78,6 +112,7 @@ async function checkDiagrams() {
     else for (let i = n - 1; i >= 0; i--) {
       await picks.nth(i).press('Enter');
       if ((await state()).current !== i) problems.push(`${where}: picking step ${i + 1} from the list doesn't show it`);
+      for (const p of await fig.evaluate(drawingProblems)) problems.push(`${where}, step ${i + 1}: ${p}`);
     }
     for (const e of errors) problems.push(`${where}: script error: ${e}`);
     await page.close();
@@ -121,4 +156,4 @@ if (problems.length) {
   console.error(`\n${problems.length} problem${problems.length === 1 ? '' : 's'}.`);
   process.exit(1);
 }
-console.log(`Accessibility check passed: ${paths.length} pages at desktop width, ${phone.length} at phone width, no axe violations, no script errors, no sideways scrolling${only.length ? '' : '; every court diagram plays, steps by keyboard and keeps focus'}.`);
+console.log(`Accessibility check passed: ${paths.length} pages at desktop width, ${phone.length} at phone width, no axe violations, no script errors, no sideways scrolling${only.length ? '' : '; every court diagram plays, steps by keyboard, keeps focus and draws every step clear'}.`);
