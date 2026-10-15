@@ -32,7 +32,7 @@
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
       <nav id="nav" class="nav" aria-label="Main navigation">
-        <a href="/plans/" aria-current="page">Season plan</a>
+        <a href="/plans/" aria-current="true">Season plan</a>
         <a href="/coaches/">Coaches</a>
         <a href="/#families">Families</a>
         <a href="/method/">The method</a>
@@ -58,34 +58,34 @@
         <div><dt>Ball</dt><dd>Volley-Lite</dd></div>
         <div><dt>Serve</dt><dd>Underhand from 15 ft, or overhand from 10 ft</dd></div>
       </dl>
-      <div class="clock" role="img" aria-label="60-minute practice: 15 minutes warm-up, 10 serving, 15 skill focus, 20 team play">
-        <span class="seg s1" style="flex:15">Warm-up <i>15 min</i></span>
-        <span class="seg s2" style="flex:10">Serving <i>10</i></span>
-        <span class="seg s3" style="flex:15">Skill <i>15</i></span>
-        <span class="seg s4" style="flex:20">Team play <i>20</i></span>
-      </div>
+      <nav class="clock" aria-label="Jump to a part of the 60-minute practice">
+        <a class="seg s1" style="flex:15" href="#seg-warmup" aria-label="Warm-up, 15 minutes">Warm-up <i>15 min</i></a>
+        <a class="seg s2" style="flex:10" href="#seg-serving" aria-label="Serving, 10 minutes">Serving <i>10</i></a>
+        <a class="seg s3" style="flex:15" href="#seg-skill" aria-label="Skill focus, 15 minutes">Skill <i>15</i></a>
+        <a class="seg s4" style="flex:20" href="#seg-team" aria-label="Team play, 20 minutes">Team play <i>20</i></a>
+      </nav>
       <ol class="plan-segs">
-        <li class="plan-seg s1">
+        <li class="plan-seg s1" id="seg-warmup">
           <h2><span>Warm-up &amp; ball control</span> <span class="seg-min">15 min</span></h2>
           <ul class="plan-items">
             <li>“Pepper” drill: player 1 passes to player 2, player 2 sets to player 1, player 1 hits back to player 2 — continuous loop.</li>
           </ul>
         </li>
-        <li class="plan-seg s2">
+        <li class="plan-seg s2" id="seg-serving">
           <h2><span>Serving</span> <span class="seg-min">10 min</span></h2>
           <ul class="plan-items">
             <li>Serving competition: each player gets 5 serves; score 1 point for in, 2 points for landing in the back half.</li>
             <li>Team total — creates low-stakes competitive pressure similar to game situations.</li>
           </ul>
         </li>
-        <li class="plan-seg s3">
+        <li class="plan-seg s3" id="seg-skill">
           <h2><span>Skill focus: Queen of the Court</span> <span class="seg-min">15 min</span></h2>
           <ul class="plan-items">
             <li>“Queen of the Court”: 3v3 on a half-court; winning team stays, losing team rotates off; first to 3 points wins the side.</li>
             <li class="cue">Emphasize communication and calling the ball — no silent contacts.</li>
           </ul>
         </li>
-        <li class="plan-seg s4">
+        <li class="plan-seg s4" id="seg-team">
           <h2><span>Team play</span> <span class="seg-min">20 min</span></h2>
           <ul class="plan-items">
             <li>Full game with tournament rules (rally scoring, standard rotation, live serving).</li>

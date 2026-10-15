@@ -8,7 +8,7 @@ import { join } from 'node:path';
 import { ROOT, SITE, readJSON, writeSite, tidy, esc, curly, fmtDate, addDays } from './lib/util.mjs';
 import { header, footer, headMeta, seasonStatus, directorContact } from './lib/layout.mjs';
 import { renderHub, renderDivision, renderWeek, divisionPath, weekPath } from './lib/plans.mjs';
-import { renderMethod, renderCoaches, renderFeedback, renderDrills, renderHandbooksHub, shelf } from './lib/pages.mjs';
+import { renderMethod, renderCoaches, renderFeedback, renderDrills, renderHandbooksHub, renderNotFound, shelf } from './lib/pages.mjs';
 import { HANDBOOKS, renderHandbookWeb } from './lib/handbooks.mjs';
 
 const facts = readJSON('data/facts.json');
@@ -65,6 +65,7 @@ out('coaches/index.html', renderCoaches({ facts, plans }));
 out('coaches/feedback/index.html', renderFeedback({ facts }));
 out('drills/index.html', renderDrills({ facts, drills }));
 out('handbooks/index.html', renderHandbooksHub({ facts }));
+out('404.html', renderNotFound({ facts }));
 for (const h of HANDBOOKS) out(`handbooks/${h.slug}/index.html`, renderHandbookWeb(h, facts));
 if (!existsSync(join(SITE, 'handbooks', 'csa-logo.jpg'))) {
   console.error('Missing website/handbooks/csa-logo.jpg (the web-sized logo for handbook pages).');

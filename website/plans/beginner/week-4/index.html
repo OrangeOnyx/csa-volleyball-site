@@ -32,7 +32,7 @@
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
       <nav id="nav" class="nav" aria-label="Main navigation">
-        <a href="/plans/" aria-current="page">Season plan</a>
+        <a href="/plans/" aria-current="true">Season plan</a>
         <a href="/coaches/">Coaches</a>
         <a href="/#families">Families</a>
         <a href="/method/">The method</a>
@@ -58,14 +58,14 @@
         <div><dt>Ball</dt><dd>Soft Touch or Volley-Lite</dd></div>
         <div><dt>Serve</dt><dd>Underhand only, from 10 ft</dd></div>
       </dl>
-      <div class="clock" role="img" aria-label="60-minute practice: 15 minutes warm-up, 10 serving, 15 skill focus, 20 team play">
-        <span class="seg s1" style="flex:15">Warm-up <i>15 min</i></span>
-        <span class="seg s2" style="flex:10">Serving <i>10</i></span>
-        <span class="seg s3" style="flex:15">Skill <i>15</i></span>
-        <span class="seg s4" style="flex:20">Team play <i>20</i></span>
-      </div>
+      <nav class="clock" aria-label="Jump to a part of the 60-minute practice">
+        <a class="seg s1" style="flex:15" href="#seg-warmup" aria-label="Warm-up, 15 minutes">Warm-up <i>15 min</i></a>
+        <a class="seg s2" style="flex:10" href="#seg-serving" aria-label="Serving, 10 minutes">Serving <i>10</i></a>
+        <a class="seg s3" style="flex:15" href="#seg-skill" aria-label="Skill focus, 15 minutes">Skill <i>15</i></a>
+        <a class="seg s4" style="flex:20" href="#seg-team" aria-label="Team play, 20 minutes">Team play <i>20</i></a>
+      </nav>
       <ol class="plan-segs">
-        <li class="plan-seg s1">
+        <li class="plan-seg s1" id="seg-warmup">
           <h2><span>Warm-up &amp; ball control</span> <span class="seg-min">15 min</span></h2>
           <ul class="plan-items">
             <li>Individual: alternate self-bump and self-set — get comfortable with overhead contact.</li>
@@ -73,13 +73,13 @@
             <li>Introduce setting hand position: hands form a triangle above forehead, contact with fingerpads not palms.</li>
           </ul>
         </li>
-        <li class="plan-seg s2">
+        <li class="plan-seg s2" id="seg-serving">
           <h2><span>Serving</span> <span class="seg-min">10 min</span></h2>
           <ul class="plan-items">
             <li>Continue the underhand serve from the 10-foot line; focus on consistency.</li>
           </ul>
         </li>
-        <li class="plan-seg s3">
+        <li class="plan-seg s3" id="seg-skill">
           <h2><span>Skill focus: setting</span> <span class="seg-min">15 min</span></h2>
           <ul class="plan-items">
             <li>Self-set: toss ball above head, set to self, catch — repeat 10 times.</li>
@@ -87,7 +87,7 @@
             <li class="cue">Key cues: “Hands up early, push through the ball, extend arms fully.”</li>
           </ul>
         </li>
-        <li class="plan-seg s4">
+        <li class="plan-seg s4" id="seg-team">
           <h2><span>Team play</span> <span class="seg-min">20 min</span></h2>
           <ul class="plan-items">
             <li>Introduce the concept of a designated setter: position 2 (right front) always tries to set the second ball.</li>
@@ -95,12 +95,12 @@
             <li>Celebrate any successful 3-contact sequence, regardless of outcome.</li>
           </ul>
           <figure class="court-anim" data-scene="pass-set-hit">
-            <figcaption class="anim-title">Pass, set, hit <span>Animated court diagram</span></figcaption>
+            <figcaption class="anim-title">Pass, set, hit</figcaption>
             <div class="anim-stage"><p class="anim-fallback">The passer calls mine and passes to the setter at position 2, the setter calls set and sets the hitter, and the hitter calls hit and sends it over.</p></div>
             <div class="anim-controls">
-              <button type="button" data-act="prev" aria-label="Previous step">&#8249;</button>
-              <button type="button" data-act="play" aria-pressed="false">Play</button>
-              <button type="button" data-act="next" aria-label="Next step">&#8250;</button>
+              <button type="button" data-act="prev" aria-label="Previous step"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M14.5 5.5 8 12l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              <button type="button" data-act="play">Play</button>
+              <button type="button" data-act="next" aria-label="Next step"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M9.5 5.5 16 12l-6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
               <span class="anim-count"></span>
             </div>
             <p class="anim-caption" aria-live="polite"></p>

@@ -10,6 +10,8 @@
   --maple: #e5bd85;
   --maple-deep: #b9854a;
   --paper: #f8f9fc;  /* "Off-White" in the brand guidelines */
+  --night: #0b1830;  /* the deepest navy: footer and the frame around the court drawings */
+  --walnut: #8a5a22; /* the third phase and the skill segment: 5.9:1 with white */
   --ink: #13213a;
   --muted: #4d5c74;
   --rule: #dbe3ef;
@@ -21,9 +23,11 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* scroll-padding keeps anything scrolled or tabbed to clear of the sticky header (74px; 66px on phones) */
+html { scroll-behavior: smooth; scroll-padding-top: 90px; color-scheme: only light; accent-color: var(--blue); }
+::selection { background: var(--maple); color: var(--midnight); }
 body { margin: 0; color: var(--ink); background: #fff; font: 16px/1.6 var(--body); -webkit-font-smoothing: antialiased; }
-a { color: inherit; }
+a { color: inherit; text-underline-offset: .2em; }
 button { font: inherit; cursor: pointer; }
 img { max-width: 100%; }
 h1, h2 { font-family: var(--display); font-weight: 400; letter-spacing: .02em; }
@@ -44,10 +48,10 @@ h3, h4 { font-family: var(--sub); font-weight: 700; }
 .brand span { font: 400 30px/1 var(--display); letter-spacing: .06em; padding-top: 3px; }
 .nav { display: flex; align-items: center; gap: 26px; }
 .nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; }
-.nav a:hover, .nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
+.nav a:hover, .nav a[aria-current] { text-decoration: underline; text-underline-offset: 4px; }
 .nav-cta { background: var(--red); padding: 9px 16px; border-radius: 4px; }
 .nav-cta:hover { background: var(--red-dark); text-decoration: none !important; }
-.menu-toggle { display: none; color: #fff; background: none; border: 1px solid #ffffff66; border-radius: 4px; padding: 8px 14px; font-weight: 600; }
+.menu-toggle { display: none; min-height: 44px; color: #fff; background: none; border: 1px solid #ffffff66; border-radius: 4px; padding: 8px 14px; font-weight: 600; }
 
 /* Buttons */
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 22px; border: 0; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 15px; }
@@ -89,12 +93,10 @@ h3, h4 { font-family: var(--sub); font-weight: 700; }
 
 /* The court runs edge to edge like the gym floor */
 .court-figure { grid-area: court; margin: 0 calc(50% - 50vw); width: 100vw; }
-.court { display: block; width: 100%; height: auto; overflow: hidden; background: #0b1830; }
-.court-figure figcaption { margin: 0; padding: 0 max(28px, calc(50vw - 562px)) 16px; font-size: 12px; color: #8ea3c4; background: #0b1830; }
+.court { display: block; width: 100%; height: auto; overflow: hidden; background: var(--night); }
+.court-figure figcaption { margin: 0; padding: 0 max(28px, calc(50vw - 562px)) 16px; font-size: 12px; color: #8ea3c4; background: var(--night); }
 .dim-label { font: 400 30px var(--display); letter-spacing: .04em; fill: #fff; }
 .dim-label.small { font-size: 20px; fill: #ffcf32; }
-#serve-label { fill: #ffd6d8; }
-#height-label { fill: #d6e6ff; }
 
 /* Status strip */
 .status { background: var(--red); color: #fff; }
@@ -104,7 +106,7 @@ h3, h4 { font-family: var(--sub); font-weight: 700; }
 .status .this-week { display: inline-block; margin-left: 6px; font-weight: 700; }
 
 /* Sections */
-.section { padding: 96px 0; scroll-margin-top: 74px; }
+.section { padding: 96px 0; }
 .intro { max-width: 640px; margin-bottom: 40px; }
 .intro h2, .gameday h2, .contact h2 { font-size: clamp(52px, 6.5vw, 84px); line-height: .92; margin: 0 0 18px; color: var(--midnight); }
 .intro p, .intro-p { color: var(--muted); font-size: 17px; margin: 0; }
@@ -115,7 +117,7 @@ h3, h4 { font-family: var(--sub); font-weight: 700; }
 .weeks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .phase { --c: var(--blue); }
 .phase.p2 { --c: var(--red); }
-.phase.p3 { --c: #8a5a22; }
+.phase.p3 { --c: var(--walnut); }
 .phase-name { display: block; font: 700 17px var(--sub); color: var(--c); padding-bottom: 6px; border-bottom: 4px solid var(--c); margin-bottom: 8px; }
 .phase-weeks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .phase-weeks button { text-align: left; background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; padding: 10px 10px 12px; color: var(--ink); min-height: 92px; transition: background .15s, color .15s; }
@@ -125,13 +127,14 @@ h3, h4 { font-family: var(--sub); font-weight: 700; }
 .phase-weeks button[aria-selected="true"] { background: var(--c); border-color: var(--c); color: #fff; }
 .phase-weeks button[aria-selected="true"] b { color: #fff; }
 
-.week-panel { scroll-margin-top: 80px; margin-top: 26px; border: 1px solid var(--rule); border-radius: 6px; padding: 34px 36px 30px; background: #fff; }
+.week-panel { margin-top: 26px; border: 1px solid var(--rule); border-radius: 6px; padding: 34px 36px 30px; background: #fff; }
 .week-head h3 { font-size: 34px; line-height: 1.05; margin: 0; color: var(--midnight); }
 .week-head p { margin: 6px 0 0; color: var(--muted); }
 .clock { display: flex; gap: 3px; margin: 24px 0 8px; border-radius: 4px; overflow: hidden; }
-.seg { padding: 9px 12px; font-size: 13px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.seg i { font-style: normal; font-weight: 500; margin-left: 4px; }
-.s1 { --s: var(--blue); } .s2 { --s: var(--red); } .s3 { --s: #8a5a22; } .s4 { --s: var(--midnight); }
+.seg { min-width: max-content; padding: 9px 12px; font-size: 13px; font-weight: 700; color: #fff; white-space: nowrap; text-decoration: none; }
+.seg i { font-style: normal; font-weight: 500; margin-left: 4px; font-variant-numeric: tabular-nums; }
+a.seg:hover { text-decoration: underline; text-underline-offset: 3px; }
+.s1 { --s: var(--blue); } .s2 { --s: var(--red); } .s3 { --s: var(--walnut); } .s4 { --s: var(--midnight); }
 .seg.s1, .seg.s2, .seg.s3, .seg.s4 { background: var(--s); }
 .segments { list-style: none; padding: 0; margin: 18px 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 40px; }
 .segments li { border-top: 3px solid var(--s); padding-top: 12px; }
@@ -211,8 +214,6 @@ h3, h4 { font-family: var(--sub); font-weight: 700; }
 .book-links { margin-top: auto; padding-top: 14px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
 .book-links a { color: #fff; font: 400 19px var(--display); letter-spacing: .1em; text-underline-offset: 5px; }
 .book-links a:hover { color: var(--maple); }
-.archive-note { margin: 28px 0 0; font-size: 14px; color: #b9c8de; max-width: 760px; }
-.archive-note a { color: #fff; font-weight: 600; }
 
 /* Contact */
 .contact { text-align: center; background: #fff; }
@@ -221,7 +222,7 @@ h3, h4 { font-family: var(--sub); font-weight: 700; }
 .contact .fineprint { margin-top: 16px; font-size: 13px; }
 
 /* Footer */
-footer { background: #0a1730; color: #fff; }
+footer { background: var(--night); color: #fff; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 96px; }
 .footer-inner p { margin: 0; font-size: 13px; color: #b9c8de; }
 .footer-inner strong { display: block; font: 400 26px/1 var(--display); letter-spacing: .05em; color: #fff; }
@@ -234,6 +235,11 @@ footer { background: #0a1730; color: #fff; }
 
 /* Responsive */
 @media (max-width: 980px) {
+  .menu-toggle { display: block; }
+  .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--blue-dark); padding: 8px 28px 18px; flex-direction: column; align-items: stretch; gap: 0; }
+  .nav.open { display: flex; }
+  .nav a { padding: 12px 4px; font-size: 16px; }
+  .nav-cta { text-align: center; margin-top: 8px; }
   .hero-head { grid-template-columns: 1fr; gap: 24px; }
   .readout { grid-template-columns: 1fr; }
   .readout-title { grid-row: auto; font-size: 44px; }
@@ -244,15 +250,12 @@ footer { background: #0a1730; color: #fff; }
   .shelf { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 720px) {
+  html { scroll-padding-top: 82px; }
   .wrap { padding: 0 16px; }
   .header-inner { height: 62px; }
   .brand img { width: 70px; height: auto; }
   .brand span { font-size: 26px; }
-  .menu-toggle { display: block; }
-  .nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--blue-dark); padding: 8px 16px 18px; flex-direction: column; align-items: stretch; gap: 0; }
-  .nav.open { display: flex; }
-  .nav a { padding: 12px 4px; font-size: 16px; }
-  .nav-cta { text-align: center; margin-top: 8px; }
+  .nav { padding: 8px 16px 18px; }
   .hero { padding-top: 40px; }
   .lead { font-size: 17px; }
   .court-tool { margin-top: 36px; }
@@ -267,13 +270,13 @@ footer { background: #0a1730; color: #fff; }
   .specs { grid-template-columns: 1fr 1fr; gap: 14px; }
   .specs div:nth-child(2) { grid-column: 1 / -1; order: 3; }
   .status-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
-  .section { padding: 64px 0; scroll-margin-top: 66px; }
+  .section { padding: 64px 0; }
   .phase-weeks button { min-height: 84px; padding: 8px; }
   .phase-weeks b { font-size: 30px; }
   .phase-weeks span { font-size: 11.5px; }
   .week-panel { padding: 22px 18px; }
   .week-head h3 { font-size: 28px; }
-  .seg { font-size: 11px; padding: 8px 6px; }
+  .seg { font-size: 11px; padding: 8px 5px; }
   .seg i { display: none; }
   .segments { grid-template-columns: 1fr; }
   .fam-grid, .fam-grid.two, .bag-cols { grid-template-columns: 1fr; }
@@ -285,4 +288,17 @@ footer { background: #0a1730; color: #fff; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .player, .book, .chips button { transition: none; }
+}
+/* A phone on its side has too little height to give 66px to a header that stays put. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .site-header { position: relative; }
+  html { scroll-padding-top: 16px; }
+}
+/* Forced colours (Windows contrast themes) drop background colours, which is how a chosen
+   grade, week or skill shows; give the chosen one the system highlight instead. */
+@media (forced-colors: active) {
+  .chips button[aria-checked="true"], .phase-weeks button[aria-selected="true"], .skill-buttons button[aria-pressed="true"], .division-links a.mine {
+    forced-color-adjust: none; background: Highlight; color: HighlightText; border-color: Highlight;
+  }
+  .phase-weeks button[aria-selected="true"] b { color: HighlightText; }
 }

@@ -15,10 +15,11 @@ export function navItems(home) {
   ];
 }
 
-export function header({ home = false, active = '' } = {}) {
+export function header({ home = false, active = '', path = '' } = {}) {
   const links = navItems(home).map(n => {
     const cls = n.cta ? ' class="nav-cta"' : '';
-    const cur = n.key === active ? ' aria-current="page"' : '';
+    // "page" only on the page itself; elsewhere in its section the link is marked current, not "page"
+    const cur = n.key === active ? ` aria-current="${n.href === path ? 'page' : 'true'}"` : '';
     return `        <a href="${n.href}"${cls}${cur}>${esc(n.text)}</a>`;
   }).join('\n');
   return `  <a class="skip" href="#main">Skip to content</a>
@@ -57,10 +58,10 @@ export function footer(facts, { home = false } = {}) {
 }
 
 /** Head tags that come from the facts: canonical URL, share card, analytics. */
-export function headMeta(facts, { path = '/', title, description }) {
+export function headMeta(facts, { path = '/', title, description, noindex = false }) {
   const url = facts.site.url + path;
   return [
-    `<link rel="canonical" href="${esc(url)}">`,
+    noindex ? `<meta name="robots" content="noindex">` : `<link rel="canonical" href="${esc(url)}">`,
     `<meta property="og:title" content="${esc(title)}">`,
     `<meta property="og:description" content="${esc(description)}">`,
     `<meta property="og:type" content="website">`,
@@ -74,7 +75,7 @@ export function headMeta(facts, { path = '/', title, description }) {
 }
 
 /** A full page for everything except the home page. */
-export function page(facts, { path, title, description, active = '', body, scripts = [], bodyClass = 'sub' }) {
+export function page(facts, { path, title, description, active = '', body, scripts = [], bodyClass = 'sub', noindex = false }) {
   const fullTitle = title === facts.program.name ? title : `${title} | ${facts.program.name}`;
   return `<!doctype html>
 <html lang="en">
@@ -84,7 +85,7 @@ export function page(facts, { path, title, description, active = '', body, scrip
   <meta name="theme-color" content="#0f1f3d">
   <title>${esc(fullTitle)}</title>
   <meta name="description" content="${esc(description)}">
-  ${headMeta(facts, { path, title: fullTitle, description })}
+  ${headMeta(facts, { path, title: fullTitle, description, noindex })}
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +94,7 @@ export function page(facts, { path, title, description, active = '', body, scrip
   <link rel="stylesheet" href="/pages.css">
 </head>
 <body class="${bodyClass}">
-${header({ active })}
+${header({ active, path })}
 
   <main id="main">
 ${body}

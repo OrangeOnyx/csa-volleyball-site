@@ -43,6 +43,15 @@ export function renderHandbookWeb(h, facts) {
     .replace(/\n{3,}/g, '\n\n')
     .trim();
   body = wrapTables(body);
+  // One h1 per page: a later h1 that repeats the first (side 2 of the reference card) becomes an h2.
+  const first = body.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/);
+  if (first) {
+    let seen = false;
+    body = body.replace(/<h1(\b[^>]*)>([\s\S]*?)<\/h1>/g, (m, attrs, inner) => {
+      if (!seen) { seen = true; return m; }
+      return plain(inner) === plain(first[1]) ? `<h2${attrs} class="hb-title-repeat">${inner}</h2>` : m;
+    });
+  }
   const title = `${h.title} | ${facts.program.name}`;
   return `<!doctype html>
 <html lang="en">
@@ -78,6 +87,7 @@ ${body}
     <p>${esc(facts.documents.byline)} · ${esc(facts.documents.edition)} edition</p>
     <p><a href="/">CSA Volleyball home</a> · <a href="/handbooks/">All handbooks</a> · <a href="/resources/${h.pdf}">PDF version</a></p>
   </footer>
+  <script src="/assets/nav.js" defer></script>
 </body>
 </html>
 `;

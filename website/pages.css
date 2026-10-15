@@ -42,7 +42,7 @@ body.sub { background: #fff; }
 .plan-segs { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 30px; }
 .plan-seg { border-top: 4px solid var(--s); padding-top: 14px; }
 .plan-seg h2 { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 0 0 10px; font: 700 28px/1.1 var(--sub); letter-spacing: 0; color: var(--midnight); }
-.plan-seg .seg-min { font: 600 14px var(--body); color: var(--muted); white-space: nowrap; }
+.plan-seg .seg-min { font: 600 14px var(--body); color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .plan-items { margin: 0; padding-left: 22px; }
 .plan-items li { margin: 0 0 8px; font-size: 16px; line-height: 1.55; color: #24344f; max-width: 70ch; }
 .plan-items li::marker { color: var(--s); }
@@ -75,40 +75,72 @@ body.sub { background: #fff; }
 /* Animated court diagrams */
 .court-anim { margin: 18px 0 0; padding: 16px; background: var(--midnight); border-radius: 8px; color: #fff; max-width: 420px; }
 .anim-title { font: 700 20px var(--sub); margin-bottom: 10px; }
-.anim-title span { display: block; font: 600 11px var(--body); letter-spacing: .1em; text-transform: uppercase; color: #9fb4d6; }
-.anim-stage { background: #0b1830; border-radius: 4px; }
+.anim-stage { background: var(--night); border-radius: 4px; }
 .anim-stage svg { display: block; width: 100%; height: auto; }
 .anim-fallback { margin: 0; padding: 14px; font-size: 14px; color: #c5d4ea; }
-.court-anim.ready .anim-fallback { display: none; }
 .anim-controls { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
-.anim-controls button { min-width: 44px; min-height: 40px; padding: 4px 12px; background: #ffffff14; color: #fff; border: 1px solid #ffffff40; border-radius: 4px; font-weight: 700; font-size: 15px; }
-.anim-controls button:hover:not(:disabled) { background: #ffffff26; }
-.anim-controls button:disabled { opacity: .4; cursor: default; }
+.anim-controls button { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 4px 12px; background: #ffffff14; color: #fff; border: 1px solid #ffffff40; border-radius: 4px; font-weight: 700; font-size: 15px; }
+.anim-controls svg { display: block; }
+.anim-controls button:hover:not([aria-disabled="true"]) { background: #ffffff26; }
+.anim-controls button[aria-disabled="true"] { opacity: .4; cursor: default; }
 .anim-controls button[data-act="play"] { min-width: 84px; }
 .court-anim :focus-visible { outline-color: var(--focus-dark); }
-.anim-count { margin-left: auto; font-size: 12px; color: #9fb4d6; }
-.anim-caption { min-height: 2.9em; margin: 10px 0 0; font: 600 16px/1.4 var(--body); color: #fff; }
+.anim-count { margin-left: auto; font-size: 12px; color: #9fb4d6; white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* every caption shares one grid cell (see court-anim.js), so the box keeps the longest one's height */
+.anim-caption-box { display: grid; margin: 10px 0 0; }
+.anim-caption-box > * { grid-area: 1 / 1; }
+.anim-caption, .anim-caption-sizer { margin: 0; font: 600 16px/1.4 var(--body); color: #fff; }
+.anim-caption-sizer { visibility: hidden; }
 .anim-steps { margin: 10px 0 0; padding-left: 20px; font-size: 13px; color: #b9c8de; }
-.anim-steps li { cursor: pointer; padding: 2px 0; }
-.anim-steps li[aria-current] { color: #fff; font-weight: 600; }
+.anim-step { display: block; width: calc(100% + 6px); margin: 0 0 0 -6px; padding: 4px 6px; background: none; border: 0; border-radius: 4px; color: inherit; font: inherit; line-height: 1.45; text-align: left; }
+.anim-step:hover { color: #fff; background: #ffffff0f; }
+.anim-step[aria-current], .anim-steps li:has(> [aria-current])::marker { color: #fff; font-weight: 600; }
+@media (pointer: coarse) { .anim-step { padding-top: 8px; padding-bottom: 8px; } }
 .court-anim:not(.ready) .anim-controls, .court-anim:not(.ready) .anim-caption { display: none; }
-.ca-floor { font: 600 9px var(--body); letter-spacing: .12em; fill: #7b5a32; text-anchor: middle; }
-.ca-side { font: 600 9px var(--body); letter-spacing: .12em; fill: #f3e6d3; text-anchor: end; }
-.ca-net { font: 400 14px var(--display); letter-spacing: .1em; fill: #f3e6d3; text-anchor: start; }
-.ca-spot { font: 600 10px var(--body); fill: #7b5a32; text-anchor: middle; }
-.ca-mark { font: 700 10px var(--body); fill: #6d4a12; text-anchor: middle; letter-spacing: .06em; text-transform: uppercase; }
+/* Drawn inside the SVG, in viewBox units (about 0.96px each on a phone). The floor ink, #4a3210,
+   is 5.9:1 on the darkest part of the floor gradient and 7.6:1 on the lightest. */
+.ca-bg { fill: var(--night); }
+.ca-floor { font: 600 12px var(--body); letter-spacing: .12em; fill: #4a3210; text-anchor: middle; }
+.ca-side { font: 600 12px var(--body); letter-spacing: .12em; fill: #f3e6d3; text-anchor: end; }
+.ca-net { font: 400 15px var(--display); letter-spacing: .1em; fill: #f3e6d3; text-anchor: start; }
+.ca-spot { font: 600 12px var(--body); fill: #4a3210; text-anchor: middle; }
+.ca-mark { font: 700 12px var(--body); fill: #4a3210; text-anchor: middle; letter-spacing: .06em; text-transform: uppercase; }
 .ca-actor circle { fill: var(--blue); stroke: #fff; stroke-width: 3; }
 .ca-actor text { font: 400 19px var(--display); fill: #fff; letter-spacing: .02em; }
 .ca-actor.hl circle { fill: var(--red); }
 .ca-actor.coach circle { fill: var(--midnight); stroke: #ffcf32; }
-.ca-call rect { fill: #fff; stroke: var(--midnight); stroke-width: 1.5; }
-.ca-call text { font: 700 12px var(--body); fill: var(--midnight); }
+.ca-call rect, .ca-call-tail { fill: #fff; }
+.ca-call rect, .ca-call-edge { stroke: var(--midnight); stroke-width: 1.5; stroke-linejoin: round; }
+.ca-call-edge { fill: none; }
+.ca-call text { font: 700 14px var(--body); fill: var(--midnight); }
+/* what just happened: the ball's flight as white dots on a dark halo, players' moves as arrows */
+.ca-flight, .ca-flight-halo { fill: none; stroke-linecap: round; stroke-dasharray: .1 8; }
+.ca-flight-halo { stroke: var(--midnight); stroke-opacity: .45; stroke-width: 6; }
+.ca-flight { stroke: #fff; stroke-width: 3; }
+.ca-move { fill: none; stroke: var(--midnight); stroke-opacity: .55; stroke-width: 2.5; stroke-dasharray: 5 5; stroke-linecap: round; }
+/* Wider screens: the court on the left, the controls, caption and steps beside it, so the
+   current step is never out of view while the court plays. */
+@media (min-width: 760px) {
+  .court-anim { max-width: none; display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); grid-template-rows: auto auto auto 1fr; grid-template-areas: "title title" "stage controls" "stage caption" "stage steps"; column-gap: 24px; }
+  .anim-title { grid-area: title; }
+  .anim-stage { grid-area: stage; align-self: start; }
+  .anim-controls { grid-area: controls; margin-top: 0; }
+  .anim-caption-box { grid-area: caption; }
+  .anim-steps { grid-area: steps; align-self: start; }
+  .court-anim:not(.ready) { display: block; max-width: 420px; }
+}
+/* A phone on its side: the court fits the screen height, with the controls beside it
+   (styles.css also lets the header scroll away there). */
+@media (orientation: landscape) and (max-height: 500px) {
+  .court-anim.ready { grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto auto 1fr; grid-template-areas: "stage title" "stage controls" "stage caption" "stage steps"; }
+  .anim-stage svg { width: auto; height: calc(100vh - 48px); height: calc(100svh - 48px); }
+}
 
 /* Plan index pages */
 .season-now { margin: 0 0 18px; padding: 10px 14px; background: var(--blue); color: #fff; border-radius: 4px; font-weight: 700; }
 .phase-group { margin-top: 34px; }
 .phase-group h2 { font-size: 40px; line-height: 1; margin: 0 0 6px; color: var(--midnight); }
-.phase-group h2 span { font: 600 14px var(--body); color: var(--muted); letter-spacing: 0; margin-left: 8px; }
+.phase-group h2 span { font: 600 14px var(--body); color: var(--muted); letter-spacing: 0; margin-left: 8px; font-variant-numeric: tabular-nums; }
 .phase-group > p { margin: 0 0 14px; color: var(--muted); max-width: 70ch; }
 .week-cards { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .week-cards a { position: relative; display: flex; flex-direction: column; height: 100%; padding: 14px 16px 16px; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); color: var(--ink); text-decoration: none; }
@@ -129,10 +161,15 @@ body.sub { background: #fff; }
 .div-card .what { font-size: 14px; color: #d4e0f1; }
 .div-card .go { margin-top: auto; padding-top: 16px; font: 700 15px var(--body); text-decoration: underline; text-underline-offset: 4px; }
 .two-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 34px; }
+.two-tables > section { min-width: 0; }
 .two-tables h2 { font: 700 24px/1.2 var(--sub); letter-spacing: 0; margin: 0 0 10px; color: var(--midnight); }
 
 /* Tables */
-.table-scroll { overflow-x: auto; }
+.table-scroll { overflow-x: auto; background:
+    linear-gradient(90deg, #fff 30%, #fff0) left / 32px 100% no-repeat local,
+    linear-gradient(270deg, #fff 30%, #fff0) right / 32px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, #13213a4d, #13213a00) left / 14px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, #13213a4d, #13213a00) right / 14px 100% no-repeat scroll; }
 .table-scroll table, .grade-table { width: 100%; border-collapse: collapse; font-size: 15px; }
 .table-scroll th, .table-scroll td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
 .table-scroll thead th { font: 600 12px var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--paper); }
@@ -141,7 +178,7 @@ body.sub { background: #fff; }
 
 /* The method */
 .method .section { padding: 72px 0; }
-.method h2, .coaches h2.big { font-size: clamp(44px, 5.5vw, 68px); line-height: .95; margin: 0 0 18px; color: var(--midnight); }
+.method h2 { font-size: clamp(44px, 5.5vw, 68px); line-height: .95; margin: 0 0 18px; color: var(--midnight); }
 .method .paper { background: var(--paper); }
 .letter-body { padding: 28px 32px; background: var(--paper); border-left: 6px solid var(--red); border-radius: 0 6px 6px 0; }
 .letter-body p { margin: 0 0 14px; font-size: 17px; line-height: 1.7; color: #24344f; max-width: 66ch; }
@@ -180,7 +217,7 @@ body.sub { background: #fff; }
 
 /* Coach guide */
 .steps { list-style: none; counter-reset: step; padding: 0; margin: 40px 0 88px; }
-.steps > li { counter-increment: step; position: relative; padding: 0 0 40px 70px; scroll-margin-top: 80px; }
+.steps > li { counter-increment: step; position: relative; padding: 0 0 40px 70px; }
 .steps > li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 50px; height: 50px; border-radius: 50%; background: var(--blue); color: #fff; font: 400 30px/50px var(--display); text-align: center; }
 .steps > li::after { content: ''; position: absolute; left: 24px; top: 58px; bottom: 8px; width: 2px; background: var(--rule); }
 .steps > li:last-child::after { display: none; }
@@ -196,6 +233,7 @@ body.sub { background: #fff; }
 .contact-list div:last-child { border-bottom: 0; }
 .contact-list dt { font-size: 14px; color: #33435c; }
 .contact-list dd { margin: 0; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.contact-list a { display: inline-flex; align-items: center; min-height: 44px; }
 
 /* Feedback */
 .feedback .wrap.narrow { padding-top: 32px; padding-bottom: 88px; }
@@ -203,16 +241,16 @@ body.sub { background: #fff; }
 .survey-qs li { font: 700 24px/1.3 var(--sub); color: var(--midnight); margin-bottom: 14px; }
 
 /* Drill library */
-.drills-page .wrap:last-child { padding-top: 28px; padding-bottom: 88px; }
+.drills-page > .wrap:last-child { padding-top: 28px; padding-bottom: 88px; }
 .drill-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-bottom: 22px; }
 .skill-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
-.skill-buttons button { min-height: 40px; padding: 6px 14px; border: 1px solid var(--rule); border-radius: 999px; background: #fff; color: var(--ink); font-weight: 600; font-size: 14px; }
+.skill-buttons button { min-height: 44px; padding: 6px 14px; border: 1px solid var(--rule); border-radius: 999px; background: #fff; color: var(--ink); font-weight: 600; font-size: 14px; }
 .skill-buttons button[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
 .grade-select { font-weight: 600; font-size: 14px; }
-.grade-select select { margin-left: 6px; min-height: 40px; padding: 4px 8px; border: 1px solid var(--rule); border-radius: 4px; font: inherit; }
+.grade-select select { margin-left: 6px; min-height: 44px; padding: 4px 8px; border: 1px solid var(--rule); border-radius: 4px; font: inherit; }
 .drill-count { margin: 0 0 0 auto; font-size: 14px; color: var(--muted); }
 .drill-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.drill { padding: 20px 22px; border: 1px solid var(--rule); border-top: 5px solid var(--blue); border-radius: 0 0 6px 6px; scroll-margin-top: 80px; }
+.drill { padding: 20px 22px; border: 1px solid var(--rule); border-top: 5px solid var(--blue); border-radius: 0 0 6px 6px; }
 .drill:target { border-color: var(--red); box-shadow: 0 0 0 3px #c0272d33; }
 .drill h2 { font: 700 26px/1.15 var(--sub); letter-spacing: 0; margin: 0; color: var(--midnight); }
 .drill .badge { display: inline-block; vertical-align: middle; margin-left: 6px; padding: 3px 8px; border-radius: 999px; background: var(--red); color: #fff; font: 600 11px var(--body); letter-spacing: .06em; text-transform: uppercase; }
@@ -220,6 +258,9 @@ body.sub { background: #fff; }
 .drill p { margin: 0 0 8px; font-size: 15px; color: #33435c; }
 .drill .cue { font: 700 18px var(--sub); color: var(--blue); }
 .drill .from { margin: 10px 0 0; font-size: 12px; color: var(--muted); }
+
+/* Not found */
+.not-found .wrap.narrow { padding-top: 32px; padding-bottom: 88px; }
 
 /* Handbooks hub */
 .handbooks-page .wrap.narrow { padding-top: 32px; padding-bottom: 88px; }
@@ -260,13 +301,22 @@ body.sub { background: #fff; }
 
 /* Print: a plan on one or two sheets */
 @media print {
-  .site-header, footer, .crumbs, .recap-actions, .week-nav, .other-div, .anim-controls, .anim-stage, .anim-caption, .draft-note, .skip { display: none !important; }
+  .site-header, footer, .crumbs, .recap-actions, .week-nav, .other-div, .anim-controls, .anim-caption, .anim-caption-box, .draft-note, .skip { display: none !important; }
   body { font-size: 12px; }
   .plan { padding: 0; }
   .plan-head h1 { font-size: 40px; }
   .plan-segs { gap: 12px; }
-  .plan-seg { break-inside: avoid; }
-  .court-anim { background: none; color: #000; padding: 0; }
-  .anim-steps { color: #000; }
+  .plan-seg h2 { break-after: avoid; }
+  .recap, .tip, .principle { break-inside: avoid; }
+  .clock .seg { background: none; color: #000; box-shadow: inset 0 0 0 1px #000; }
+  /* the diagram prints its opening formation (court-anim.js resets it), small, beside the steps */
+  .court-anim { display: grid; grid-template-columns: 1.8in 1fr; grid-template-areas: "title title" "stage steps"; gap: 4px 16px; max-width: none; margin-top: 10px; padding: 0; background: none; color: #000; break-inside: avoid; }
+  .anim-title { grid-area: title; margin: 0; }
+  .anim-stage { grid-area: stage; background: none; }
+  .anim-steps { grid-area: steps; margin: 0; align-self: start; }
+  .ca-bg { display: none; }
+  .ca-side, .ca-net { fill: #4a3210; }
+  .anim-steps, .anim-step, .anim-step[aria-current], .anim-steps li::marker { color: #000; font-weight: 400; }
+  .anim-step { width: auto; margin: 0; padding: 0; }
   .recap { border-width: 1px; }
 }

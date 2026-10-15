@@ -23,8 +23,9 @@ export function startServer(port = 4173) {
       res.writeHead(200, { 'content-type': TYPES[extname(file)] || 'application/octet-stream' });
       res.end(body);
     } catch {
-      res.writeHead(404, { 'content-type': 'text/plain' });
-      res.end('Not found');
+      const page = await readFile(join(SITE, '404.html')).catch(() => null);
+      res.writeHead(404, { 'content-type': page ? TYPES['.html'] : 'text/plain' });
+      res.end(page || 'Not found');
     }
   });
   return new Promise(resolve => server.listen(port, () => resolve(server)));

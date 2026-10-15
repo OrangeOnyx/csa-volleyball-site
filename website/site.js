@@ -137,7 +137,8 @@ const svgCourt = document.querySelector('.court');
 let landX;
 function frameCourt() {
   landX = narrow.matches ? 39 : 45;
-  svgCourt.setAttribute('viewBox', narrow.matches ? '-40 5 1080 390' : '-70 5 1390 390');
+  // the phone frame runs a little deeper so the larger "overhand" label clears the bottom edge
+  svgCourt.setAttribute('viewBox', narrow.matches ? '-40 5 1080 404' : '-70 5 1390 390');
 }
 frameCourt();
 let currentGrade = 3, current = { h: 6.5, sx: 15 }, tween = null;
