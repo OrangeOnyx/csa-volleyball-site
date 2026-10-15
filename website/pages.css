@@ -132,7 +132,12 @@ body.sub { background: #fff; }
 /* A phone on its side: the court fits the screen height, with the controls beside it
    (styles.css also lets the header scroll away there). */
 @media (orientation: landscape) and (max-height: 500px) {
-  .court-anim.ready { grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto auto 1fr; grid-template-areas: "stage title" "stage controls" "stage caption" "stage steps"; }
+  .court-anim.ready { display: grid; max-width: none; column-gap: 24px; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto auto 1fr; grid-template-areas: "stage title" "stage controls" "stage caption" "stage steps"; }
+  .court-anim.ready .anim-title { grid-area: title; }
+  .court-anim.ready .anim-stage { grid-area: stage; align-self: start; }
+  .court-anim.ready .anim-controls { grid-area: controls; margin-top: 0; }
+  .court-anim.ready .anim-caption-box { grid-area: caption; }
+  .court-anim.ready .anim-steps { grid-area: steps; align-self: start; }
   .anim-stage svg { width: auto; height: calc(100vh - 48px); height: calc(100svh - 48px); }
 }
 
