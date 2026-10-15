@@ -20,3 +20,14 @@
     }
   });
 })();
+
+// Tables that scroll sideways sit in focusable regions so a keyboard can scroll them. A region
+// that fits needs no tab stop, so it only keeps one while it is wider than the screen.
+(() => {
+  const regions = [...document.querySelectorAll('.table-scroll[tabindex], .hb-table[tabindex]')];
+  if (!regions.length) return;
+  const sync = () => { for (const r of regions) r.tabIndex = r.scrollWidth > r.clientWidth + 1 ? 0 : -1; };
+  sync();
+  addEventListener('resize', sync);
+  document.fonts?.ready.then(sync);
+})();

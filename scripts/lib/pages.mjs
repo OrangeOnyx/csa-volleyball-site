@@ -160,7 +160,8 @@ ${indent}</div>`;
 export function renderCoaches({ facts, plans }) {
   const phone = facts.director.phone;
   const contact = directorContact(facts);
-  const divButtons = facts.divisions.map(d => `<a class="button red" href="${divisionPath(d)}">${esc(d.label)}</a>`).join(' ');
+  // Once the season start date is set, plans.js points these at this week's plan.
+  const divButtons = facts.divisions.map(d => `<a class="button red" href="${divisionPath(d)}" data-week-link="${d.id}">${esc(d.label)}</a>`).join(' ');
   const body = `    <article class="coaches">
       <header class="page-hero">
         <div class="wrap">
@@ -349,7 +350,7 @@ ${cards}
     path: '/drills/',
     title: 'Drill library',
     description: `Twenty CSA Volleyball drills by grade and skill, from ${facts.director.name}'s curriculum: passing, serving, setting, hitting, serve receive and team play.`,
-    active: 'plans',
+    active: 'coaches',
     body,
     scripts: ['/assets/drills.js']
   });
@@ -388,3 +389,20 @@ ${rows}
 }
 
 export { fmtDate, weekPath, divisionSpecs };
+
+/** The page Vercel serves for an address that doesn't exist. */
+export function renderNotFound({ facts }) {
+  const body = `    <article class="not-found">
+      <header class="page-hero">
+        <div class="wrap">
+          <h1>Page not found</h1>
+          <p class="lead">This page doesn’t exist, or it has moved.</p>
+        </div>
+      </header>
+      <div class="wrap narrow">
+        <p>These pages are the places most people are looking for:</p>
+        <p class="div-buttons"><a class="button red" href="/plans/">Practice plans</a> <a class="button ghost" href="/coaches/">Coach guide</a> <a class="button ghost" href="/">Home page</a></p>
+      </div>
+    </article>`;
+  return page(facts, { path: '/404.html', title: 'Page not found', description: `This page isn't on the ${facts.program.name} site.`, body, noindex: true });
+}

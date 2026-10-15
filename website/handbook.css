@@ -3,8 +3,10 @@
 
 .hb-skip { position: absolute; left: -9999px; top: 8px; z-index: 99; background: #fff; color: #13213a; padding: 8px 12px; }
 .hb-skip:focus { left: 8px; }
+/* scroll-padding keeps anything scrolled or tabbed to clear of the sticky bar (59px; 55px on phones) */
+html { scroll-padding-top: 75px; }
 :focus-visible { outline: 3px solid #1a4f9c; outline-offset: 3px; }
-.hb-bar :focus-visible, .cover :focus-visible { outline-color: #ffcf32; }
+.hb-bar :focus-visible, .cover :focus-visible, .hb-foot :focus-visible { outline-color: #ffcf32; }
 
 .hb-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px max(16px, calc(50vw - 440px)); background: #1a4f9c; border-top: 4px solid #c0272d; }
 .hb-home { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
@@ -38,13 +40,15 @@
   /* Contents links */
   .hb a.toc-item { color: inherit; text-decoration: none; }
   .hb a.toc-item:hover .toc-title { text-decoration: underline; }
-  .hb .section-header { scroll-margin-top: 80px; }
   /* Quick reference card: sides stack, the print grid reflows to two columns, type grows to reading size */
   .hb .side { max-width: 880px; margin: 0 auto 24px; background: #fff; padding: 16px; }
   .hb .card-body, .hb .card-body-4col { grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 16px; }
   .hb .card-body > *, .hb .card-body-4col > * { min-width: 0; }
   .hb .side .hb-table table { min-width: 0; }
   .hb .card-header-title h1 { font-size: 26px; }
+  /* a repeated document title is an h2 on the web page (one h1 per page) but looks like the first */
+  .hb .card-header-title h2.hb-title-repeat { margin: 0; font: 800 26px/1.1 'Barlow Condensed', sans-serif; letter-spacing: 1px; text-transform: uppercase; color: inherit; }
+  .hb .doc-header-text h2.hb-title-repeat { margin: 0; font: 800 22pt/1.1 'Barlow Condensed', 'Arial Narrow', sans-serif; letter-spacing: 1px; text-transform: uppercase; color: inherit; }
   .hb .card-header-title .org, .hb .card-header-right, .hb .side-label { font-size: 12px; }
   .hb .card-header-right strong { font-size: 14px; }
   .hb .card-section-title { font-size: 15px; padding: 6px 10px; }
@@ -65,6 +69,7 @@
 }
 
 @media screen and (max-width: 720px) {
+  html { scroll-padding-top: 71px; }
   .hb-bar { padding: 8px 12px; }
   .hb-home span { display: none; }
   .hb-nav { gap: 12px; }

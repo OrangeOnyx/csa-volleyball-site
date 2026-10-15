@@ -105,7 +105,8 @@ function resolveFile(path) {
     listedPaths.add(path);
     if (!resolveFile(path)) fail('sitemap', `${loc} has no page`);
   }
-  for (const file of pages) if (!listedPaths.has(urlOf(file))) fail('sitemap', `${urlOf(file)} is missing from sitemap.xml`);
+  // the not-found page is served for missing addresses and is never listed
+  for (const file of pages) if (urlOf(file) !== '/404.html' && !listedPaths.has(urlOf(file))) fail('sitemap', `${urlOf(file)} is missing from sitemap.xml`);
 }
 
 /* 5. Placeholders, byline and edition */

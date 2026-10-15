@@ -48,18 +48,20 @@ export function recapText(week, div, facts) {
   ];
 }
 
+const chevron = d => `<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="${d}" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
 function sceneFigure(sceneId, scenes) {
   const sc = scenes[sceneId];
   if (!sc) throw new Error(`Unknown scene: ${sceneId}`);
   const json = JSON.stringify({ title: sc.title, summary: sc.summary, spots: !!sc.spots, marks: sc.marks || [], actors: sc.actors, steps: sc.steps }).replace(/</g, '\\u003c');
   const steps = sc.steps.map(s => `<li>${esc(s.say)}</li>`).join('');
   return `<figure class="court-anim" data-scene="${esc(sceneId)}">
-            <figcaption class="anim-title">${esc(sc.title)} <span>Animated court diagram</span></figcaption>
+            <figcaption class="anim-title">${esc(sc.title)}</figcaption>
             <div class="anim-stage"><p class="anim-fallback">${esc(sc.summary)}</p></div>
             <div class="anim-controls">
-              <button type="button" data-act="prev" aria-label="Previous step">&#8249;</button>
-              <button type="button" data-act="play" aria-pressed="false">Play</button>
-              <button type="button" data-act="next" aria-label="Next step">&#8250;</button>
+              <button type="button" data-act="prev" aria-label="Previous step">${chevron('M14.5 5.5 8 12l6.5 6.5')}</button>
+              <button type="button" data-act="play">Play</button>
+              <button type="button" data-act="next" aria-label="Next step">${chevron('M9.5 5.5 16 12l-6.5 6.5')}</button>
               <span class="anim-count"></span>
             </div>
             <p class="anim-caption" aria-live="polite"></p>
@@ -89,7 +91,7 @@ export function renderWeek({ facts, plans, drills, scenes, div, week }) {
     const swaps = (week.swaps || []).filter(s => s.segment === seg.id).map(s => swapFor(drillById[s.drill], div)).filter(Boolean);
     const flags = (week.flags || []).filter(f => f.segment === seg.id && f.division === div.id);
     const diagrams = (week.diagrams || []).filter(d => d.segment === seg.id && (!d.for || d.for.includes(div.id)));
-    return `        <li class="plan-seg ${SEG_CLASS[seg.id]}">
+    return `        <li class="plan-seg ${SEG_CLASS[seg.id]}" id="seg-${seg.id}">
           <h2><span>${esc(names[seg.id])}</span> <span class="seg-min">${seg.minutes} min</span></h2>
           <ul class="plan-items">
 ${items.map(i => `            <li${i.cue ? ' class="cue"' : ''}>${esc(curly(i.t))}</li>`).join('\n')}
@@ -114,12 +116,12 @@ ${swaps.length ? `          <p class="swap">Swap in from her drill library: ${sw
         <p class="byline">From the Season Curriculum &amp; Practice Plan Guide by ${esc(facts.director.name)}, ${esc(facts.director.title)}</p>
       </header>
       ${specsBlock(facts, div)}
-      <div class="clock" role="img" aria-label="60-minute practice: 15 minutes warm-up, 10 serving, 15 skill focus, 20 team play">
-        <span class="seg s1" style="flex:15">Warm-up <i>15 min</i></span>
-        <span class="seg s2" style="flex:10">Serving <i>10</i></span>
-        <span class="seg s3" style="flex:15">Skill <i>15</i></span>
-        <span class="seg s4" style="flex:20">Team play <i>20</i></span>
-      </div>
+      <nav class="clock" aria-label="Jump to a part of the 60-minute practice">
+        <a class="seg s1" style="flex:15" href="#seg-warmup" aria-label="Warm-up, 15 minutes">Warm-up <i>15 min</i></a>
+        <a class="seg s2" style="flex:10" href="#seg-serving" aria-label="Serving, 10 minutes">Serving <i>10</i></a>
+        <a class="seg s3" style="flex:15" href="#seg-skill" aria-label="Skill focus, 15 minutes">Skill <i>15</i></a>
+        <a class="seg s4" style="flex:20" href="#seg-team" aria-label="Team play, 20 minutes">Team play <i>20</i></a>
+      </nav>
       <ol class="plan-segs">
 ${segs}
       </ol>

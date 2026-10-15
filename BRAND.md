@@ -11,7 +11,7 @@ The two sources agree on every colour below. The site uses all of them with the 
 | `--blue` | `#1A4F9C` | CSA Blue | Header, hero bands, links on light backgrounds, focus ring on light backgrounds |
 | `--blue-dark` | `#133a75` | CSA Blue Dark | Mobile menu, hover on the division cards |
 | `--blue-light` | `#2563c4` | CSA Blue Light | Handbook shelf accents |
-| `--midnight` | `#0f1f3d` | Hero Midnight | Dark sections, footer, court-diagram frame |
+| `--midnight` | `#0f1f3d` | Hero Midnight | Dark sections, the court-diagram frame |
 | `--red` | `#C0272D` | CSA Red | Calls to action, the 4px top accent line, active states |
 | `--red-dark` | `#9a1f24` | CSA Red Dark | Hover on red buttons; small red labels on white (8.1:1, where CSA Red is 5.9:1) |
 | `--paper` | `#f8f9fc` | CSA Off-White | Light section backgrounds (was `#f6f8fc`; aligned in this change) |
@@ -24,7 +24,9 @@ Added by the site (not in either source), each for one job:
 | `--ink` | `#13213a` | Body text: 16:1 on white, softer than black |
 | `--muted` | `#4d5c74` | Secondary text: 6.8:1 on white, passes AA |
 | `--rule` | `#dbe3ef` | Hairlines and table rules |
-| `--maple`, `--maple-deep` | `#e5bd85`, `#b9854a` | The court floor in the diagrams, and accents; never body text (`--maple-deep` is 3.2:1 on white) |
+| `--maple`, `--maple-deep` | `#e5bd85`, `#b9854a` | The court floor in the diagrams, and accents; never body text (`--maple-deep` is 3.2:1 on white). The court drawings shade the floor from `#d9ae75` at the net to `#ecc994` at the end line. Text on the floor uses `#4a3210` (5.9:1 at its darkest, 7.6:1 at its lightest); the selection highlight is maple |
+| `--night` | `#0b1830` | The deepest navy: the footer and the frame around the court drawings |
+| `--walnut` | `#8a5a22` | The third phase (Application) and the skill segment of the practice clock: 5.9:1 with white |
 | `--focus-light` | `#1A4F9C` | Keyboard focus ring on light backgrounds (7.9:1 on white) |
 | `--focus-dark` | `#ffcf32` | Keyboard focus ring on midnight (11:1), blue (5.4:1) and red (4:1) |
 
@@ -33,7 +35,7 @@ Not used, on purpose:
 - **Hero gradient** (`#0f1f3d → #1A4F9C → #133a75`): the redesigned hero uses a flat midnight band so the court illustration reads clearly.
 - **Red Glow `#ff8a8e`, glass cards, pill badges**: patterns from the retired Manus build; the site has no stat counters.
 - **Drill focus colours** (amber, green, violet…): the drill library filters by skill with text buttons instead of colour, so nothing depends on telling colours apart.
-- **Float, pulse and parallax animations**: dropped. Motion is limited to the grade court, the rotation demo and the plan diagrams, and all of it stops when the device asks for reduced motion.
+- **Float, pulse and parallax animations**: dropped. Motion is limited to the grade court, the rotation demo and the plan diagrams. When the device asks for reduced motion nothing slides: the plan diagrams show each step in place and fade in whoever moved.
 
 ## Contrast rules
 

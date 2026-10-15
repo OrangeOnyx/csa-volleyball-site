@@ -35,6 +35,7 @@
   if (n > 9) return;
   const week = data.weeks.find(w => w.n === n);
   if (note) { note.textContent = `This week is week ${n}: ${week.title}.`; note.hidden = false; }
+  document.querySelectorAll('a[data-week-link]').forEach(a => { a.href = `/plans/${a.dataset.weekLink}/week-${n}/`; });
   const card = document.querySelector(`.week-cards li[data-week="${n}"]`);
   if (card) {
     card.classList.add('now');
