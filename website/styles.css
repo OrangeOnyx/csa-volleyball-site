@@ -130,7 +130,11 @@ h3, h4 { font-family: var(--sub); font-weight: 700; }
 .week-panel { margin-top: 26px; border: 1px solid var(--rule); border-radius: 6px; padding: 34px 36px 30px; background: #fff; }
 .week-head h3 { font-size: 34px; line-height: 1.05; margin: 0; color: var(--midnight); }
 .week-head p { margin: 6px 0 0; color: var(--muted); }
-.clock { display: flex; gap: 3px; margin: 24px 0 8px; border-radius: 4px; overflow: hidden; }
+.clock { display: flex; gap: 3px; margin: 24px 0 8px; }
+.clock .seg:first-child { border-radius: 4px 0 0 4px; }
+.clock .seg:last-child { border-radius: 0 4px 4px 0; }
+/* the focused segment paints over its neighbours, so its whole ring shows */
+.clock .seg:focus-visible { position: relative; z-index: 1; outline-offset: 2px; }
 .seg { min-width: max-content; padding: 9px 12px; font-size: 13px; font-weight: 700; color: #fff; white-space: nowrap; text-decoration: none; }
 .seg i { font-style: normal; font-weight: 500; margin-left: 4px; font-variant-numeric: tabular-nums; }
 a.seg:hover { text-decoration: underline; text-underline-offset: 3px; }

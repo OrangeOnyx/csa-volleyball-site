@@ -321,7 +321,8 @@ body.sub { background: #fff; }
   .anim-steps { grid-area: steps; margin: 0; align-self: start; }
   .ca-bg { display: none; }
   .ca-side, .ca-net { fill: #4a3210; }
-  .anim-steps, .anim-step, .anim-step[aria-current], .anim-steps li::marker { color: #000; font-weight: 400; }
+  .anim-steps, .anim-step, .anim-step[aria-current], .anim-steps li::marker, .anim-steps li:has(> [aria-current])::marker { color: #000; font-weight: 400; }
+  .ca-floor, .ca-side, .ca-spot, .ca-mark { font-size: 16px; }
   .anim-step { width: auto; margin: 0; padding: 0; }
   .recap { border-width: 1px; }
 }

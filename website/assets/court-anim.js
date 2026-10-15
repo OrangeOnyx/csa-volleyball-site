@@ -168,25 +168,34 @@
       return b;
     });
 
-    let step = 0, playing = false, raf = 0, timer = 0;
+    let step = 0, playing = false, raf = 0, timer = 0, run = 0;
 
     function place(id, x, y) {
       const a = actors[id];
       a.g.setAttribute('transform', `translate(${PX(x)} ${PY(y)})`);
       a.g.style.display = '';
     }
-    function placeBall(x, y, lift) {
-      ball.setAttribute('transform', `translate(${PX(x)} ${PY(y) - lift})`);
-      shadow.setAttribute('cx', PX(x)); shadow.setAttribute('cy', PY(y) + 6);
+    // the ball at (x, y) in the air, its shadow on the floor below it at (fx, fy)
+    function placeBall(x, y, fx, fy) {
+      ball.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)})`);
+      shadow.setAttribute('cx', fx.toFixed(1)); shadow.setAttribute('cy', (fy + 6).toFixed(1));
       ball.setAttribute('visibility', 'visible'); shadow.setAttribute('visibility', 'visible');
     }
     function hideBall() { ball.setAttribute('visibility', 'hidden'); shadow.setAttribute('visibility', 'hidden'); }
+    // Where the ball is at time t of a flight (0 to 1): it travels the straight line and rises
+    // on a sine curve. The animation and the drawn trail both use this, so they match.
+    const flightAt = (a, b, lift, t) => [lerp(PX(a[0]), PX(b[0]), t), lerp(PY(a[1]), PY(b[1]), t) - Math.sin(Math.PI * t) * lift];
     // The ball's arc rises in proportion to how far it travels. A pass or set that stays on our
-    // side peaks below the net, so it never looks as if it went over.
+    // side keeps the whole ball below the net band (PY(0) + 5), so it never looks as if it went over.
     function liftOf(from, to) {
       const lift = Math.min(60, Math.hypot(to[0] - from[0], to[1] - from[1]) * 2.2);
-      if (from[1] < 0 || to[1] < 0) return lift;
-      return Math.min(lift, Math.max(6, (PY(from[1]) + PY(to[1])) / 2 - (PY(0) + 16)));
+      if (from[1] < -1 || to[1] < -1) return lift;
+      const floor = PY(0) + 18;
+      const top = L => { let m = Infinity; for (let i = 0; i <= 32; i++) m = Math.min(m, flightAt(from, to, L, i / 32)[1]); return m; };
+      if (top(lift) >= floor) return lift;
+      let lo = 0, hi = lift;
+      for (let k = 0; k < 14; k++) { const mid = (lo + hi) / 2; if (top(mid) >= floor) lo = mid; else hi = mid; }
+      return lo;
     }
 
     function frame(s, t) {
@@ -198,9 +207,9 @@
         place(id, lerp(from[0], to[0], k), lerp(from[1], to[1], k));
       }
       if (s.ball) {
-        const from = s.ballFrom || s.ball;
-        const a = atShoulder(from, s.before, s.pos), b = atShoulder(s.ball, s.pos);
-        placeBall(lerp(a[0], b[0], k), lerp(a[1], b[1], k), Math.sin(Math.PI * k) * liftOf(from, s.ball));
+        const a = atShoulder(s.ballFrom || s.ball, s.before, s.pos), b = atShoulder(s.ball, s.pos);
+        const [x, y] = flightAt(a, b, liftOf(a, b), k);
+        placeBall(x, y, lerp(PX(a[0]), PX(b[0]), k), lerp(PY(a[1]), PY(b[1]), k));
       } else hideBall();
     }
 
@@ -225,11 +234,10 @@
         el('path', { d: `M${x1} ${y1}L${ex.toFixed(1)} ${ey.toFixed(1)}`, class: 'ca-move', 'marker-end': `url(#${arrowId})` }, trails);
       }
       if (s.ball && s.ballFrom && !same(s.ball, s.ballFrom)) {
-        const a = atShoulder(s.ballFrom, s.before, s.pos), b = atShoulder(s.ball, s.pos);
-        const x1 = PX(a[0]), y1 = PY(a[1]), x2 = PX(b[0]), y2 = PY(b[1]);
-        // a quadratic through the arc's highest point (the control point sits twice as high)
-        const cx = (x1 + x2) / 2, cy = (y1 + y2) / 2 - 2 * liftOf(s.ballFrom, s.ball);
-        const dPath = `M${x1} ${y1}Q${cx.toFixed(1)} ${cy.toFixed(1)} ${x2} ${y2}`;
+        const a = atShoulder(s.ballFrom, s.before, s.pos), b = atShoulder(s.ball, s.pos), lift = liftOf(a, b);
+        // the same path the ball took, sampled
+        const pts = Array.from({ length: 25 }, (_, i) => flightAt(a, b, lift, i / 24).map(v => v.toFixed(1)).join(' '));
+        const dPath = `M${pts.join('L')}`;
         el('path', { d: dPath, class: 'ca-flight-halo' }, trails);
         el('path', { d: dPath, class: 'ca-flight' }, trails);
       }
@@ -335,7 +343,7 @@
     const hold = i => Math.max(3000, 1200 + 300 * words(states[i].say));
 
     function stop() {
-      playing = false; clearTimeout(timer);
+      playing = false; run++; clearTimeout(timer);
       label();
     }
     // Steps are announced when someone asks for them, not while the diagram plays by itself on
@@ -343,16 +351,19 @@
     const announce = on => caption.setAttribute('aria-live', on ? 'polite' : 'off');
     async function play(auto) {
       clearTimeout(timer);
+      const mine = ++run;
       if (step === last) await show(0, false);
+      if (mine !== run) return;
       playing = true;
       label();
-      const run = async () => {
-        if (!playing) return;
+      const next = async () => {
+        if (!playing || mine !== run) return;
         if (step >= last) { stop(); return; }
         await show(step + 1, true);
-        if (playing) timer = setTimeout(run, dwell(step));
+        // a Pause and Play during the move started a newer run; this one stops here
+        if (playing && mine === run) timer = setTimeout(next, dwell(step));
       };
-      timer = setTimeout(run, auto ? hold(step) : 1200);
+      timer = setTimeout(next, auto ? hold(step) : 1200);
     }
     const unavailable = b => b.getAttribute('aria-disabled') === 'true';
 
@@ -384,17 +395,29 @@
       const disarm = () => { armed = false; };
       fig.addEventListener('pointerdown', disarm);
       fig.addEventListener('focusin', disarm);
+      // The sticky header hides the top of the screen, except on a phone on its side, where it
+      // scrolls away; the watcher is rebuilt whenever that height changes.
       const header = document.querySelector('.site-header');
-      const covered = header && getComputedStyle(header).position === 'sticky' ? Math.round(header.getBoundingClientRect().height) : 0;
-      const seen = new Map();
-      const io = new IntersectionObserver(entries => {
-        for (const e of entries) seen.set(e.target, e.intersectionRatio);
-        const court = seen.get(stage) || 0, cap = seen.get(capBox) || 0;
-        if (armed && court > 0.95 && cap > 0.98 && step === 0 && !playing) { armed = false; announce(false); play(true); }
-        if (playing && court === 0) stop();
-      }, { threshold: [0, 0.5, 0.95, 0.99, 1], rootMargin: `-${covered}px 0px 0px 0px` });
-      io.observe(stage);
-      io.observe(capBox);
+      const coveredNow = () => (header && getComputedStyle(header).position === 'sticky' ? Math.round(header.getBoundingClientRect().height) : 0);
+      let io = null, covered = -1;
+      const watch = () => {
+        const c = coveredNow();
+        if (c === covered) return;
+        covered = c;
+        io?.disconnect();
+        const seen = new Map();
+        io = new IntersectionObserver(entries => {
+          for (const e of entries) seen.set(e.target, e.intersectionRatio);
+          const court = seen.get(stage) || 0, cap = seen.get(capBox) || 0;
+          if (armed && court > 0.95 && cap > 0.98 && step === 0 && !playing) { armed = false; announce(false); play(true); }
+          if (playing && court === 0) stop();
+        }, { threshold: [0, 0.5, 0.95, 0.99, 1], rootMargin: `-${c}px 0px 0px 0px` });
+        io.observe(stage);
+        io.observe(capBox);
+      };
+      watch();
+      let resized = 0;
+      addEventListener('resize', () => { clearTimeout(resized); resized = setTimeout(watch, 200); });
     }
   }
 
