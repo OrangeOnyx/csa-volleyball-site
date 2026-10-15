@@ -50,7 +50,7 @@ npx playwright install chromium          # only for check:a11y and og-image
 | `npm run build` | Writes the plan pages, method, coach guide, drill library, handbook pages, sitemap and robots file, and fills the facts into the home page |
 | `npm run pdf` | Writes the five PDFs and the all-in-one ZIP from `handbooks/src/` (needs network access for the fonts) |
 | `npm run check` | Facts schema, HTML validity, every internal link and anchor, the sitemap, no leftover placeholders, byline and edition in every PDF |
-| `npm run check:a11y` | Loads every page in Chromium and runs axe (WCAG 2.2 AA); fails on violations, script errors or sideways scrolling on phones. Then plays each court diagram once with motion on and steps through it by keyboard |
+| `npm run check:a11y` | Loads every page in Chromium and runs axe (WCAG 2.2 AA); fails on violations, script errors or sideways scrolling on phones. Then plays each court diagram once with motion on, steps through it by keyboard, and checks every step's drawing: no call-out on the net, a court label, another player or the ball, and no pass or set on our side drawn over the net |
 | `npm run serve` | Serves `website/` at http://localhost:4173 the way Vercel does |
 | `npm run og-image` | Redraws the link-preview card, `website/assets/og-image.png` |
 

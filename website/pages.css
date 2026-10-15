@@ -105,6 +105,8 @@ body.sub { background: #fff; }
 .ca-net { font: 400 15px var(--display); letter-spacing: .1em; fill: #f3e6d3; text-anchor: start; }
 .ca-spot { font: 600 12px var(--body); fill: #4a3210; text-anchor: middle; }
 .ca-mark { font: 700 12px var(--body); fill: #4a3210; text-anchor: middle; letter-spacing: .06em; text-transform: uppercase; }
+/* labels on our side are edged with the floor's own paint (set by the script), under the letters */
+.ca-floor, .ca-spot, .ca-mark { paint-order: stroke; stroke-width: 6px; stroke-linejoin: round; }
 .ca-actor circle { fill: var(--blue); stroke: #fff; stroke-width: 3; }
 .ca-actor text { font: 400 19px var(--display); fill: #fff; letter-spacing: .02em; }
 .ca-actor.hl circle { fill: var(--red); }
