@@ -77,7 +77,7 @@
         "warmup": "Self-bump and count consecutive contacts. Partner passing at 10 feet: five in a row without a drop. \"Belly button to the ball\": face it before you pass.",
         "serving": "Underhand from the grade line, consistency over power. 3rd grade starts overhand mechanics up close: toss, reach, snap. Goal: 10 serves each, counting how many clear the net.",
         "skill": "A hula hoop or cone marks the setter's spot. The coach tosses, the player passes to the target, and the tosses get longer and wider as players improve.",
-        "team": "Modified game with a rotation on every side-out. The coach starts rallies with a toss for 1st–2nd; 3rd and up serve. Keep the \"mine\" calls coming."
+        "team": "Modified game with a rotation each time the serve comes to your team. The coach starts rallies with a toss for 1st–2nd; 3rd and up serve. Keep the \"mine\" calls coming."
       },
       "items": {
         "warmup": [
@@ -96,7 +96,7 @@
           { "t": "Progression: increase toss distance and vary angles as players improve." }
         ],
         "team": [
-          { "t": "Modified game with rotation: every side-out, serving team rotates." },
+          { "t": "Modified game with rotation: each time the serve changes, the new serving team rotates." },
           { "t": "Coach starts each rally with a toss — no serve yet for 1st and 2nd grade.", "for": ["grade-1-2"] },
           { "t": "Players serve to start each rally (3rd grade and up).", "for": ["grade-3", "grade-4", "grade-5-6"] },
           { "t": "Reinforce “mine” calls and rotation movement." }
@@ -123,7 +123,7 @@
         "warmup": "Partner passing out to 15 feet. Movement drill: shuffle where the coach points, then pass the toss. Ready position: knees bent, weight forward, eyes on the ball.",
         "serving": "Serve from the grade line and aim for the corners. 4th grade moves to 20 feet. 5th grade serves from 22 feet and 6th from the end line, consistency before power.",
         "skill": "Three players across the back row. The coach serves or tosses; the closest player calls \"mine\" and passes to the target while the others clear out.",
-        "team": "Full game with live serving from grade lines. Rotate after every side-out, then debrief: \"What position are you in? Who serves next?\""
+        "team": "Full game with live serving from grade lines. Rotate each time the serve comes to your team (in 1st–2nd, after the other server’s three serves), then debrief: \"What position are you in? Who serves next?\""
       },
       "items": {
         "warmup": [
@@ -143,7 +143,7 @@
         ],
         "team": [
           { "t": "Full game with live serving (all grades use the grade-appropriate serve line)." },
-          { "t": "Emphasize rotation after every side-out." },
+          { "t": "Emphasize rotation each time the serve comes to your team. In 1st–2nd, that is after the other server’s three serves, not after a lost rally." },
           { "t": "Debrief: ask players “What position are you in? Who serves next?”" }
         ]
       },
@@ -372,7 +372,7 @@
           { "t": "Each player serves from tournament distance — focus on consistency and in-bounds percentage." }
         ],
         "skill": [
-          { "t": "Put 6 players on the court; call out a score scenario — “We just got a side-out from position 4 — where does everyone move?”" },
+          { "t": "Put 6 players on the court; call out a score scenario — “We just got the serve back from position 4 — where does everyone move?”" },
           { "t": "Rotate through different scenarios; every player should know their position at any point in the game." },
           { "t": "Reinforce: “Know where you are. Know who serves next.”", "cue": true }
         ],
