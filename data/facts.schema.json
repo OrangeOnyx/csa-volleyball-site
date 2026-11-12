@@ -74,7 +74,8 @@
       "required": ["practice", "games"],
       "properties": {
         "practice": { "type": "string" },
-        "games": { "type": ["string", "null"], "description": "Null until the director names the game venue." }
+        "games": { "type": ["string", "null"], "description": "Null until the director names the game venue." },
+        "officePhone": { "description": "LPRD Main Office, the facility staff line for the venue. Printed in the coach handouts and the coach guide. Null until the director confirms it.", "type": ["string", "null"] }
       },
       "additionalProperties": false
     },

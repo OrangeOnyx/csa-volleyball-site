@@ -2,7 +2,7 @@
   "$schema": "./facts.schema.json",
   "about": "Program facts used by every page, plan and handbook. A null value shows as 'to be confirmed'. After the facts session with the director, fill in the nulls, set confirmed.date and confirmed.by, then run: npm run build && npm run pdf",
   "confirmed": {
-    "date": "2026-11-11",
+    "date": "2026-11-12",
     "by": "Stephanie Abdalla, Volleyball Director"
   },
   "program": {
@@ -37,7 +37,8 @@
   },
   "venues": {
     "practice": "Comeaux Rec Center",
-    "games": "Comeaux Rec Center"
+    "games": "Comeaux Rec Center",
+    "officePhone": "(337) 291-8400"
   },
   "photoConsent": "opt-out",
   "unverified": [],
