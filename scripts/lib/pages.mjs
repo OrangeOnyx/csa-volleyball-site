@@ -245,7 +245,7 @@ export function renderCoaches({ facts, plans }) {
             <thead><tr><th scope="col">Situation</th><th scope="col">Who to contact</th><th scope="col">How</th></tr></thead>
             <tbody>
               <tr><td>Practice schedule change</td><td>Director → coach → parents</td><td>CSA communication platform or email</td></tr>
-              <tr><td>Player injury or incident</td><td>Coach → parent or guardian first, then the Director once the player is stable</td><td>Same day. Phone the parent or guardian; contact the Director${facts.director.email ? ` at ${esc(facts.director.email)}` : ''}</td></tr>
+              <tr><td>Player injury or incident</td><td>Coach → parent or guardian first, then the Director once the player is stable</td><td>Phone call, same day${facts.director.coachPhone ? `. Director: ${telLink(facts.director.coachPhone)}` : facts.director.email ? `. Director: ${esc(facts.director.email)}` : ''}</td></tr>
               <tr><td>Parent concern about a player</td><td>Parent → coach first</td><td>In person or email</td></tr>
               <tr><td>Parent concern about a referee’s call</td><td>Parent → coach, after 24 hours</td><td>In person or email</td></tr>
               <tr><td>Coach concern about a player</td><td>Coach → Director</td><td>Private conversation</td></tr>
