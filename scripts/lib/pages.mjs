@@ -186,7 +186,7 @@ export function renderCoaches({ facts, plans }) {
 
         <li id="practice">
           <h2>Every practice</h2>
-          <p>Arrive at least 15 minutes early, and stay until every player has been picked up by a parent or guardian. Every practice runs 60 minutes in the same four segments. Open this week’s plan for your division:</p>
+          <p>Arrive at least 15 minutes early, and stay until every player has been picked up by a parent or guardian. If a parent does not come, contact the parent and ask if they can send a family member. Keep contacting adults the child knows until one of them can pick her up, and call the Director after a reasonable attempt to reach an adult or an alternate adult. Every practice runs 60 minutes in the same four segments. Open this week’s plan for your division:</p>
           <p class="div-buttons">${divButtons}</p>
           <p class="season-now" id="season-now" hidden></p>${calendarLink(facts)}
           <div class="clock" role="img" aria-label="60-minute practice: 15 minutes warm-up, 10 serving, 15 skill focus, 20 team play">
@@ -226,7 +226,8 @@ export function renderCoaches({ facts, plans }) {
           <dl class="contact-list">
             <div><dt>Emergency</dt><dd>${telLink('911')}</dd></div>
             <div><dt>${esc(facts.director.title)} ${esc(facts.director.name)}</dt><dd>${contact.length ? contact.join(' · ') : TBC}</dd></div>
-            <div><dt>${esc(facts.venues.practice)} Front Desk</dt><dd>First aid kit and Incident Report forms</dd></div>
+            <div><dt>${esc(facts.venues.practice)} Front Desk</dt><dd>First aid kit and Incident Report forms</dd></div>${facts.venues.officePhone ? `
+            <div><dt>${esc(facts.venues.practice)} facility staff (LPRD Main Office)</dt><dd>${telLink(facts.venues.officePhone)}</dd></div>` : ''}
             <div><dt>Louisiana Child Protective Services</dt><dd>${telLink('1-855-452-5437')}</dd></div>
           </dl>
           <p class="fineprint">From the Master Handbook, section 10.</p>
@@ -235,7 +236,7 @@ export function renderCoaches({ facts, plans }) {
         <li id="conduct">
           <h2>Conduct and communication</h2>
           <ul class="checks">
-            <li><strong>Two-deep rule.</strong> Never be alone with a single player. At least two adults are present whenever you are working with players. A 16–17-year-old assistant does not count as the second adult.</li>
+            <li><strong>Two-deep rule.</strong> Never be alone with a single player. At least two adults are present whenever you are working with players. A 16–17-year-old assistant does not count as the second adult. The second adult can be another coach, a parent who stays behind, or Front Desk staff.</li>
             <li>No communication with players by personal social media, direct messages or text outside official team channels. The team GroupMe or text group is an official channel for parents only.</li>
             <li>No physical contact beyond age-appropriate instruction. When in doubt, demonstrate on yourself.</li>
             <li>No yelling at, belittling, or publicly embarrassing any player.</li>
