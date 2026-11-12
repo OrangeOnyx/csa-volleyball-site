@@ -2,7 +2,7 @@
   "$schema": "./facts.schema.json",
   "about": "Program facts used by every page, plan and handbook. A null value shows as 'to be confirmed'. After the facts session with the director, fill in the nulls, set confirmed.date and confirmed.by, then run: npm run build && npm run pdf",
   "confirmed": {
-    "date": "2026-10-14",
+    "date": "2026-11-11",
     "by": "Stephanie Abdalla, Volleyball Director"
   },
   "program": {
@@ -18,11 +18,11 @@
   "director": {
     "name": "Stephanie Abdalla",
     "title": "Volleyball Director",
-    "email": null,
+    "email": "cajunsportslafayette@gmail.com",
     "phone": null
   },
   "season": {
-    "name": "Fall 2026",
+    "name": null,
     "weekOneStart": null,
     "tournamentDate": null,
     "registrationUrl": null,
@@ -35,15 +35,15 @@
     "spring": "March – May"
   },
   "venues": {
-    "practice": "Comeaux Sports Complex",
-    "games": "Comeaux Sports Complex"
+    "practice": "Comeaux Rec Center",
+    "games": "Comeaux Rec Center"
   },
   "photoConsent": "opt-out",
   "unverified": [],
   "divisions": [
     {
-      "id": "beginner",
-      "name": "Beginner",
+      "id": "grade-1-2",
+      "name": "1st & 2nd Grade",
       "grades": [1, 2],
       "label": "1st–2nd grade",
       "ages": "6–8",
@@ -58,7 +58,7 @@
     },
     {
       "id": "grade-3",
-      "name": "Developmental",
+      "name": "3rd Grade",
       "grades": [3],
       "label": "3rd grade",
       "ages": "8–9",
@@ -75,14 +75,14 @@
     },
     {
       "id": "grade-4",
-      "name": "Developmental",
+      "name": "4th Grade",
       "grades": [4],
       "label": "4th grade",
       "ages": "9–10",
       "focus": "Passing, setting, serving progression, team concepts",
       "goals": [
         "Pass with a consistent, locked platform, directing the ball toward the setter",
-        "Underhand serve from 22 feet; attempt overhand serve from 22 feet",
+        "Underhand serve from 20 feet; attempt overhand serve from 20 feet",
         "Understand and attempt the Pass–Set–Hit sequence",
         "Rotate correctly and understand their court position number",
         "Open up and face the passer (“belly button to the ball”)",
@@ -91,15 +91,15 @@
       ]
     },
     {
-      "id": "intermediate",
-      "name": "Intermediate",
+      "id": "grade-5-6",
+      "name": "5th & 6th Grade",
       "grades": [5, 6],
       "label": "5th–6th grade",
       "ages": "10–12",
       "focus": "Full game play, overhand serve, pass-set-hit system",
       "goals": [
         "Pass consistently to a target (setter position)",
-        "Overhand serve from the end line with reasonable accuracy",
+        "Overhand serve with reasonable accuracy: 5th grade from 22 feet, 6th grade from the end line",
         "Execute a basic overhead set to a hitter",
         "Run a 3-step approach and contact a set ball",
         "Understand serve receive formation (“W” formation)",
@@ -111,24 +111,24 @@
   "grades": {
     "1": {
       "label": "1st grade",
-      "division": "beginner",
+      "division": "grade-1-2",
       "netFt": 6,
       "net": "6′ 0″",
       "ball": "Soft Touch or Volley-Lite",
       "serve": "Underhand only, from 10 ft",
       "serveFt": 10,
-      "note": "Each player serves up to three in a row, and the serve rotates on a side-out.",
+      "note": "Every server serves three times, no matter what, even after a miss or a lost rally. The other team still scores the rallies it wins.",
       "skills": "make a passing platform, serve underhand, call the ball, rotate, and cheer for her teammates."
     },
     "2": {
       "label": "2nd grade",
-      "division": "beginner",
+      "division": "grade-1-2",
       "netFt": 6,
       "net": "6′ 0″",
       "ball": "Soft Touch or Volley-Lite",
       "serve": "Underhand only, from 10 ft",
       "serveFt": 10,
-      "note": "Each player serves up to three in a row, and the serve rotates on a side-out.",
+      "note": "Every server serves three times, no matter what, even after a miss or a lost rally. The other team still scores the rallies it wins.",
       "skills": "make a passing platform, serve underhand, call the ball, rotate, and cheer for her teammates."
     },
     "3": {
@@ -140,7 +140,7 @@
       "serve": "Underhand from 15 ft, or overhand from 10 ft",
       "serveFt": 15,
       "overhandFt": 10,
-      "note": "She chooses underhand or overhand. Coaches encourage overhand attempts.",
+      "note": "She chooses underhand or overhand. Coaches encourage overhand attempts. A server stops after five points in a row.",
       "skills": "pass to a target, move up the serve progression, run pass–set–hit, hit a downball, and talk on the court."
     },
     "4": {
@@ -149,36 +149,36 @@
       "netFt": 6.5,
       "net": "6′ 6″",
       "ball": "Volley-Lite",
-      "serve": "Underhand or overhand, from 22 ft",
-      "serveFt": 22,
-      "note": "Coaches start pushing toward the overhand serve from 22 feet.",
+      "serve": "Underhand or overhand, from 20 ft",
+      "serveFt": 20,
+      "note": "Coaches start pushing toward the overhand serve from 20 feet. A server stops after five points in a row.",
       "skills": "pass to a target, move up the serve progression, run pass–set–hit, hit a downball, and talk on the court."
     },
     "5": {
       "label": "5th grade",
-      "division": "intermediate",
-      "netFt": 7,
-      "net": "7′ 0″",
+      "division": "grade-5-6",
+      "netFt": 6.5,
+      "net": "6′ 6″",
       "ball": "Volley-Lite or standard",
-      "serve": "Underhand or overhand, from the end line",
-      "serveFt": 30,
-      "note": "A server can score at most five points in a row before the serve changes.",
-      "skills": "pass consistently, serve overhand from the end line, set overhead, use a three-step approach, and receive serve in a W formation."
+      "serve": "Underhand or overhand, from 22 ft",
+      "serveFt": 22,
+      "note": "A server stops after five points in a row, and the serve goes to the other team.",
+      "skills": "pass consistently, serve overhand from 22 feet, set overhead, use a three-step approach, and receive serve in a W formation."
     },
     "6": {
       "label": "6th grade",
-      "division": "intermediate",
-      "netFt": 7,
-      "net": "7′ 0″",
+      "division": "grade-5-6",
+      "netFt": 6.5,
+      "net": "6′ 6″",
       "ball": "Volley-Lite or standard",
       "serve": "Underhand or overhand, from the end line",
       "serveFt": 30,
-      "note": "A server can score at most five points in a row before the serve changes.",
+      "note": "A server stops after five points in a row, and the serve goes to the other team.",
       "skills": "pass consistently, serve overhand from the end line, set overhead, use a three-step approach, and receive serve in a W formation."
     }
   },
   "documents": {
-    "edition": "October 2026",
+    "edition": "November 2026",
     "byline": "By Stephanie Abdalla, CSA Volleyball Director"
   },
   "site": {

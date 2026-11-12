@@ -98,7 +98,7 @@ ${facts.divisions.map(d => `            <li><a href="${weekPath(d, 1)}" data-div
         </div>
         <p class="fineprint">From the <a href="/handbooks/curriculum-guide/">Curriculum &amp; Practice Guide</a> by ${esc(facts.director.name)}. See <a href="/plans/">every plan</a> and the <a href="/drills/">drill library</a>.</p>`);
 const contact = directorContact(facts);
-index = inject(index, 'ladder', `              <li><span>Coach conduct, or a team issue that’s still open</span><b>${esc(facts.director.title)} ${esc(facts.director.name)}</b><small>${contact.length ? contact.join(' · ') : 'Through csalaf.com'}</small></li>`);
+index = inject(index, 'ladder', `              <li><span>Coach conduct, or a team issue that’s still open</span><b>${esc(facts.director.title)} ${esc(facts.director.name)}</b><small>${contact.length ? contact.join(' · ') : 'Contact to be confirmed'}</small></li>`);
 index = inject(index, 'where', `            <dl>
 ${facts.venues.games === facts.venues.practice
     ? `              <div><dt>Practices and games</dt><dd>${esc(facts.venues.practice)}</dd></div>`
@@ -110,7 +110,7 @@ index = inject(index, 'shelf', '        ' + shelf(facts, { indent: '        ' })
 index = inject(index, 'contact', `        <h2 id="contact-title">See you on the court.</h2>
         <p>CSA posts registration windows, team assignments, and game schedules each season. ${esc(facts.director.title)} ${esc(facts.director.name)} leads the program.</p>
         <a class="button red big" href="${esc(facts.season.registrationUrl || facts.program.csaPage)}">${facts.season.registrationUrl ? 'Register for the season' : 'Visit CSA’s volleyball page'}</a>
-        <p class="fineprint">${contact.length ? `Reach the director at ${contact.join(' · ')}.` : 'For program questions, use the contact link on CSA’s site.'}</p>`);
+        <p class="fineprint">${contact.length ? `Reach the director at ${contact.join(' · ')}.` : 'A contact for program questions will be posted here.'}</p>`);
 index = inject(index, 'footer', footer(facts, { home: true }));
 const SEG_NAMES = { warmup: 'Warm-up & ball control', serving: 'Serving', skill: 'Skill focus', team: 'Team play' };
 const siteData = {

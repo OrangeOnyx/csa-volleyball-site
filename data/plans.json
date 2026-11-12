@@ -97,8 +97,8 @@
         ],
         "team": [
           { "t": "Modified game with rotation: every side-out, serving team rotates." },
-          { "t": "Coach starts each rally with a toss — no serve yet for 1st and 2nd grade.", "for": ["beginner"] },
-          { "t": "Players serve to start each rally (3rd grade and up).", "for": ["grade-3", "grade-4", "intermediate"] },
+          { "t": "Coach starts each rally with a toss — no serve yet for 1st and 2nd grade.", "for": ["grade-1-2"] },
+          { "t": "Players serve to start each rally (3rd grade and up).", "for": ["grade-3", "grade-4", "grade-5-6"] },
           { "t": "Reinforce “mine” calls and rotation movement." }
         ]
       },
@@ -121,7 +121,7 @@
       "names": { "skill": "Skill focus: serve receive" },
       "overview": {
         "warmup": "Partner passing out to 15 feet. Movement drill: shuffle where the coach points, then pass the toss. Ready position: knees bent, weight forward, eyes on the ball.",
-        "serving": "Serve from the grade line and aim for the corners. 4th grade moves to 22 feet. 5th–6th serve from the end line, consistency before power.",
+        "serving": "Serve from the grade line and aim for the corners. 4th grade moves to 20 feet. 5th grade serves from 22 feet and 6th from the end line, consistency before power.",
         "skill": "Three players across the back row. The coach serves or tosses; the closest player calls \"mine\" and passes to the target while the others clear out.",
         "team": "Full game with live serving from grade lines. Rotate after every side-out, then debrief: \"What position are you in? Who serves next?\""
       },
@@ -133,8 +133,8 @@
         ],
         "serving": [
           { "t": "Serve from the grade-appropriate line — focus on placement (aim for corners)." },
-          { "t": "4th grade: introduce serving from 22 feet if not already there.", "for": ["grade-4"] },
-          { "t": "5th and 6th grade: serve from the end line; work on consistency before adding power.", "for": ["intermediate"] }
+          { "t": "4th grade: introduce serving from 20 feet if not already there.", "for": ["grade-4"] },
+          { "t": "5th grade: serve from 22 feet. 6th grade: serve from the end line. Work on consistency before adding power.", "for": ["grade-5-6"] }
         ],
         "skill": [
           { "t": "Introduce basic serve receive: 3 players in a line across the back row." },
@@ -180,9 +180,9 @@
           { "t": "Introduce setting hand position: hands form a triangle above forehead, contact with fingerpads not palms." }
         ],
         "serving": [
-          { "t": "Overhand serve mechanics from close range (10 feet) — toss high, reach tall, snap wrist.", "for": ["grade-3", "grade-4", "intermediate"] },
-          { "t": "Progress back to the grade-appropriate line as mechanics improve.", "for": ["grade-3", "grade-4", "intermediate"] },
-          { "t": "Continue the underhand serve from the 10-foot line; focus on consistency.", "for": ["beginner"] }
+          { "t": "Overhand serve mechanics from close range (10 feet) — toss high, reach tall, snap wrist.", "for": ["grade-3", "grade-4", "grade-5-6"] },
+          { "t": "Progress back to the grade-appropriate line as mechanics improve.", "for": ["grade-3", "grade-4", "grade-5-6"] },
+          { "t": "Continue the underhand serve from the 10-foot line; focus on consistency.", "for": ["grade-1-2"] }
         ],
         "skill": [
           { "t": "Self-set: toss ball above head, set to self, catch — repeat 10 times." },
@@ -203,7 +203,7 @@
       "recapBy": {
         "grade-3": { "did": "we learned what a set is, made setting hands, and started the overhand serve from 10 feet" },
         "grade-4": { "did": "we learned what a set is, made setting hands, and started the overhand serve from 10 feet" },
-        "intermediate": { "did": "we learned what a set is, made setting hands, and started the overhand serve from 10 feet" }
+        "grade-5-6": { "did": "we learned what a set is, made setting hands, and started the overhand serve from 10 feet" }
       },
       "diagrams": [ { "segment": "team", "scene": "pass-set-hit" } ],
       "swaps": [ { "segment": "skill", "drill": "toss-pass-set-catch" } ],
@@ -219,7 +219,7 @@
       "names": { "skill": "Skill focus: downball & hitting" },
       "overview": {
         "warmup": "Groups of three: pass to the setter, set to the hitter, hitter catches, rotate. The passer calls \"mine,\" the setter calls \"set,\" the hitter calls \"hit.\"",
-        "serving": "Serve to zones: deep corners, then short. 5th–6th serve overhand from the end line and aim for the back half.",
+        "serving": "Serve to zones: deep corners, then short. 5th–6th serve overhand from their line (22 feet for 5th, the end line for 6th) and aim for the back half.",
         "skill": "Downball from behind the 10-foot line: toss and drive it over with an open hand. 3rd–4th stay with the downball. 5th–6th learn the three-step approach.",
         "team": "Each team needs at least two contacts before sending it over. Any three-contact sequence earns a bonus point while the coach narrates: pass, now set, now hit."
       },
@@ -230,12 +230,12 @@
         ],
         "serving": [
           { "t": "Serve from the grade-appropriate line; focus on serving to specific zones (deep corners, short)." },
-          { "t": "Overhand serve from the end line — track accuracy (aim for the back half of the court).", "for": ["intermediate"] }
+          { "t": "Overhand serve from the grade line (5th: 22 feet; 6th: end line) — track accuracy (aim for the back half of the court).", "for": ["grade-5-6"] }
         ],
         "skill": [
           { "t": "Introduce downball: standing behind the 10-foot line, toss to self, contact ball with open hand driving it over the net." },
           { "t": "Downball only (no jump required).", "for": ["grade-3", "grade-4"] },
-          { "t": "Introduce the 3-step approach: right-left-right (for right-handers), jump, reach, contact.", "for": ["intermediate"] },
+          { "t": "Introduce the 3-step approach: right-left-right (for right-handers), jump, reach, contact.", "for": ["grade-5-6"] },
           { "t": "Key cue: “Reach high, contact the top of the ball, follow through.”", "cue": true }
         ],
         "team": [
@@ -250,7 +250,7 @@
         "ask": "Ask her what the passer, setter and hitter each call out: “mine,” “set,” “hit.”"
       },
       "recapBy": {
-        "intermediate": { "did": "we linked pass, set and hit, learned the downball, and started the three-step approach" }
+        "grade-5-6": { "did": "we linked pass, set and hit, learned the downball, and started the three-step approach" }
       },
       "diagrams": [ { "segment": "warmup", "scene": "pass-set-hit" } ],
       "swaps": [
@@ -283,9 +283,9 @@
           { "t": "Competition: team earns a point for every serve that lands within 3 feet of a cone." }
         ],
         "skill": [
-          { "t": "Introduce the “W” formation — 5 players in a W shape across the back two-thirds of the court.", "for": ["intermediate"] },
+          { "t": "Introduce the “W” formation — 5 players in a W shape across the back two-thirds of the court.", "for": ["grade-5-6"] },
           { "t": "Simplified version: 3 back-row players spread across the baseline, 3 front-row players at the net.", "for": ["grade-3", "grade-4"] },
-          { "t": "Keep the Week 3 serve receive: 3 players in a line across the back row.", "for": ["beginner"] },
+          { "t": "Keep the Week 3 serve receive: 3 players in a line across the back row.", "for": ["grade-1-2"] },
           { "t": "Coach serves; team receives and attempts to run Pass–Set–Hit." }
         ],
         "team": [
@@ -299,9 +299,9 @@
         "ask": "Ask her what the team does when the coach calls “Free ball!”"
       },
       "diagrams": [
-        { "segment": "skill", "scene": "w-formation", "for": ["intermediate"] },
+        { "segment": "skill", "scene": "w-formation", "for": ["grade-5-6"] },
         { "segment": "skill", "scene": "three-back", "for": ["grade-3", "grade-4"] },
-        { "segment": "skill", "scene": "serve-receive-line", "for": ["beginner"] },
+        { "segment": "skill", "scene": "serve-receive-line", "for": ["grade-1-2"] },
         { "segment": "team", "scene": "free-ball" }
       ],
       "swaps": [ { "segment": "skill", "drill": "serve-receive-triangle" } ],
@@ -323,8 +323,8 @@
       },
       "items": {
         "warmup": [
-          { "t": "“Pepper” drill: player 1 passes to player 2, player 2 sets to player 1, player 1 hits back to player 2 — continuous loop.", "for": ["grade-3", "grade-4", "intermediate"] },
-          { "t": "Partner passing rally — count consecutive passes without the ball hitting the floor.", "for": ["beginner"] }
+          { "t": "“Pepper” drill: player 1 passes to player 2, player 2 sets to player 1, player 1 hits back to player 2 — continuous loop.", "for": ["grade-3", "grade-4", "grade-5-6"] },
+          { "t": "Partner passing rally — count consecutive passes without the ball hitting the floor.", "for": ["grade-1-2"] }
         ],
         "serving": [
           { "t": "Serving competition: each player gets 5 serves; score 1 point for in, 2 points for landing in the back half." },

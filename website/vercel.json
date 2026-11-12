@@ -2,6 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     { "source": "/plans/developmental", "destination": "/plans/", "permanent": false },
-    { "source": "/plans/developmental/(.*)", "destination": "/plans/", "permanent": false }
+    { "source": "/plans/developmental/(.*)", "destination": "/plans/", "permanent": false },
+    { "source": "/plans/beginner", "destination": "/plans/grade-1-2/", "permanent": false },
+    { "source": "/plans/beginner/:rest(.*)", "destination": "/plans/grade-1-2/:rest", "permanent": false },
+    { "source": "/plans/intermediate", "destination": "/plans/grade-5-6/", "permanent": false },
+    { "source": "/plans/intermediate/:rest(.*)", "destination": "/plans/grade-5-6/:rest", "permanent": false }
   ]
 }
