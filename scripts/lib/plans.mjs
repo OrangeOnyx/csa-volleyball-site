@@ -182,7 +182,7 @@ ${ph.weeks.map(n => {
       ${crumbs([['/plans/', 'Practice plans'], [null, div.label]])}
       ${draftNote(plans, facts)}
       <header class="plan-head">
-        <p class="eyebrow">${esc(div.name)} division · ages ${esc(div.ages)}</p>
+        <p class="eyebrow">Ages ${esc(div.ages)}</p>
         <h1>${esc(div.label)} practice plans</h1>
         <p class="themes">${esc(div.focus)}</p>
         <p class="byline">From the Season Curriculum &amp; Practice Plan Guide by ${esc(facts.director.name)}, ${esc(facts.director.title)}</p>
@@ -215,7 +215,7 @@ export function renderHub({ facts, plans }) {
   const cards = facts.divisions.map(div => {
     const s = divisionSpecs(facts, div);
     return `          <li><a class="div-card" href="${divisionPath(div)}">
-            <span class="who">${esc(div.name)} · ages ${esc(div.ages)}</span>
+            <span class="who">Ages ${esc(div.ages)}</span>
             <strong>${esc(div.label)}</strong>
             <span class="what">Net ${s.net.map(v => esc(v.text)).join(' / ')} · ${esc(div.focus)}</span>
             <span class="go">Open the nine weeks</span>

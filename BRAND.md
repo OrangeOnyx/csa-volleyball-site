@@ -62,7 +62,7 @@ The website follows the brand guidelines. The handbooks were set in Barlow befor
 
 - Program: **CSA Volleyball** (Cajun Sports Association, Lafayette, Louisiana).
 - Stephanie Abdalla's title is **Volleyball Director**, as in her handbooks. (*brand-tokens.md* has "Program Director" in a signature block; the handbooks win.)
-- Every document carries her byline and the edition: "By Stephanie Abdalla, CSA Volleyball Director · October 2026 edition". Both come from `data/facts.json` (`documents.byline`, `documents.edition`).
+- Every document carries her byline and the edition: "By Stephanie Abdalla, CSA Volleyball Director · November 2026 edition". Both come from `data/facts.json` (`documents.byline`, `documents.edition`).
 - The signature block in *brand-tokens.md* lists a Manus web address and an email that have not been confirmed. Contact details appear on the site only once they are in `data/facts.json`.
 
 ## Voice

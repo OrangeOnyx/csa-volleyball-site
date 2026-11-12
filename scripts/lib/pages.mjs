@@ -17,11 +17,11 @@ export function renderMethod({ facts, plans, drills }) {
   const gradeRows = Object.entries(facts.grades).map(([g, x]) => `            <tr><th scope="row">${esc(x.label)}</th><td>${esc(x.net)}</td><td>${esc(x.ball)}</td><td>${esc(x.serve)}</td></tr>`).join('\n');
   const library = drills.drills.filter(d => d.library).map(d => `          <li id="m-${d.id}"><h3>${esc(d.name)}</h3><p class="meta">${[gradesText(d.minGrade), playersText(d.players), d.time].filter(Boolean).map(esc).join(' · ')}</p><p>${esc(d.how)}</p></li>`).join('\n');
   const phases = plans.phases.map(p => `          <li class="ph-${p.id}"><b>Weeks ${p.weeks[0]}–${p.weeks.at(-1)}</b><strong>${esc(p.name)}</strong><span>${esc(p.focus)}</span></li>`).join('\n');
-  // Divisions that share a name (3rd and 4th grade, Developmental) share one card;
+  // Divisions with the same focus (3rd and 4th grade) share one card;
   // a goal that differs between them is listed once per grade.
   const goalGroups = [];
   for (const d of facts.divisions) {
-    const same = goalGroups.find(g => g[0].name === d.name && g[0].goals.length === d.goals.length);
+    const same = goalGroups.find(g => g[0].focus === d.focus && g[0].goals.length === d.goals.length);
     if (same) same.push(d); else goalGroups.push([d]);
   }
   const goalItems = ds => ds[0].goals.map((_, i) => {
@@ -33,7 +33,7 @@ export function renderMethod({ facts, plans, drills }) {
     ? `${ds.slice(0, -1).map(d => d.label.replace(/ grade$/, '')).join(', ')} and ${ds.at(-1).label}`
     : ds.map(d => d.label).join(' and '));
   const divGoals = goalGroups.map(ds => `          <section class="goal-card" aria-labelledby="g-${ds[0].id}">
-            <h3 id="g-${ds[0].id}">${esc(groupLabel(ds))} <span>${esc(ds[0].name)}</span></h3>
+            <h3 id="g-${ds[0].id}">${esc(groupLabel(ds))}</h3>
             <ul class="checks">${goalItems(ds)}</ul>
             ${ds.map(d => `<a href="${divisionPath(d)}">Open the ${esc(d.label)} plans</a>`).join(' ')}
           </section>`).join('\n');
@@ -158,7 +158,6 @@ ${indent}</div>`;
 
 /* ---------- Coaches: start here ---------- */
 export function renderCoaches({ facts, plans }) {
-  const phone = facts.director.phone;
   const contact = directorContact(facts);
   // Once the season start date is set, plans.js points these at this week's plan.
   const divButtons = facts.divisions.map(d => `<a class="button red" href="${divisionPath(d)}" data-week-link="${d.id}">${esc(d.label)}</a>`).join(' ');
@@ -182,7 +181,7 @@ export function renderCoaches({ facts, plans }) {
             <li>Sign and return the <a href="/resources/CSA_Volleyball_Coach_Agreement.pdf">Coach Agreement</a>.</li>
             <li>Read the <a href="/handbooks/master-handbook/">Master Handbook</a>, then print and laminate the <a href="/resources/CSA_Volleyball_Coach_Quick_Reference_Card.pdf">Quick Reference Card</a> for your clipboard.</li>
           </ul>
-          <p class="fineprint">Head coaches must be at least 18. Assistant coaches may be 16–17 with direct adult supervision. From the Master Handbook, sections 5 and 8.</p>
+          <p class="fineprint">Head coaches must be at least 18. Assistant coaches may be 16–17 with direct adult supervision; a 16–17-year-old assistant does not count as the second adult. From the Master Handbook, sections 5 and 8.</p>
         </li>
 
         <li id="practice">
@@ -205,7 +204,7 @@ export function renderCoaches({ facts, plans }) {
           <ul class="checks">
             <li>Every player gets equal playing time. No player sits out more than one rotation per set without a documented reason (injury or discipline).</li>
             <li>One head coach and one assistant may stand on the bench-side sideline. Stay off the court, and don’t cross the 10-foot line toward the net during play.</li>
-            <li>Matches are best two of three sets with rally scoring. A team can start with four players and has a 15-minute grace period.</li>
+            <li>A coin toss opens the match. Matches are best two of three sets with rally scoring: sets to 25, 25 and 15, win by two, capped at 30, 30 and 20. A team can start with four players and has a 15-minute grace period.</li>
             <li>No arguing with officials, opposing coaches or parents. Disputes go calmly to the ${esc(facts.director.title)}.</li>
           </ul>
           <p>Net heights, balls and serve lines for each grade are on the <a href="/#top">home page court</a> and the <a href="/#gameday">game day rules</a>.</p>
@@ -217,17 +216,17 @@ export function renderCoaches({ facts, plans }) {
           <ol class="numbered">
             <li>Stop play immediately. Clear the court. Keep other players calm and away from the injured player.</li>
             <li>Assess the situation. Do not move the player if a head, neck, or spine injury is suspected.</li>
-            <li>Call 911 if the injury is serious, the player is unconscious, or you are unsure of the severity.</li>
-            <li>Give first aid only if you are trained to do so and it is safe. Do not exceed your training.</li>
-            <li>Contact the player’s parent or guardian using the emergency contact information on file.</li>
-            <li>Notify the ${esc(facts.director.title)} by phone as soon as the player is stable and parents have been contacted.</li>
-            <li>Document the incident in writing as soon as possible: time, nature of injury, actions taken, and who was notified.</li>
+            <li>Call 911 for every head injury, and whenever the injury is serious, the player is unconscious, or you are unsure of the severity.</li>
+            <li>Give first aid only if you are trained to do so and it is safe. Do not exceed your training. The first aid kit is at the Front Desk.</li>
+            <li>Contact the player’s parent or guardian first, using the emergency contact information on file.</li>
+            <li>Then notify the ${esc(facts.director.title)}, once the player is stable and her parent or guardian has been contacted.</li>
+            <li>Document the incident in writing as soon as possible: time, nature of injury, actions taken, and who was notified. Incident Report forms are at the Front Desk.</li>
           </ol>
-          <p><strong>Concussion:</strong> any player with a blow to the head or concussion symptoms (headache, dizziness, confusion, nausea, sensitivity to light) leaves play and may not return the same day. She needs written clearance from a licensed healthcare provider before returning. When in doubt, sit them out.</p>
+          <p><strong>Head injuries and concussion:</strong> call 911 for every head injury. Any player with a blow to the head or concussion symptoms (headache, dizziness, confusion, nausea, sensitivity to light) leaves play and may not return the same day. She needs written clearance from a licensed healthcare provider before returning. When in doubt, sit them out.</p>
           <dl class="contact-list">
             <div><dt>Emergency</dt><dd>${telLink('911')}</dd></div>
-            <div><dt>${esc(facts.director.title)} ${esc(facts.director.name)}</dt><dd>${phone ? contact.join(' · ') : `Phone: ${TBC.toLowerCase()}`}</dd></div>
-            <div><dt>Comeaux Sports Complex staff (LPRD main office)</dt><dd>${telLink('(337) 291-8400')}</dd></div>
+            <div><dt>${esc(facts.director.title)} ${esc(facts.director.name)}</dt><dd>${contact.length ? contact.join(' · ') : TBC}</dd></div>
+            <div><dt>${esc(facts.venues.practice)} Front Desk</dt><dd>First aid kit and Incident Report forms</dd></div>
             <div><dt>Louisiana Child Protective Services</dt><dd>${telLink('1-855-452-5437')}</dd></div>
           </dl>
           <p class="fineprint">From the Master Handbook, section 10.</p>
@@ -236,18 +235,19 @@ export function renderCoaches({ facts, plans }) {
         <li id="conduct">
           <h2>Conduct and communication</h2>
           <ul class="checks">
-            <li><strong>Two-deep rule.</strong> Never be alone with a single player. At least two adults are present whenever you are working with players.</li>
-            <li>No communication with players by personal social media, direct messages or text outside official team channels.</li>
+            <li><strong>Two-deep rule.</strong> Never be alone with a single player. At least two adults are present whenever you are working with players. A 16–17-year-old assistant does not count as the second adult.</li>
+            <li>No communication with players by personal social media, direct messages or text outside official team channels. The team GroupMe or text group is an official channel for parents only.</li>
             <li>No physical contact beyond age-appropriate instruction. When in doubt, demonstrate on yourself.</li>
             <li>No yelling at, belittling, or publicly embarrassing any player.</li>
-            <li>Report suspected abuse or neglect right away to Louisiana Child Protective Services, 1-855-452-5437, or 911 if a child is in immediate danger. Then tell the ${esc(facts.director.title)}.</li>
+            <li>Report suspected child abuse, neglect or misconduct right away to Louisiana Child Protective Services, 1-855-452-5437, or 911 if a child is in immediate danger. Then tell the ${esc(facts.director.title)}.</li>
           </ul>
           <section class="table-scroll" tabindex="0" aria-label="Table: who to contact, by situation"><table>
             <thead><tr><th scope="col">Situation</th><th scope="col">Who to contact</th><th scope="col">How</th></tr></thead>
             <tbody>
               <tr><td>Practice schedule change</td><td>Director → coach → parents</td><td>CSA communication platform or email</td></tr>
-              <tr><td>Player injury or incident</td><td>Coach → Director immediately</td><td>Phone call, same day</td></tr>
+              <tr><td>Player injury or incident</td><td>Coach → parent or guardian first, then the Director once the player is stable</td><td>Phone call, same day${facts.director.coachPhone ? `. Director: ${telLink(facts.director.coachPhone)}` : facts.director.email ? `. Director: ${esc(facts.director.email)}` : ''}</td></tr>
               <tr><td>Parent concern about a player</td><td>Parent → coach first</td><td>In person or email</td></tr>
+              <tr><td>Parent concern about a referee’s call</td><td>Parent → coach, after 24 hours</td><td>In person or email</td></tr>
               <tr><td>Coach concern about a player</td><td>Coach → Director</td><td>Private conversation</td></tr>
               <tr><td>Game cancellation or weather</td><td>Director → coaches → parents</td><td>CSA platform or email, at least 2 hours’ notice</td></tr>
             </tbody>
@@ -257,7 +257,7 @@ export function renderCoaches({ facts, plans }) {
         <li id="season-end">
           <h2>End of the season</h2>
           <p>Week 9 is tournament week. Every team plays in a single-elimination tournament seeded by regular-season record. Send your team the tournament schedule at least a week ahead, and arrive 30 minutes before your first match.</p>
-          <p>Recognition goes beyond wins: participation certificates for every player who completes the season, a Most Improved Player and a Team Spirit Award chosen by the coach, and a champion in each division.</p>
+          <p>Recognition goes beyond wins: participation certificates for every player who completes the season, a Most Improved Player and a Team Spirit Award chosen by the coach, and trophies for the champions and finalists in each division.</p>
           <p>After the tournament, answer the <a href="/coaches/feedback/">three-question season survey</a>. Your answers shape next season’s plans.</p>
         </li>
       </ol>
@@ -284,7 +284,7 @@ export function renderFeedback({ facts }) {
   ];
   const cta = facts.feedback.formUrl
     ? `<p><a class="button red big" href="${esc(facts.feedback.formUrl)}">Answer the three questions</a></p>`
-    : `<p class="alert soft">The survey link will be posted here before week 9. Until then, send your answers to the ${esc(facts.director.title)} through <a href="${esc(facts.program.csaPage)}">CSA’s volleyball page</a>.</p>`;
+    : `<p class="alert soft">The survey link will be posted here before week 9. Until then, ${facts.director.email ? `send your answers to the ${esc(facts.director.title)} at ${directorContact(facts)[0]}` : `give your answers to the ${esc(facts.director.title)} in person`}.</p>`;
   const body = `    <article class="feedback">
       <header class="page-hero">
         <div class="wrap">

@@ -40,7 +40,8 @@
         "name": { "type": "string" },
         "title": { "type": "string" },
         "email": { "type": ["string", "null"], "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$" },
-        "phone": { "type": ["string", "null"], "pattern": "^\\(?\\d{3}\\)?[ .-]?\\d{3}[ .-]?\\d{4}$" }
+        "phone": { "type": ["string", "null"], "pattern": "^\\(?\\d{3}\\)?[ .-]?\\d{3}[ .-]?\\d{4}$" },
+        "coachPhone": { "description": "Printed only in the coach handouts, for injury and incident reports. Never in the public contact line: that is director.phone.", "type": ["string", "null"], "pattern": "^\\(?\\d{3}\\)?[ .-]?\\d{3}[ .-]?\\d{4}$" }
       },
       "additionalProperties": false
     },
