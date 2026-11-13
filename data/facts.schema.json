@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://csa-volleyball-preview.vercel.app/data/facts.schema.json",
+  "$id": "https://csavb.com/data/facts.schema.json",
   "title": "CSA Volleyball program facts",
   "description": "One file for every program fact the site, practice plans and handbooks print. Use null for anything not yet confirmed; pages show it as 'to be confirmed'.",
   "type": "object",
